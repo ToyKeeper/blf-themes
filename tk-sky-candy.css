@@ -58,11 +58,13 @@
     --post-embed-hl: #fff;
     --post-embed-top: #ccc;
     --post-embed-bot: #ddd;
-    --post-header-button-bg: #ffffff30;
+    --quote-header-top: #bacef880;
+    --quote-header-bot: #4b60c680;
     --topic-map-bg: #ddeeff60;
     --post-notice-top: #c0d777;
     --post-notice-bot: #998a47;
     --post-notice-fg: #f9f9f7;
+    --post-header-button-bg: #ffffff30;
     /* --post-header-button: #285892; */
     --post-header-button: #eee;
     /* avatar */

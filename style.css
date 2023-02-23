@@ -108,6 +108,10 @@ div.topic-avatar, .embedded-posts .topic-avatar {
     /* important because some posts explicitly set a huge bottom margin */
     margin: 0px 6px 0px 0px !important;
 }
+.embedded-posts .topic-avatar {
+    border-radius: 5px;
+    padding: 3px 4px 4px 3px;
+}
 
 .topic-body {
     padding: 0;
@@ -213,12 +217,10 @@ aside.quote .title,
 }
 blockquote {
     padding: 0.5em;
-    margin: 0;
+    margin: 0 0 0.5em 0;
 }
-aside.quote .title {
-    background: linear-gradient(#5577bb60, #22335560);
-    /* background: rgba(0,0,0, 0.2); */
-    /* border-left: 0; */
+aside.quote .title { /* title bar for quoted posts */
+    background: linear-gradient(var(--quote-header-top), var(--quote-header-bot));
     padding: 0.25em;
 }
 aside.quote .title { /* top right corner of a quote */

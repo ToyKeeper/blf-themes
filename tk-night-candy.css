@@ -58,11 +58,14 @@
     --post-embed-hl: #333;
     --post-embed-top: #2b2b2b;
     --post-embed-bot: #1c1c1c;
-    --post-header-button: #bcd;
+    --quote-header-top: #5577bb60;
+    --quote-header-bot: #22335560;
     --topic-map-bg: #0088ff20;
     --post-notice-top: var(--highlight);
     --post-notice-bot: #292929;
     --post-notice-fg: #ddd;
+    /* --post-header-button-bg: #ffffff30; */
+    --post-header-button: #bcd;
     /* --post-header-button: #285892; */
     /* --post-header-button: #eee; */
     /* avatar */
