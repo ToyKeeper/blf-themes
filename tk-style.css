@@ -1,0 +1,134 @@
+/* Comments use this structure:
+- div.topic-post
+  - article
+    - div.row
+      - div.topic-avatar
+      - div.topic-body
+        - div.topic-meta-data
+        - div."regular contents"
+          - div.cooked (comment body)
+          - section.post-menu-area (buttons below comment)
+*/
+
+/* some posts get a bogus min-height style, unsure why */
+div.topic-post {
+    min-height: 0px !important;
+}
+
+/* outer container for comments */
+/* using "article" instead of "div.topic-post"
+ * because "article" has more attributes to select by,
+ * like for per-user styling */
+article {
+    border: 1px outset #444;
+    background: linear-gradient(#333, #222);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0px 0px 10px 0px;
+}
+
+/* draw a box around avatar pics */
+div.topic-avatar {
+    background: linear-gradient(-45deg, #292929,#555) !important;
+    border: 1px outset #555 !important;
+    border-radius: 6px;
+    padding: 5px 6px 6px 5px !important;
+    margin: 0px !important;
+}
+
+/* remove horizontal line between comments */
+.topic-avatar, .topic-body {
+    border-top: none;
+}
+
+.topic-body {
+    padding: 0;
+}
+
+/* put the post header data into a themed bar */
+div.topic-meta-data {
+    background: linear-gradient(#57b, #235) !important;
+    padding: 3px 2px 3px 3px;
+    margin: 0px 0px 0px 5px;
+    border-top-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    border-top-width: 1px !important;
+    border-left-width: 1px !important;
+    border-right-width: 1px !important;
+    border-style: none !important;
+}
+
+/* main comment body */
+.topic-body .cooked {
+    padding: 5px 10px 0px 10px;
+}
+
+/* remove extra space after last paragraph of each comment */
+.cooked p:last-of-type {
+    margin-bottom: 2px;
+}
+
+/* remove extra space at bottom of comments */
+section.post-menu-area, section.post-actions {
+    margin: 0px;
+}
+
+/* reduce extra space around buttons at bottom of comments */
+nav.post-controls .actions button, nav.post-controls .show-replies {
+    padding: 0px 5px;
+}
+
+/* container for buttons at the bottom of posts */
+div.actions {
+    /* border-top: 1px solid #444; */
+    /* padding-top: 5px; */
+    padding: 5px;
+    /* border: 1px inset #333; */
+    /* background: linear-gradient(90deg, transparent,rgba(0,0,0, 0.2)); */
+    border-radius: 6px;
+    background: rgba(0,0,0, 0.2);
+}
+
+/* make embedded posts (expanded replies) look indented */
+.embedded-posts {
+    /* margin-top: 10px; */
+    border: none;
+    /* border-radius: 10px; */
+    /* padding: 5px; */
+    /* background: linear-gradient(#222, #111); */
+}
+.embedded-posts .reply {
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px inset #444;
+    border-radius: 10px;
+    background: linear-gradient(#2b2b2b, #1c1c1c);
+}
+.embedded-posts.bottom {
+    margin-bottom: 0px;
+}
+
+/* last-visited line */
+.small-action.topic-post-visited .topic-post-visited-line {
+    width: 100%;
+    border-bottom: 1px solid var(--danger-medium);
+    margin: 8px 12px 20px 12px;
+}
+.small-action.topic-post-visited .topic-post-visited-line .topic-post-visited-message {
+    /* background-color: var(--secondary); */
+    background-color: var(--danger-medium);
+    padding: 0.1em 0.6em;
+    color: #000;
+    /* text-shadow: 0 0 5px var(--danger-medium); */
+    /* font-weight: bold; */
+    border-radius: 6px;
+}
+
+:root {
+    /* --topic-avatar-width: 85px; */
+    --primary: #ccc;
+    --secondary: #222;
+    --primary-high-or-secondary-low: #fff;
+    --primary-med-or-secondary-med: #ccc;
+    --danger-medium: #2bbcf5;
+}
