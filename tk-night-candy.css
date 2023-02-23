@@ -6,12 +6,13 @@
 :root {
     /* main colors */
     --primary: #ccc;
-    --secondary: #222;
+    --secondary: #222; /* main page background */
     /* --tertiary: #216cdd; */
     /* --tertiary: #e66100; */
     /* --tertiary-medium: #6298e8; */
     /* --tertiary-low: #93b7ee; */
     /* --tertiary-500: #93b7ee; */ /* topic list row borders */
+    /* --tertiary-low-or-tertiary-high: #6298e8; */ /* timeline slider */
     --quaternary: #ca4b92;
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #ccc;
@@ -26,6 +27,8 @@
     /* --header-icon-fg-hover: #000; */
     /* --header-icon-bg-hover: #ddf; */
     /* sidebar */
+    --sidebar-toggle-button-bg: none;
+    --sidebar-toggle-button-fg: var(--sidebar-color);
     --sidebar-color: #252533;
     --sidebar-border: #1f1f28;
     /* ads */
@@ -91,11 +94,11 @@
     --table-header-bg: #333;
     --table-even-row-bg: #181818;
     --table-odd-row-bg: #282828;
-    --last-visit-bg: var(--danger-medium);
-    --last-visit-fg: #000;
     /* misc */
     --button-bg: #abcdef10;
     --button-border: #585858;
+    --last-visit-bg: var(--danger-medium);
+    --last-visit-fg: #000;
     --reply-action: #eee;
     /* --primary-low-mid: #285892; */
     /* --primary-low-mid-or-secondary-high: #285892; */

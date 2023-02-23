@@ -6,12 +6,13 @@
 :root {
     /* main colors */
     --primary: #222;
-    --secondary: #cce;
+    --secondary: #d8d8ff; /* main page background */
     --tertiary: #216cdd;
     /* --tertiary: #e66100; */
     --tertiary-medium: #6298e8;
     --tertiary-low: #93b7ee;
     --tertiary-500: #93b7ee; /* topic list row borders */
+    --tertiary-low-or-tertiary-high: #6298e8; /* timeline slider */
     /* --quaternary: #ca4b92; */
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #44a;
@@ -26,23 +27,25 @@
     --header-icon-fg-hover: #000;
     --header-icon-bg-hover: #ddf;
     /* sidebar */
-    --sidebar-color: #e8e8ff;
+    --sidebar-toggle-button-bg: none;
+    --sidebar-toggle-button-fg: var(--sidebar-color);
+    --sidebar-color: #ccf;
     --sidebar-border: #ddf;
     /* ads */
     --ads-top: #d6dc24;
     --ads-bot: #ceb827;
     --ads-hl: #f9f94f;
     /* post / comment box colors per user type */
-    --post-op-top: #a1d1f3;
-    --post-op-bot: #7793c7;
+    --post-op-top: #a1cef3;
+    --post-op-bot: #84a1d9;
     --post-op-hl: #a9e1f7;
     --post-op-bar-top: #59c0da;
     --post-op-bar-bot: #597ca8;
-    --post-me-top: #ebc3f1;
-    --post-me-bot: #c584c5;
-    --post-me-hl: #f9cff9;
-    --post-me-bar-top: #b248a3;
-    --post-me-bar-bot: #601e4a;
+    --post-me-top: #f3c1fc;
+    --post-me-bot: #ea9bea;
+    --post-me-hl: #fed5fe;
+    --post-me-bar-top: #fc7cea;
+    --post-me-bar-bot: #882366;
     --post-admin-top: #6be8c9;
     --post-admin-bot: #74d2b6;
     --post-admin-hl: #a3f3e3;
@@ -86,13 +89,13 @@
     /* highlighted text */
     --highlighted-fg: #c35c18;
     --highlighted-bg: #fdc389;
-    /* misc */
-    --button-bg: #ffffff20;
-    --button-border: #ffffff60;
     /* topic list */
     --table-header-bg: #ddf;
     --table-even-row-bg: #fff;
     --table-odd-row-bg: #f4f4f4;
+    /* misc */
+    --button-bg: #ffffff30;
+    --button-border: #ffffff60;
     --last-visit-bg: var(--danger-medium);
     --last-visit-fg: #000;
     /* --reply-action: #034c3b; */

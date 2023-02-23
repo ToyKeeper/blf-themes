@@ -33,6 +33,9 @@
 #main-outlet {
     padding-top: 0.75em;
 }
+.d-header-icons .icon {
+    border-radius: 8px;
+}
 
 /********** left sidebar **********/
 .sidebar-wrapper {
@@ -404,8 +407,16 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 
 /********** Topic List widget(s) **********/
 /* "Suggested Topics" widget at bottom of pages */
-.suggested-topics {
-    margin: 1em 0 0 0;
+.suggested-topics, /* topic list at bottom of threads */
+.contents.ember-view, /* front page topic list */
+.paginated-topics-list, /* private message list */
+.directory-table-container /* user list */
+{
+    margin: 0.75em 0 0.75em 0;
+    border: 3px outset var(--post-def-hl);
+    background: linear-gradient(var(--post-def-top), var(--post-def-bot));
+    /* border-radius: var(--post-border-radius); */
+    padding: 5px;
 }
 .topic-list-item, tr {
     /* border-bottom: 1px solid var(--tertiary-500); */
@@ -413,16 +424,30 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     border: none;
     background: var(--table-even-row-bg);
 }
-.topic-list-item:nth-child(odd) {
+.topic-list-item:nth-child(odd), /* topic list rows */
+.category-list tr:nth-child(odd), /* category list rows */
+.directory table tr:nth-child(odd) /* user list rows */
+{
     background: var(--table-odd-row-bg) !important;
+}
+tbody {
+    border-top: 3px solid var(--post-quote-border);
 }
 /* topic list table cells, make tables more compact */
 .topic-list .topic-list-data {
+    /* remove the crazy amount of padding in parent theme */
     padding: 2px 0 0 0 !important;
+}
+.topic-list .topic-list-data:first-of-type {
+    /* indent the left column slightly */
+    padding: 2px 0 0 0.3em !important;
 }
 .topic-list-main-link a.title, .latest-topic-list-item .main-link a.title, .topic-list .main-link a.title {
     padding: 0;
     margin: 0;
+}
+#suggested-topics td.main-link {
+    width: unset; /* parent theme limits this and it messes with layout */
 }
 .topic-list .creator, .topic-list .editor {
     margin: 0 0.1em 0 0;
@@ -469,6 +494,22 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     border-radius: 99px;
 }
 
+/* this pops up sometimes, over the top of other widgets */
+.alert {
+    border-radius: var(--button-border-radius);
+    border: 3px outset var(--button-bg);
+    padding: 0.25em 0.75em 0.25em 0.75em !important;
+}
+
+/********** user list widget **********/
+.directory .user-info a {
+    color: var(--primary) !important;
+}
+.directory table td, .directory table th {
+    padding: 0.1em 0.1em;
+    border: none;
+}
+
 /********** category list **********/
 .category-list td {
     padding: 0.1em 0 0;
@@ -490,6 +531,16 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     border-radius: var(--button-border-radius);
     border: 1px outset var(--tertiary-hover);
     background: var(--tertiary);
+}
+
+/* hamburger button in the page header */
+.header-sidebar-toggle button {
+    background: var(--sidebar-toggle-button-bg);
+    border: none;
+    border-radius: 10px;
+}
+.header-sidebar-toggle button .d-icon {
+    color: var(--sidebar-toggle-button-fg);
 }
 
 /* "Tracking" button */
