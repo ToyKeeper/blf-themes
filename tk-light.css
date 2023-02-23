@@ -3,6 +3,11 @@
     /* main colors */
     --primary: #222;
     --secondary: #cce;
+    --tertiary: #216cdd;
+    /* --tertiary: #e66100; */
+    --tertiary-medium: #6298e8;
+    --tertiary-low: #93b7ee;
+    --tertiary-500: #93b7ee; /* topic list row borders */
     /* --quaternary: #ca4b92; */
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #44a;
@@ -50,7 +55,10 @@
     --post-embed-top: #ccc;
     --post-embed-bot: #ddd;
     --post-header-button-bg: #ffffff30;
-    --topic-map-bg: #ffffff60;
+    --topic-map-bg: #ddeeff60;
+    --post-notice-top: #c0d777;
+    --post-notice-bot: #998a47;
+    --post-notice-fg: #f9f9f7;
     /* --post-header-button: #285892; */
     --post-header-button: #eee;
     /* avatar */
@@ -58,8 +66,8 @@
     --avatar-bot: #ccc;
     --avatar-hl: #fff;
     /* blockquotes */
-    --blend-primary-secondary-5: #ddd;
-    --primary-very-low: #ccc;
+    --blend-primary-secondary-5: #ffffff80;
+    --primary-very-low: #00000020;
     /* editor */
     --editor-fg: var(--primary);
     --editor-bg: #d8d8e8;
@@ -68,10 +76,16 @@
     /* mentions */
     --mention-color: #006a7b;
     --mention-bg: #0ce;
+    /* highlighted text */
+    --highlighted-fg: #c35c18;
+    --highlighted-bg: #fdc389;
     /* misc */
+    --button-bg: #ffffff20;
+    --button-border: #ffffff60;
     /* --reply-action: #034c3b; */
     --primary-low-mid: #285892;
     --primary-low-mid-or-secondary-high: #285892;
     /* --primary-high-or-secondary-low: #034c3b; */
     --tertiary-med-or-tertiary: #448;
+    --hljs-bg: #00000018; /* <code> blocks */
 }

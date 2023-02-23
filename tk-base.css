@@ -34,16 +34,28 @@
 .sidebar-wrapper {
     background-color: var(--sidebar-color);
     /* background: linear-gradient(90deg, #2f2f3e,#252533); */
-    /* FIXME: border doesn't disappear when sidebar is collapsed */
-    border-right: 4px solid var(--sidebar-border);
-    z-index: -5;
 }
-.sidebar-footer-wrapper .sidebar-footer-container {
+body.has-sidebar-page .sidebar-wrapper {
+    /* only draw border when sidebar is NOT collapsed */
+    border-right: 4px solid var(--sidebar-border);
+}
+.sidebar-footer-wrapper .sidebar-footer-container,
+.sidebar-hamburger-dropdown .sidebar-footer-wrapper .sidebar-footer-container {
     background: none;
 }
-.sidebar-footer-wrapper .sidebar-footer-container:before {
-    /* background: none; */
+.sidebar-footer-wrapper .sidebar-footer-container:before,
+.sidebar-hamburger-dropdown .sidebar-footer-wrapper .sidebar-footer-container:before 
+{
     background: linear-gradient(#00000000, var(--sidebar-color));
+}
+/* dropdown / pop-over version on narrow screens */
+.menu-panel {
+    border: 1px outset var(--sidebar-color);
+    background-color: var(--sidebar-color);
+}
+/* space between sidebar and main content */
+body.has-sidebar-page #main-outlet-wrapper {
+    gap: 0 0.75em;
 }
 
 /********** ads **********/
@@ -74,14 +86,13 @@ article {
 
 /* extra messages at top of post, like "it's been a while since we saw this user" */
 .post-notice {
-    /* display: none; */
     padding: 2px;
     margin-bottom: 8px;
     max-width: 100%; /* remove arbitrary limit, go as wide as the post */
-    background: linear-gradient(-2deg, #292929, var(--highlight));
     border-radius: 8px;
-    border: 1px outset var(--highlight);
-    color: var(--secondary-or-primary);
+    border: 1px outset var(--post-notice-top);
+    background: linear-gradient(-2deg, var(--post-notice-bot), var(--post-notice-top));
+    color: var(--post-notice-fg);
 }
 
 /* draw a box around avatar pics */
@@ -182,21 +193,8 @@ nav.post-controls .actions button.create, nav.post-controls .actions button.crea
 aside.quote {
     /* padding-top: 0.25em; */
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 0.5em;
     /* border-radius: 8px; */
-}
-aside.quote img.avatar {
-    /* display: none; */ /* unsure why this doesn't work */
-    /* width: 0; */
-    /* height: 0; */
-    /* margin: 0; */
-    /* padding: 0; */
-    /* width: 24px; */
-    /* height: 24px; */
-    /* background: linear-gradient(-45deg, #292929,#555); */
-    /* border: 1px outset #555; */
-    /* border-radius: 6px; */
-    /* padding: 3px 4px 4px 3px; */
 }
 .quote aside .quote { /* remove inconsistent blockquote border */
     border-left: 0;
@@ -240,7 +238,7 @@ blockquote, .quote aside blockquote { /* bottom right corner of a quote */
 }
 .embedded-posts .reply {
     margin-top: 10px;
-    padding: 5px;
+    padding: 5px 0px 5px 5px;  /* unsure where extra right padding comes from */
     border: 1px inset var(--post-embed-hl);
     border-radius: var(--post-border-radius);
     background: linear-gradient(var(--post-embed-top), var(--post-embed-bot));
@@ -253,7 +251,9 @@ span.highlighted {
     /* background-color: var(--tertiary-medium); */
     /* color: var(--primary-very-high); */
     /* background: none; */
-    color: var(--tertiary);
+    /* color: var(--tertiary); */
+    color: var(--highlighted-fg);
+    background: var(--highlighted-bg);
 }
 
 /********** linked threads at bottom of post **********/
@@ -294,7 +294,7 @@ span.highlighted {
 
 /********** "topic map" at bottom of first post **********/
 .topic-map {
-    margin: 0.5em 0 0 -4.4em;
+    margin: 0.5em 0 0 -4.2em;
     border-radius: 8px;
     border: 1px outset var(--topic-map-bg);
     background: var(--topic-map-bg);
@@ -461,12 +461,14 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 /********** misc buttons **********/
 /* lots of site buttons */
 .btn {
-    border: 1px outset var(--primary-300);
+    border: 1px outset var(--button-border);
+    background: var(--button-bg);
 }
 
 /* "Summarize This Topic" and "Reply" buttons */
 .btn-primary {
     border: 1px outset var(--tertiary-hover);
+    background: var(--tertiary);
 }
 
 /* "Tracking" button */
@@ -481,6 +483,15 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     border-radius: 12px;
     border: 1px outset var(--primary-300);
     padding: 0.2em 0.4em;
+}
+/* bottom right corner version */
+#topic-progress {
+    border-radius: 16px;
+    border: 3px outset var(--tertiary);
+}
+#topic-progress .bg {
+    border-radius: 13px;
+    background: var(--tertiary-medium);
 }
 
 /********** tag box (like posts tagged "review") **********/
