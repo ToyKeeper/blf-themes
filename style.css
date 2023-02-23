@@ -529,8 +529,8 @@ tbody {
 /* "Summarize This Topic" and "Reply" buttons */
 .btn-primary {
     border-radius: var(--button-border-radius);
-    border: 1px outset var(--tertiary-hover);
-    background: var(--tertiary);
+    border: 1px outset var(--button-primary-border);
+    background: var(--button-primary-bg);
 }
 
 /* hamburger button in the page header */
@@ -545,15 +545,15 @@ tbody {
 
 /* "Tracking" button */
 .select-kit-header {
-    border: 1px outset var(--primary-300) !important;
+    border: 1px outset var(--button-border) !important;
 }
 
 /********** timeline **********/
 /* make it obvious the dates are clickable */
 .timeline-date-wrapper a {
-    background: var(--primary-low);
+    background: var(--button-bg);
     border-radius: 12px;
-    border: 1px outset var(--primary-300);
+    border: 1px outset var(--button-border);
     padding: 0.2em 0.4em;
 }
 /* bottom right corner version */
@@ -573,6 +573,14 @@ a.discourse-tag {
 .discourse-tag.box {
     background-color: var(--tertiary);
     border-radius: 6px;
+}
+
+/********** "skip to content" button (pops up sometimes) **********/
+a#skip-link {
+    color: var(--secondary);
+    background: var(--button-primary-bg);
+    border: 3px outset var(--post-quote-border);
+    border-radius: var(--button-border-radius);
 }
 
 /********** common elements found everywhere **********/
