@@ -6,7 +6,7 @@
 :root {
     /* main colors */
     --primary: #222;
-    --secondary: #d8d8ff; /* main page background */
+    --secondary: #e6e6fa; /* main page background */
     --tertiary: #216cdd;
     /* --tertiary: #e66100; */
     --tertiary-medium: #6298e8;
@@ -29,8 +29,8 @@
     --sidebar-toggle-button-bg: none;
     --sidebar-toggle-button-fg: var(--sidebar-color);
     /* sidebar */
-    --sidebar-color: #ccf;
-    --sidebar-border: #ddf;
+    --sidebar-color: #dadafd;
+    --sidebar-border: #dfdffb;
     /* ads */
     --ads-top: #d6dc24;
     --ads-bot: #ceb827;
@@ -54,8 +54,8 @@
     --post-def-top: #f8f8f8;
     --post-def-bot: #e2e2e2;
     --post-def-hl: #ffffff;
-    --post-def-bar-top: #bacef8;
-    --post-def-bar-bot: #4b60c6;
+    --post-def-bar-top: #9ab9fb;
+    --post-def-bar-bot: #5b70d5;
     /* other parts of posts */
     --post-actions-bar-bg: #ffffff80;
     --post-quote-border: #00000030;
@@ -95,7 +95,7 @@
     --button-primary-bg: var(--tertiary);
     --button-primary-border: var(--button-border);
     /* topic list */
-    --table-header-bg: #ddf;
+    --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #fff;
     --table-odd-row-bg: #f4f4f4;
     --last-visit-bg: var(--danger-medium);

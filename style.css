@@ -187,14 +187,9 @@ nav.post-controls .actions button, nav.post-controls .show-replies {
 
 /* container for buttons at the bottom of posts */
 div.actions {
-    /* border-top: 1px solid #444; */
-    /* padding-top: 5px; */
     padding: 5px;
-    /* border: 1px inset #333; */
-    /* background: linear-gradient(90deg, transparent,rgba(0,0,0, 0.2)); */
     border-radius: var(--post-action-bar-border-radius);
     background: var(--post-actions-bar-bg);
-    /* background: rgba(0,0,0, 0.2); */
 }
 nav.post-controls .actions button.create, nav.post-controls .actions button.create .d-icon {
     color: var(--reply-action);
@@ -300,7 +295,8 @@ span.highlighted {
 }
 
 /********** "topic map" at bottom of first post **********/
-.topic-map {
+.topic-map, .archetype-private_message .topic-map {
+    padding: 0;
     margin: 0.5em 0 0 -4.2em;
     border-radius: 8px;
     border: 1px outset var(--topic-map-bg);
@@ -318,6 +314,10 @@ span.highlighted {
 .map:first-of-type .buttons .btn {
     max-height: 2.5em;
 }
+/* don't let even/odd table rows change the color here */
+.topic-map .topic-links tr {
+    background: none;
+}
 
 /********** private messages **********/
 /* private messages have special styling from the parent theme, which needs to be unset */
@@ -326,11 +326,7 @@ span.highlighted {
     margin-bottom: 0;
 }
 .archetype-private_message .topic-avatar {
-    /* background: linear-gradient(-45deg, #292929,#555); */
     border: 1px outset var(--avatar-hl);
-    /* border-radius: 6px; */
-    /* padding: 5px 6px 6px 5px; */
-    /* margin: 0px 6px 0px 0px; */
 }
 .archetype-private_message .current-user-post:not(.moderator) .topic-body .cooked {
     background: none;
@@ -345,12 +341,6 @@ span.highlighted {
 }
 .archetype-private_message {
     --border-radius: 8px;
-}
-.archetype-private_message .topic-map {
-    margin-left: -4em;
-    border: 1px outset #444;
-    border-radius: 8px;
-    padding: 0;
 }
 
 /********** blank space below thread **********/
@@ -432,6 +422,9 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 }
 tbody {
     border-top: 3px solid var(--post-quote-border);
+}
+.topic-list .topic-list-header .topic-list-data {
+    background-color: var(--table-header-bg);
 }
 /* topic list table cells, make tables more compact */
 .topic-list .topic-list-data {
@@ -577,6 +570,7 @@ a.discourse-tag {
 
 /********** "skip to content" button (pops up sometimes) **********/
 a#skip-link {
+    outline: none;
     color: var(--secondary);
     background: var(--button-primary-bg);
     border: 3px outset var(--post-quote-border);

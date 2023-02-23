@@ -88,7 +88,7 @@
     --highlighted-fg: var(--tertiary);
     --highlighted-bg: var(--tertiary-low);
     /* topic list */
-    --table-header-bg: #333;
+    --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #181818;
     --table-odd-row-bg: #282828;
     --last-visit-bg: var(--danger-medium);
