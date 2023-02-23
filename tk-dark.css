@@ -7,6 +7,11 @@
     /* main colors */
     --primary: #ccc;
     --secondary: #222;
+    /* --tertiary: #216cdd; */
+    /* --tertiary: #e66100; */
+    /* --tertiary-medium: #6298e8; */
+    /* --tertiary-low: #93b7ee; */
+    /* --tertiary-500: #93b7ee; */ /* topic list row borders */
     --quaternary: #ca4b92;
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #ccc;
@@ -55,12 +60,11 @@
     --post-embed-bot: #1c1c1c;
     --post-header-button: #bcd;
     --topic-map-bg: #0088ff20;
-    /* --post-notice-top: #c0d777; */
-    /* --post-notice-bot: #998a47; */
-    /* --post-notice-fg: #2a2a07; */
     --post-notice-top: var(--highlight);
     --post-notice-bot: #292929;
     --post-notice-fg: #ddd;
+    /* --post-header-button: #285892; */
+    /* --post-header-button: #eee; */
     /* avatar */
     --avatar-top: #555;
     --avatar-bot: #292929;
@@ -81,7 +85,6 @@
     --highlighted-bg: var(--tertiary-low);
     /* misc */
     --button-bg: #abcdef10;
-    /* --button-border: #ffffff20; */
     --button-border: #585858;
     --reply-action: #eee;
     /* --primary-low-mid: #285892; */
