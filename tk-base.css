@@ -18,12 +18,41 @@
     background: linear-gradient(var(--header-top), var(--header-bottom));
     border-bottom: 4px solid var(--header-border);
 }
+.d-header-icons a {
+    background-color: var(--header-icon-bg) !important;
+    color: var(--header-icon-fg) !important;
+}
+.d-header-icons a:hover {
+    background-color: var(--header-icon-bg-hover) !important;
+    color: var(--header-icon-fg-hover) !important;
+}
+#main-outlet {
+    padding-top: 0.75em;
+}
 
 /********** left sidebar **********/
 .sidebar-wrapper {
     background-color: var(--sidebar-color);
     /* background: linear-gradient(90deg, #2f2f3e,#252533); */
+    /* FIXME: border doesn't disappear when sidebar is collapsed */
     border-right: 4px solid var(--sidebar-border);
+    z-index: -5;
+}
+.sidebar-footer-wrapper .sidebar-footer-container {
+    background: none;
+}
+.sidebar-footer-wrapper .sidebar-footer-container:before {
+    /* background: none; */
+    background: linear-gradient(#00000000, var(--sidebar-color));
+}
+
+/********** ads **********/
+div.p1-banner, div.p2-banner, div.p3-banner, div.house-banner {
+    border: 1px outset var(--ads-hl);
+    background: linear-gradient(var(--ads-top), var(--ads-bot));
+    border-radius: calc(var(--post-border-radius) * 0.5);
+    padding: calc(var(--post-padding) * 0.5);
+    margin: 0px 0px 10px 0px;
 }
 
 /********** thread posts / comments **********/
@@ -57,8 +86,8 @@ article {
 
 /* draw a box around avatar pics */
 div.topic-avatar, .embedded-posts .topic-avatar {
-    background: linear-gradient(-45deg, #292929,#555);
-    border: 1px outset #555;
+    background: linear-gradient(-45deg, var(--avatar-bot),var(--avatar-top));
+    border: 1px outset var(--avatar-hl);
     border-radius: 6px;
     padding: 5px 6px 6px 5px;
     /* important because some posts explicitly set a huge bottom margin */
@@ -82,7 +111,10 @@ div.topic-meta-data {
     border-radius: 6px 6px 0px 0px;
     border-style: none;
 }
-/* avatar in reply-to header */
+/* reply-to header */
+.topic-body .reply-to-tab {
+    color: var(--post-header-button);
+}
 .reply-to-tab img.avatar {
     position: absolute;
     margin-left: 18px;
@@ -92,10 +124,19 @@ div.topic-meta-data {
     margin-right: 32px;
 }
 .post-info.edits {
-    background-color: #00000028;
+    background-color: var(--post-header-button-bg);
     border-radius: 4px;
     margin: 0.15em 0.5em 0 0;
     padding: 0.06em 0 0.06em 0;
+}
+.topic-meta-data .post-info a {
+    color: var(--post-header-button);
+}
+.embedded-posts .arrow {
+    color: var(--post-header-button);
+}
+.quote-controls, .quote-controls .d-icon {
+    color: var(--post-header-button);
 }
 
 /* main comment body */
@@ -130,7 +171,11 @@ div.actions {
     /* border: 1px inset #333; */
     /* background: linear-gradient(90deg, transparent,rgba(0,0,0, 0.2)); */
     border-radius: 6px;
-    background: rgba(0,0,0, 0.2);
+    background: var(--post-actions-bar-bg);
+    /* background: rgba(0,0,0, 0.2); */
+}
+nav.post-controls .actions button.create, nav.post-controls .actions button.create .d-icon {
+    color: var(--reply-action);
 }
 
 /********** quoted posts **********/
@@ -162,7 +207,7 @@ aside.quote .title,
 .quote aside aside.quote>blockquote,
 .quote aside aside.quote>.title
 { /* add a consistent blockquote border */
-    border-left: 5px solid #ffffff30;
+    border-left: 5px solid var(--post-quote-border);
 }
 blockquote {
     padding: 0.5em;
@@ -196,9 +241,9 @@ blockquote, .quote aside blockquote { /* bottom right corner of a quote */
 .embedded-posts .reply {
     margin-top: 10px;
     padding: 5px;
-    border: 1px inset #333;
-    border-radius: 10px;
-    background: linear-gradient(#2b2b2b, #1c1c1c);
+    border: 1px inset var(--post-embed-hl);
+    border-radius: var(--post-border-radius);
+    background: linear-gradient(var(--post-embed-top), var(--post-embed-bot));
 }
 .embedded-posts.bottom {
     margin-bottom: 0px;
@@ -251,7 +296,8 @@ span.highlighted {
 .topic-map {
     margin: 0.5em 0 0 -4.4em;
     border-radius: 8px;
-    border: 1px outset #444;
+    border: 1px outset var(--topic-map-bg);
+    background: var(--topic-map-bg);
 }
 .topic-map section {
     border: none;
@@ -274,7 +320,7 @@ span.highlighted {
 }
 .archetype-private_message .topic-avatar {
     /* background: linear-gradient(-45deg, #292929,#555); */
-    border: 1px outset #555;
+    border: 1px outset var(--avatar-hl);
     /* border-radius: 6px; */
     /* padding: 5px 6px 6px 5px; */
     /* margin: 0px 6px 0px 0px; */
@@ -326,8 +372,8 @@ span.highlighted {
     border: none;
 }
 .d-editor-textarea-wrapper {
-    border: 3px inset var(--primary-300);
-    background: var(--primary-very-low);
+    border: 3px inset var(--editor-hl);
+    background: var(--editor-bg);
 }
 .d-editor-preview-wrapper {
     border: 3px outset var(--post-me-hl);
@@ -336,12 +382,20 @@ span.highlighted {
     border-radius: var(--post-border-radius);
 }
 textarea {
-    color: var(--primary-400); /* unfocused */
+    color: var(--editor-unfocused); /* unfocused */
 }
 textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea-wrapper.in-focus {
-    color: var(--primary);
+    color: var(--editor-fg);
     outline-color: var(--primary-low);
-    border-color: var(--primary-300);
+    border-color: var(--editor-hl);
+}
+
+/********** user info screen **********/
+.user-main .about .details, .user-main .about.collapsed-info .details {
+    background: var(--topic-map-bg);
+    border: 1px outset var(--topic-map-bg);
+    border-radius: var(--post-border-radius);
+    padding: var(--post-padding);
 }
 
 /********** Topic List widget(s) **********/
@@ -441,8 +495,8 @@ a.discourse-tag {
 /********** common elements found everywhere **********/
 /* @username mentions */
 a.mention, a.mention-group {
-    color: #0ce;
-    background: #045;
+    color: var(--mention-color);
+    background: var(--mention-bg);
     /* text-shadow: 0 0 5px #000; */
 }
 
@@ -454,84 +508,58 @@ p {
 
 /********** theme posts per user type **********/
 /* make OP visible */
-.topic-post.topic-owner article {
+.topic-owner article {
     border: 1px outset var(--post-op-hl);
     background: linear-gradient(var(--post-op-top), var(--post-op-bot));
 }
-.topic-post.topic-owner div.topic-meta-data {
+/* using ">" to avoid styling embedded posts */
+.topic-owner > article > .row > .topic-body > .topic-meta-data {
     background: linear-gradient(var(--post-op-bar-top), var(--post-op-bar-bot));
 }
+.topic-owner article > .row > .topic-avatar {
+    background: linear-gradient(-45deg, var(--post-op-bar-bot), var(--post-op-bar-top));
+    border: 1px outset var(--post-op-bar-top);
+}
+
 
 /* make current user visible */
-.topic-post.current-user-post article {
+.current-user-post article {
     border: 1px outset var(--post-me-hl);
     background: linear-gradient(var(--post-me-top), var(--post-me-bot));
 }
-.topic-post.current-user-post div.topic-meta-data {
+.current-user-post > article > .row > .topic-body > .topic-meta-data {
     background: linear-gradient(var(--post-me-bar-top), var(--post-me-bar-bot));
+}
+.current-user-post article > .row > .topic-avatar {
+    background: linear-gradient(-45deg, var(--post-me-bar-bot), var(--post-me-bar-top));
+    border: 1px outset var(--post-me-bar-top);
 }
 
 /* make admins visible */
+/* Discourse lacks the right markup, so add one line per user ID */
 article[data-user-id="1"],
-.topic-post.topic-owner article[data-user-id="1"],
-div.dummy-placeholder
-{
+div.dummy-placeholder {
     border: 1px outset var(--post-admin-hl);
     background: linear-gradient(var(--post-admin-top), var(--post-admin-bot));
 }
-
-article[data-user-id="1"] div.topic-meta-data,
-/* .topic-post.topic-owner article[data-user-id="1"] div.topic-meta-data, */
-div.dummy-placeholder
-{
+article[data-user-id="1"] > .row > .topic-body > .topic-meta-data,
+div.dummy-placeholder {
     background: linear-gradient(var(--post-admin-bar-top), var(--post-admin-bar-bot));
+}
+article[data-user-id="1"] > .row > .topic-avatar,
+div.dummy-placeholder {
+    background: linear-gradient(-45deg, var(--post-admin-bar-bot), var(--post-admin-bar-top));
+    border: 1px outset var(--post-admin-bar-top);
 }
 
 /********** vars **********/
 :root {
     /* --topic-avatar-width: 85px; */
-    /* main colors */
-    --primary: #ccc;
-    --secondary: #222;
-    --quaternary: #ca4b92;
-    --primary-high-or-secondary-low: #fff;
-    --primary-med-or-secondary-med: #ccc;
-    --danger-medium: #2bbcf5;
     /* sizing, spacing, etc */
     --topic-body-width: 100%;
     --d-button-border-radius: 12px;
     --below-topic-margin: 0;
-    /* page header */
-    --header_background: #333;
-    --header_shadow: #2b2b2b;
-    --header-top: #3e3e52;
-    --header-bottom: #2b2b3c;
-    --header-border: #242433;
-    /* sidebar */
-    --sidebar-color: #252533;
-    --sidebar-border: #1f1f28;
     /* thread post formatting */
     --post-border-radius: 10px;
     --post-padding: 8px;
-    /* post / comment box colors */
-    --post-op-top: #223644;
-    --post-op-bot: #141b28;
-    --post-op-hl: #214566;
-    --post-op-bar-top: #358ca6;
-    --post-op-bar-bot: #431144;
-    --post-me-top: #402244;
-    --post-me-bot: #212;
-    --post-me-hl: #535;
-    --post-me-bar-top: #a39;
-    --post-me-bar-bot: #413;
-    --post-admin-top: #144337;
-    --post-admin-bot: #15321e;
-    --post-admin-hl: #21594e;
-    --post-admin-bar-top: #33aa96;
-    --post-admin-bar-bot: #114426;
-    --post-def-top: #333;
-    --post-def-bot: #282828;
-    --post-def-hl: #444;
-    --post-def-bar-top: #57b;
-    --post-def-bar-bot: #235;
 }

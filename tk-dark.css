@@ -1,0 +1,76 @@
+/********** vars **********/
+:root {
+    /* main colors */
+    --primary: #ccc;
+    --secondary: #222;
+    --quaternary: #ca4b92;
+    --primary-high-or-secondary-low: #fff;
+    --primary-med-or-secondary-med: #ccc;
+    --danger-medium: #2bbcf5;
+    /* page header */
+    --header_background: #333;
+    --header_shadow: #2b2b2b;
+    --header-top: #3e3e52;
+    --header-bottom: #2b2b3c;
+    --header-border: #242433;
+    /* --header-icon-fg-hover: #000; */
+    /* --header-icon-bg-hover: #ddf; */
+    /* sidebar */
+    --sidebar-color: #252533;
+    --sidebar-border: #1f1f28;
+    /* ads */
+    --ads-top: #9ea221;
+    --ads-bot: #a78526;
+    --ads-hl: #c6c635;
+    /* post / comment box colors per user type */
+    --post-op-top: #223644;
+    --post-op-bot: #141b28;
+    --post-op-hl: #214566;
+    --post-op-bar-top: #358ca6;
+    --post-op-bar-bot: #431144;
+    --post-me-top: #402244;
+    --post-me-bot: #212;
+    --post-me-hl: #535;
+    --post-me-bar-top: #a39;
+    --post-me-bar-bot: #413;
+    --post-admin-top: #144337;
+    --post-admin-bot: #15321e;
+    --post-admin-hl: #21594e;
+    --post-admin-bar-top: #33aa96;
+    --post-admin-bar-bot: #114426;
+    --post-def-top: #333;
+    --post-def-bot: #282828;
+    --post-def-hl: #444;
+    --post-def-bar-top: #57b;
+    --post-def-bar-bot: #235;
+    /* other parts of posts */
+    --post-actions-bar-bg: rgba(0,0,0, 0.2);
+    --post-quote-border: #ffffff30;
+    --post-embed-hl: #333;
+    --post-embed-top: #2b2b2b;
+    --post-embed-bot: #1c1c1c;
+    --post-header-button: #00000028;
+    --topic-map-bg: #ffffff60;
+    --post-header-button: #eee;
+    /* avatar */
+    --avatar-top: #555;
+    --avatar-bot: #292929;
+    --avatar-hl: #555;
+    /* blockquotes */
+    /* --blend-primary-secondary-5: #ddd; */
+    /* --primary-very-low: #ccc; */
+    /* editor */
+    --editor-fg: var(--primary);
+    --editor-bg: var(--primary-very-low);
+    --editor-unfocused: var(--primary-400);
+    --editor-hl: var(--primary-300);
+    /* mentions */
+    --mention-color: #0ce;
+    --mention-bg: #045;
+    /* misc */
+    --reply-action: #eee;
+    /* --primary-low-mid: #285892; */
+    /* --primary-low-mid-or-secondary-high: #285892; */
+    /* --primary-high-or-secondary-low: #034c3b; */
+    /* --tertiary-med-or-tertiary: #448; */
+}
