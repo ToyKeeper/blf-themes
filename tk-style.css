@@ -10,6 +10,23 @@
           - section.post-menu-area (buttons below comment)
 */
 
+/********** banner at top of page **********/
+.d-header {
+    /* background-color: var(--header_background); */
+    /* border-bottom: 4px solid var(--header_shadow); */
+    height: 4em;
+    background: linear-gradient(var(--header-top), var(--header-bottom));
+    border-bottom: 4px solid var(--header-border);
+}
+
+/********** left sidebar **********/
+.sidebar-wrapper {
+    background-color: var(--sidebar-color);
+    /* background: linear-gradient(90deg, #2f2f3e,#252533); */
+    border-right: 4px solid var(--sidebar-border);
+}
+
+/********** thread posts / comments **********/
 /* some posts get a bogus min-height style, unsure why */
 div.topic-post {
     min-height: 0px !important;
@@ -17,14 +34,12 @@ div.topic-post {
 
 /* outer container for comments */
 /* using "article" instead of "div.topic-post"
- * because "article" has more attributes to select by,
- * like for per-user styling */
+ * because "article" has more attributes to select by, for per-user styling */
 article {
-    border: 1px outset #444;
-    background: linear-gradient(#333, #282828);
-    border-radius: 10px;
-    /* padding: 0px 0px 0px 0px; */
-    padding: 8px;
+    border: 1px outset var(--post-def-hl);
+    background: linear-gradient(var(--post-def-top), var(--post-def-bot));
+    border-radius: var(--post-border-radius);
+    padding: var(--post-padding);
     margin: 0px 0px 10px 0px;
 }
 
@@ -46,14 +61,9 @@ div.topic-avatar, .embedded-posts .topic-avatar {
     border: 1px outset #555;
     border-radius: 6px;
     padding: 5px 6px 6px 5px;
-    margin: 0px 6px 0px 0px;
-    /* border: none; */
+    /* important because some posts explicitly set a huge bottom margin */
+    margin: 0px 6px 0px 0px !important;
 }
-
-/* remove horizontal line between comments */
-/* .topic-avatar, .topic-body {
-    border-top: none;
-} */
 
 .topic-body {
     padding: 0;
@@ -65,7 +75,7 @@ div.topic-avatar, .embedded-posts .topic-avatar {
 
 /* put the post header data into a themed bar */
 div.topic-meta-data {
-    background: linear-gradient(#57b, #235);
+    background: linear-gradient(var(--post-def-bar-top), var(--post-def-bar-bot));
     /* padding: 3px 2px 3px 3px; */
     /* margin: 0px 0px 0px 5px; */
     margin: 0px;
@@ -123,7 +133,7 @@ div.actions {
     background: rgba(0,0,0, 0.2);
 }
 
-/* style quoted posts */
+/********** quoted posts **********/
 aside.quote {
     /* padding-top: 0.25em; */
     margin-top: 0;
@@ -174,7 +184,7 @@ blockquote, .quote aside blockquote { /* bottom right corner of a quote */
     margin: 0.2em 0.2em 0.1em 0;
 }
 
-
+/********** embedded posts **********/
 /* make embedded posts (expanded replies) look indented */
 .embedded-posts {
     /* margin-top: 10px; */
@@ -186,15 +196,22 @@ blockquote, .quote aside blockquote { /* bottom right corner of a quote */
 .embedded-posts .reply {
     margin-top: 10px;
     padding: 5px;
-    border: 1px inset #444;
+    border: 1px inset #333;
     border-radius: 10px;
     background: linear-gradient(#2b2b2b, #1c1c1c);
 }
 .embedded-posts.bottom {
     margin-bottom: 0px;
 }
+/* quoted part of a post, when expanded to show the rest */
+span.highlighted {
+    /* background-color: var(--tertiary-medium); */
+    /* color: var(--primary-very-high); */
+    /* background: none; */
+    color: var(--tertiary);
+}
 
-/* linked threads at bottom of post */
+/********** linked threads at bottom of post **********/
 .post-links-container .post-links {
     margin-top: 0.5em;
     padding-top: 0.5em;
@@ -203,7 +220,7 @@ blockquote, .quote aside blockquote { /* bottom right corner of a quote */
     margin-bottom: 0em;
 }
 
-/* last-visited line */
+/********** last-visited line **********/
 .small-action.topic-post-visited .topic-post-visited-line {
     width: 100%;
     border-bottom: 1px solid var(--danger-medium);
@@ -219,7 +236,7 @@ blockquote, .quote aside blockquote { /* bottom right corner of a quote */
     border-radius: 6px;
 }
 
-/* time gap widget */
+/********** time gap widget **********/
 .time-gap, .time-gap.small-action {
     border: none;
 }
@@ -230,17 +247,9 @@ blockquote, .quote aside blockquote { /* bottom right corner of a quote */
     border: none;
 }
 
-/* quoted part of a post, when expanded to show the rest */
-span.highlighted {
-    /* background-color: var(--tertiary-medium); */
-    /* color: var(--primary-very-high); */
-    /* background: none; */
-    color: var(--tertiary);
-}
-
-/* "topic map" at bottom of first post */
+/********** "topic map" at bottom of first post **********/
 .topic-map {
-    margin: 0.5em 0 0 -4em;
+    margin: 0.5em 0 0 -4.4em;
     border-radius: 8px;
     border: 1px outset #444;
 }
@@ -257,6 +266,7 @@ span.highlighted {
     max-height: 2.5em;
 }
 
+/********** private messages **********/
 /* private messages have special styling from the parent theme, which needs to be unset */
 /* the selectors are copied from the parent theme */
 .topic-post.sticky-avatar .topic-avatar {
@@ -290,6 +300,146 @@ span.highlighted {
     padding: 0;
 }
 
+/********** blank space below thread **********/
+.topic-above-footer-buttons-outlet.presence {
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+#topic-footer-buttons {
+    margin: 0 !important;
+}
+.topic-footer-main-buttons {
+    margin: 0 0 0 0.5em !important;
+}
+
+/********** editor **********/
+#reply-control .reply-area {
+    background: var(--primary-low);
+}
+.quote-button {
+    border-radius: 16px;
+    /* background: none; */
+    /* border: none; */
+}
+.d-editor-button-bar .btn {
+    border: none;
+}
+.d-editor-textarea-wrapper {
+    border: 3px inset var(--primary-300);
+    background: var(--primary-very-low);
+}
+.d-editor-preview-wrapper {
+    border: 3px outset var(--post-me-hl);
+    background: linear-gradient(var(--post-me-top), var(--post-me-bot));
+    padding: var(--post-padding);
+    border-radius: var(--post-border-radius);
+}
+textarea {
+    color: var(--primary-400); /* unfocused */
+}
+textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea-wrapper.in-focus {
+    color: var(--primary);
+    outline-color: var(--primary-low);
+    border-color: var(--primary-300);
+}
+
+/********** Topic List widget(s) **********/
+/* "Suggested Topics" widget at bottom of pages */
+.suggested-topics {
+    margin: 1em 0 0 0.5em;
+}
+.topic-list-item, tr {
+    border-bottom: 1px solid var(--tertiary-500);
+    /* border: 1px solid var(--primary-low); */
+}
+/* topic list table cells, make tables more compact */
+.topic-list .topic-list-data {
+    padding: 2px 0 0 0 !important;
+}
+.topic-list-main-link a.title, .latest-topic-list-item .main-link a.title, .topic-list .main-link a.title {
+    padding: 0;
+    margin: 0;
+}
+.topic-list .creator, .topic-list .editor {
+    margin-top: 0;
+    /* display: inline; */
+    float: right;
+}
+.topic-list .badge-wrapper.bullet {  /* forum category */
+    display: none;
+    /* float: right; */
+}
+.badge-wrapper.bullet span.badge-category {
+    color: var(--primary-medium);
+}
+.topic-list .num .badge-posts {
+    padding: 0px 5px;
+}
+.last-post .poster-avatar {
+    margin-right: 10px;
+    margin-top: 0;
+}
+.last-post .poster-avatar img.avatar {
+    width: 1.5em;
+    height: 1.5em;
+}
+.poster-info {
+    width: 125px;
+}
+.topic-list .topic-list-data, .topic-list .creator a, .topic-list .editor a {
+    color: var(--quaternary);
+}
+.topic-list .topic-excerpt {
+    display: inline-block;
+    margin: 0;
+    padding: 0 0 0 1.2em;
+}
+
+/********** category list **********/
+.category-list td {
+    padding: 0.1em 0 0;
+}
+.categories-list .category .category-description {
+    margin-top: 0;
+}
+
+/********** misc buttons **********/
+/* lots of site buttons */
+.btn {
+    border: 1px outset var(--primary-300);
+}
+
+/* "Summarize This Topic" and "Reply" buttons */
+.btn-primary {
+    border: 1px outset var(--tertiary-hover);
+}
+
+/* "Tracking" button */
+.select-kit-header {
+    border: 1px outset var(--primary-300) !important;
+}
+
+/********** timeline **********/
+/* make it obvious the dates are clickable */
+.timeline-date-wrapper a {
+    background: var(--primary-low);
+    border-radius: 12px;
+    border: 1px outset var(--primary-300);
+    padding: 0.2em 0.4em;
+}
+
+/********** tag box (like posts tagged "review") **********/
+a.discourse-tag {
+    color: var(--tertiary-low) !important;
+}
+.discourse-tag.box {
+    background-color: var(--tertiary);
+    border-radius: 6px;
+}
+
+/********** common elements found everywhere **********/
+/* @username mentions */
 a.mention, a.mention-group {
     color: #0ce;
     background: #045;
@@ -302,31 +452,23 @@ p {
     margin-block-end: 0.5em;
 }
 
-:root {
-    /* --topic-avatar-width: 85px; */
-    --primary: #ccc;
-    --secondary: #222;
-    --primary-high-or-secondary-low: #fff;
-    --primary-med-or-secondary-med: #ccc;
-    --danger-medium: #2bbcf5;
-}
-
+/********** theme posts per user type **********/
 /* make OP visible */
 .topic-post.topic-owner article {
-    border: 1px outset #21594e;
-    background: linear-gradient(#144337, #15321e);
+    border: 1px outset var(--post-op-hl);
+    background: linear-gradient(var(--post-op-top), var(--post-op-bot));
 }
 .topic-post.topic-owner div.topic-meta-data {
-    background: linear-gradient(#33aa96, #114426);
+    background: linear-gradient(var(--post-op-bar-top), var(--post-op-bar-bot));
 }
 
 /* make current user visible */
 .topic-post.current-user-post article {
-    border: 1px outset #535;
-    background: linear-gradient(#402244, #212);
+    border: 1px outset var(--post-me-hl);
+    background: linear-gradient(var(--post-me-top), var(--post-me-bot));
 }
 .topic-post.current-user-post div.topic-meta-data {
-    background: linear-gradient(#a39, #413);
+    background: linear-gradient(var(--post-me-bar-top), var(--post-me-bar-bot));
 }
 
 /* make admins visible */
@@ -334,13 +476,62 @@ article[data-user-id="1"],
 .topic-post.topic-owner article[data-user-id="1"],
 div.dummy-placeholder
 {
-    border: 1px outset #214566;
-    background: linear-gradient(#223644, #141b28);
+    border: 1px outset var(--post-admin-hl);
+    background: linear-gradient(var(--post-admin-top), var(--post-admin-bot));
 }
 
 article[data-user-id="1"] div.topic-meta-data,
 /* .topic-post.topic-owner article[data-user-id="1"] div.topic-meta-data, */
 div.dummy-placeholder
 {
-    background: linear-gradient(#358ca6, #431144);
+    background: linear-gradient(var(--post-admin-bar-top), var(--post-admin-bar-bot));
+}
+
+/********** vars **********/
+:root {
+    /* --topic-avatar-width: 85px; */
+    /* main colors */
+    --primary: #ccc;
+    --secondary: #222;
+    --quaternary: #ca4b92;
+    --primary-high-or-secondary-low: #fff;
+    --primary-med-or-secondary-med: #ccc;
+    --danger-medium: #2bbcf5;
+    /* sizing, spacing, etc */
+    --topic-body-width: 100%;
+    --d-button-border-radius: 12px;
+    --below-topic-margin: 0;
+    /* page header */
+    --header_background: #333;
+    --header_shadow: #2b2b2b;
+    --header-top: #3e3e52;
+    --header-bottom: #2b2b3c;
+    --header-border: #242433;
+    /* sidebar */
+    --sidebar-color: #252533;
+    --sidebar-border: #1f1f28;
+    /* thread post formatting */
+    --post-border-radius: 10px;
+    --post-padding: 8px;
+    /* post / comment box colors */
+    --post-op-top: #223644;
+    --post-op-bot: #141b28;
+    --post-op-hl: #214566;
+    --post-op-bar-top: #358ca6;
+    --post-op-bar-bot: #431144;
+    --post-me-top: #402244;
+    --post-me-bot: #212;
+    --post-me-hl: #535;
+    --post-me-bar-top: #a39;
+    --post-me-bar-bot: #413;
+    --post-admin-top: #144337;
+    --post-admin-bot: #15321e;
+    --post-admin-hl: #21594e;
+    --post-admin-bar-top: #33aa96;
+    --post-admin-bar-bot: #114426;
+    --post-def-top: #333;
+    --post-def-bot: #282828;
+    --post-def-hl: #444;
+    --post-def-bar-top: #57b;
+    --post-def-bar-bot: #235;
 }
