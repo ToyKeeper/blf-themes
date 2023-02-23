@@ -16,6 +16,7 @@
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #ccc;
     --danger-medium: #2bbcf5;
+    /* --love: #b924c1; */ /* thumbs-up button */
     /* page header */
     --header_background: #333;
     --header_shadow: #2b2b2b;
@@ -86,6 +87,12 @@
     /* highlighted text */
     --highlighted-fg: var(--tertiary);
     --highlighted-bg: var(--tertiary-low);
+    /* topic list */
+    --table-header-bg: #333;
+    --table-even-row-bg: #181818;
+    --table-odd-row-bg: #282828;
+    --last-visit-bg: var(--danger-medium);
+    --last-visit-fg: #000;
     /* misc */
     --button-bg: #abcdef10;
     --button-border: #585858;

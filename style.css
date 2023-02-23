@@ -189,7 +189,7 @@ div.actions {
     padding: 5px;
     /* border: 1px inset #333; */
     /* background: linear-gradient(90deg, transparent,rgba(0,0,0, 0.2)); */
-    border-radius: 6px;
+    border-radius: var(--post-action-bar-border-radius);
     background: var(--post-actions-bar-bg);
     /* background: rgba(0,0,0, 0.2); */
 }
@@ -274,17 +274,15 @@ span.highlighted {
 /********** last-visited line **********/
 .small-action.topic-post-visited .topic-post-visited-line {
     width: 100%;
-    border-bottom: 1px solid var(--danger-medium);
+    border-top: 1px solid var(--last-visit-bg);
+    border-bottom: 1px solid var(--last-visit-bg);
     margin: 8px 12px 20px 12px;
 }
 .small-action.topic-post-visited .topic-post-visited-line .topic-post-visited-message {
-    /* background-color: var(--secondary); */
-    background-color: var(--danger-medium);
+    color: var(--last-visit-fg);
+    background-color: var(--last-visit-bg);
+    border-radius: 99px;
     padding: 0.1em 0.6em;
-    color: #000;
-    /* text-shadow: 0 0 5px var(--danger-medium); */
-    /* font-weight: bold; */
-    border-radius: 6px;
 }
 
 /********** time gap widget **********/
@@ -407,11 +405,16 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 /********** Topic List widget(s) **********/
 /* "Suggested Topics" widget at bottom of pages */
 .suggested-topics {
-    margin: 1em 0 0 0.5em;
+    margin: 1em 0 0 0;
 }
 .topic-list-item, tr {
-    border-bottom: 1px solid var(--tertiary-500);
+    /* border-bottom: 1px solid var(--tertiary-500); */
     /* border: 1px solid var(--primary-low); */
+    border: none;
+    background: var(--table-even-row-bg);
+}
+.topic-list-item:nth-child(odd) {
+    background: var(--table-odd-row-bg) !important;
 }
 /* topic list table cells, make tables more compact */
 .topic-list .topic-list-data {
@@ -422,7 +425,7 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     margin: 0;
 }
 .topic-list .creator, .topic-list .editor {
-    margin-top: 0;
+    margin: 0 0.1em 0 0;
     /* display: inline; */
     float: right;
 }
@@ -437,8 +440,9 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     padding: 0px 5px;
 }
 .last-post .poster-avatar {
-    margin-right: 10px;
+    /* margin-right: 10px; */
     margin-top: 0;
+    float: right;
 }
 .last-post .poster-avatar img.avatar {
     width: 1.5em;
@@ -455,6 +459,15 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     margin: 0;
     padding: 0 0 0 1.2em;
 }
+.topic-list .topic-list-item-separator .topic-list-data {
+    border: none;
+    background: var(--last-visit-bg);
+}
+.topic-list .topic-list-item-separator .topic-list-data span {
+    background: var(--last-visit-bg);
+    color: var(--last-visit-fg);
+    border-radius: 99px;
+}
 
 /********** category list **********/
 .category-list td {
@@ -467,12 +480,14 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 /********** misc buttons **********/
 /* lots of site buttons */
 .btn {
+    border-radius: var(--button-border-radius);
     border: 1px outset var(--button-border);
     background: var(--button-bg);
 }
 
 /* "Summarize This Topic" and "Reply" buttons */
 .btn-primary {
+    border-radius: var(--button-border-radius);
     border: 1px outset var(--tertiary-hover);
     background: var(--tertiary);
 }
@@ -579,4 +594,6 @@ div.dummy-placeholder {
     /* thread post formatting */
     --post-border-radius: 10px;
     --post-padding: 8px;
+    --button-border-radius: 16px;
+    --post-action-bar-border-radius: 6px;
 }

@@ -16,6 +16,7 @@
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #44a;
     --danger-medium: #2bbcf5;
+    --love: #b924c1; /* thumbs-up button */
     /* page header */
     --header-top: #8f8feb;
     --header-bottom: #4141a2;
@@ -88,6 +89,12 @@
     /* misc */
     --button-bg: #ffffff20;
     --button-border: #ffffff60;
+    /* topic list */
+    --table-header-bg: #ddf;
+    --table-even-row-bg: #fff;
+    --table-odd-row-bg: #f4f4f4;
+    --last-visit-bg: var(--danger-medium);
+    --last-visit-fg: #000;
     /* --reply-action: #034c3b; */
     --primary-low-mid: #285892;
     --primary-low-mid-or-secondary-high: #285892;
