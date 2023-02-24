@@ -172,7 +172,8 @@ div.topic-meta-data {
 
 /* remove extra space after last paragraph of each comment */
 .cooked p:last-of-type {
-    margin-bottom: 2px;
+    /* margin-bottom: 2px; */ /* looks good with text, bad when p>img is last element */
+    margin-bottom: 0.5em;
 }
 
 /* remove extra space at bottom of comments */
@@ -197,26 +198,27 @@ nav.post-controls .actions button.create, nav.post-controls .actions button.crea
 
 /********** quoted posts **********/
 aside.quote {
-    /* padding-top: 0.25em; */
     margin-top: 0;
     margin-bottom: 0.5em;
-    /* border-radius: 8px; */
+    background: none !important;
 }
 .quote aside .quote { /* remove inconsistent blockquote border */
     border-left: 0;
 }
 blockquote,
-aside.quote .title,
-.quote aside blockquote,
-.quote aside aside.quote>blockquote,
-.quote aside aside.quote>.title
+aside.quote .title
 { /* add a consistent blockquote border */
-    border-left: 5px solid var(--post-quote-border);
+    border-left: 5px solid var(--post-quote-border) !important;
 }
-blockquote {
+blockquote { /* bare blockquote with no title */
     padding: 0.5em;
     margin: 0 0 0.5em 0;
+    border-radius: 0 8px 8px 0;
 }
+blockquote { background: var(--blockquote-bg-odd) !important; }
+blockquote blockquote { background: var(--blockquote-bg-even) !important; }
+blockquote blockquote blockquote { background: var(--blockquote-bg-odd) !important; }
+blockquote blockquote blockquote blockquote{ background: var(--blockquote-bg-even) !important; }
 aside.quote .title { /* title bar for quoted posts */
     background: linear-gradient(var(--quote-header-top), var(--quote-header-bot));
     padding: 0.25em;
@@ -224,7 +226,7 @@ aside.quote .title { /* title bar for quoted posts */
 aside.quote .title { /* top right corner of a quote */
     border-radius: 0 8px 0 0;
 }
-blockquote, .quote aside blockquote { /* bottom right corner of a quote */
+.title + blockquote { /* quote after a title bar */
     border-radius: 0 0 8px 0;
 }
 .quote-controls {
@@ -259,6 +261,22 @@ span.highlighted {
     color: var(--highlighted-fg);
     background: var(--highlighted-bg);
 }
+
+/********** tables inside posts **********/
+.cooked tbody {
+    border: none;
+}
+.cooked th {
+    background: var(--post-table-th-bg);
+    color: var(--primary);
+}
+.cooked tr {
+    background: var(--post-table-even-row-bg);
+}
+.cooked tr:nth-child(odd) {
+    background: var(--post-table-odd-row-bg);
+}
+
 
 /********** linked threads at bottom of post **********/
 .post-links-container .post-links {

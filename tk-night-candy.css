@@ -23,8 +23,10 @@
     --header-top: #3e3e52;
     --header-bottom: #2b2b3c;
     --header-border: #242433;
-    /* --header-icon-fg-hover: #000; */
-    /* --header-icon-bg-hover: #ddf; */
+    --header-icon-fg: #000;
+    --header-icon-bg: #88e;
+    --header-icon-fg-hover: #fff;
+    --header-icon-bg-hover: #77f;
     /* sidebar */
     --sidebar-color: #252533;
     --sidebar-border: #1f1f28;
@@ -74,6 +76,8 @@
     --avatar-bot: #292929;
     --avatar-hl: #555;
     /* blockquotes */
+    --blockquote-bg-odd: #ffffff18;
+    --blockquote-bg-even: #00000030;
     --blend-primary-secondary-5: #ffffff18;
     --primary-very-low: #00000030;
     /* editor */
@@ -91,6 +95,9 @@
     --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #181818;
     --table-odd-row-bg: #282828;
+    --post-table-even-row-bg: #00000010;
+    --post-table-odd-row-bg: #ffffff08;
+    --post-table-th-bg: #ffffff10;
     --last-visit-bg: var(--danger-medium);
     --last-visit-fg: #000;
     /* misc */

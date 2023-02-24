@@ -76,6 +76,8 @@
     --avatar-bot: #ccc;
     --avatar-hl: #fff;
     /* blockquotes */
+    --blockquote-bg-odd: #ffffff70;
+    --blockquote-bg-even: #00000010;
     --blend-primary-secondary-5: #ffffff80;
     --primary-very-low: #00000020;
     /* editor */
@@ -98,6 +100,9 @@
     --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #fff;
     --table-odd-row-bg: #f4f4f4;
+    --post-table-even-row-bg: #00000008;
+    --post-table-odd-row-bg: #ffffff20;
+    --post-table-th-bg: #ffffff40;
     --last-visit-bg: var(--danger-medium);
     --last-visit-fg: #000;
     /* --reply-action: #034c3b; */
