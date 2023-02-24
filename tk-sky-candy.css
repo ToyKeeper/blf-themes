@@ -111,7 +111,7 @@
     --alert-bg: var(--header-bottom);
     --alert-border: var(--header-top);
     /* buttons */
-    --button-bg: #b4b5ff80;
+    --button-bg: #ffffffc0;
     --button-border: #ffffff80;
     --button-primary-bg: var(--tertiary);
     --button-primary-border: var(--button-border);
