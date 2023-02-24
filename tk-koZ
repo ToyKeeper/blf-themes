@@ -1,23 +1,31 @@
 /* ==UserStyle==
-@name           budgetlightforum.com ko-Z - 2/22/2023, 8:52:06 PM
+@name           BLF-koZ
 @namespace      github.com/openstyles/stylus
 @version        1.0.0
 @description    A new userstyle
 @author         Me
 ==/UserStyle== */
 
+@-moz-document url-prefix("https://budgetlightforum.com/") {
+    /* Discourse "ko-Z" color palette
+ * Copyright (C) Selene ToyKeeper
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
 /********** vars **********/
 :root {
     /* main colors */
     --primary: #B8B8B8;
     --secondary: #2f2d2a;
-    --tertiary: #6699cc;
+    --tertiary: #6699cc; 
+    /* --tertiary: #e66100; */
+    /* --tertiary-medium: #6298e8; */
+    /* --tertiary-low: #93b7ee; */
+    /* --tertiary-500: #93b7ee; */ /* topic list row borders */
     --quaternary: #cc99cc;
-    --primary-high-or-secondary-low: #B8B8B8;
-    --primary-med-or-secondary-med: #96928d;
-    --danger: #f2777a;
+    --primary-high-or-secondary-low: #fff;
+    --primary-med-or-secondary-med: #ccc;
     --danger-medium: #66cccc;
-    --highlight: #ffcc66;
+    /* --love: #b924c1; */ /* thumbs-up button */
     /* page header */
     --header_background: #333;
     --header_shadow: #2b2b2b;
@@ -37,7 +45,7 @@
     --post-op-top: #3b3937;
     --post-op-bot: #3b3937;
     --post-op-hl: #444;
-    --post-op-bar-top: #66cccc;
+    --post-op-bar-top: #6699cc;
     --post-op-bar-bot: #6699cc;
     
     --post-me-top: #3b3937;
@@ -58,22 +66,24 @@
     --post-def-bar-top: #2f2d2a;
     --post-def-bar-bot: #2f2d2a;
     /* other parts of posts */
-    --post-actions-bar-bg: #2f2d2a;
+    --post-actions-bar-bg: rgba(0,0,0, 0.2);
     --post-quote-border: #ffffff30;
     --post-embed-hl: #333;
-    --post-embed-top: #2b2b2b;
-    --post-embed-bot: #1c1c1c;
-    --post-header-button: #bcd;
-    --topic-map-bg: #2f2d2a;
-    /* --post-notice-top: #c0d777; */
-    /* --post-notice-bot: #998a47; */
-    /* --post-notice-fg: #2a2a07; */
+    --post-embed-top: #4b4846;
+    --post-embed-bot: #333230;
+    --quote-header-top: ##3b3937;
+    --quote-header-bot: ##3b3937;
+    --topic-map-bg: #2d2f2a;
     --post-notice-top: var(--highlight);
     --post-notice-bot: #292929;
     --post-notice-fg: #ddd;
+    /* --post-header-button-bg: #ffffff30; */
+    --post-header-button: #96928d;
+    /* --post-header-button: #285892; */
+    /* --post-header-button: #eee; */
     /* avatar */
-    --avatar-top: #282828;
-    --avatar-bot: #282828;
+    --avatar-top: #2f2d2a;
+    --avatar-bot: #2f2d2a;
     --avatar-hl: #555;
     /* blockquotes */
     --blend-primary-secondary-5: #a4a4a418;
@@ -84,19 +94,144 @@
     --editor-unfocused: var(--primary-400);
     --editor-hl: var(--primary-300);
     /* mentions */
-    --mention-color: #6cc;
+    --mention-color: #66cccc;
     --mention-bg: #2f2d2a;
     /* highlighted text */
     --highlighted-fg: var(--tertiary);
     --highlighted-bg: var(--tertiary-low);
+    /* topic list */
+    --table-header-bg: var(--post-def-top);
+    --table-even-row-bg: #2f2d2a;
+    --table-odd-row-bg: #3b3937;
+    --last-visit-bg: var(--danger-medium);
+    --last-visit-fg: #333;
     /* misc */
     --button-bg: #2f2d2a;
-    /* --button-border: #ffffff20; */
     --button-border: #3b3937;
+    --button-primary-bg: var(--tertiary);
+    --button-primary-border: var(--button-border);
     --reply-action: #B8B8B8;
     /* --primary-low-mid: #285892; */
     /* --primary-low-mid-or-secondary-high: #285892; */
     /* --primary-high-or-secondary-low: #034c3b; */
     /* --tertiary-med-or-tertiary: #448; */
     --hljs-bg: #ffffff30; /* <code> blocks */
+
+    /********** defaults copied from parent theme **********/
+    --scheme-type: dark;
+    --post-action-bar-border-radius: 60px;
+    /* --primary: #dddddd; */
+    /* --secondary: #222222; */
+    --tertiary: #6699cc;
+    /* --quaternary: #c14924; */
+    /* --header_background: #111111; */
+    --header_primary: #dddddd;
+    --highlight: #d27b53;
+    --danger: #f2777a;
+    --success: #99cc99;
+    --love: #fa6c8d;
+    --d-selected: #2c2c2c;
+    --d-hover: #3b3937;
+    --always-black-rgb: 0, 0, 0;
+    --primary-rgb: 221, 221, 221;
+    --primary-low-rgb: 49, 49, 49;
+    --primary-very-low-rgb: 40, 40, 40;
+    --secondary-rgb: 34, 34, 34;
+    --header_background-rgb: 17, 17, 17;
+    --tertiary-rgb: 15, 130, 175;
+    --highlight-rgb: 168, 113, 55;
+    /* --primary-very-low: #282828; */
+    --primary-low: #2f2d2a;
+    --primary-low-mid: #96928d;
+    --primary-medium: #f2777a;
+    --primary-high: #a6a6a6;
+    --primary-very-high: #B8B8B8;
+    --primary-50: #282828;
+    --primary-100: #2c2c2c;
+    --primary-200: #313131;
+    --primary-300: #585858;
+    --primary-400: #7a7a7a;
+    --primary-500: #858585;
+    --primary-600: #909090;
+    --primary-700: #9b9b9b;
+    --primary-800: #a6a6a6;
+    --primary-900: #c7c7c7;
+    --header_primary-low: rgb(72, 72, 72);
+    --header_primary-low-mid: rgb(131, 131, 131);
+    --header_primary-medium: rgb(164, 164, 164);
+    --header_primary-high: rgb(185, 185, 185);
+    --header_primary-very-high: rgb(210, 210, 210);
+    --secondary-low: #bdbdbd;
+    --secondary-medium: #919191;
+    --secondary-high: #646464;
+    --secondary-very-high: #313131;
+    --tertiary-very-low: #1a3a3a;
+    --tertiary-low: #2f5c5c;
+    --tertiary-medium: #52a2a2;
+    --tertiary-high: #66cccc;
+    --tertiary-hover: #428888;
+    --tertiary-50: #04212c;
+    --tertiary-100: #042431;
+    --tertiary-200: #052836;
+    --tertiary-300: #052e3d;
+    --tertiary-400: #06374a;
+    --tertiary-500: #073e54;
+    --tertiary-600: #084860;
+    --tertiary-700: #09516d;
+    --tertiary-800: #0a5a79;
+    --tertiary-900: #0b6283;
+    --quaternary-low: #3b3937;
+    --highlight-bg: #22170b;
+    --highlight-low: #22170b;
+    --highlight-medium: #3b3937;
+    --highlight-high: #d27b53;
+    --danger-low: #71383a;
+    --danger-low-mid: rgba(94, 54, 44, .7);
+    /* --danger-medium: #a13116; */
+    --danger-hover: #933822;
+    --success-low: #506a50;
+    --success-medium: #99cc99;
+    --success-hover: #93d0a4;
+    --love-low: #8a0524;
+    --wiki: green;
+    /* --blend-primary-secondary-5: rgb(60, 60, 60); */
+    /* --primary-med-or-secondary-med: #919191; */
+    --primary-med-or-secondary-high: #646464;
+    /* --primary-high-or-secondary-low: #bdbdbd; */
+    --primary-low-mid-or-secondary-high: #646464;
+    --primary-low-mid-or-secondary-low: #bdbdbd;
+    --primary-or-primary-low-mid: #7a7a7a;
+    --highlight-low-or-medium: #4c3319;
+    --tertiary-or-tertiary-low: #052e3d;
+    --tertiary-low-or-tertiary-high: #0b6283;
+    --tertiary-med-or-tertiary: #0f82af;
+    --secondary-or-primary: #dddddd;
+    --tertiary-or-white: #fff;
+    --facebook-or-white: #fff;
+    --twitter-or-white: #fff;
+    --hljs-comment: #bba;
+    --hljs-number: #aff;
+    --hljs-string: #f99;
+    --hljs-literal: #9ae;
+    --hljs-tag: #99f;
+    --hljs-attribute: #0ee;
+    --hljs-symbol: #fbe;
+    /* --hljs-bg: #333; */
+    --hljs-builtin-name: #66cccc;
+    --google: #ffffff;
+    --google-hover: #f2f2f2;
+    --instagram: #e1306c;
+    --instagram-hover: #ac194b;
+    --facebook: #1877f2;
+    --facebook-hover: #0a54b3;
+    --cas: #70ba61;
+    --twitter: #1da1f2;
+    --twitter-hover: #0c85d0;
+    --github: #100e0f;
+    --github-hover: #463e42;
+    --discord: #7289da;
+    --discord-hover: #4a67cf;
+    --gold: rgb(231, 195, 0);
+    --silver: #c0c0c0;
+    --bronze: #cd7f32;
 }
