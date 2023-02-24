@@ -1,4 +1,13 @@
-/* Discourse base stylesheet overrides
+/* ==UserStyle==
+@name           budgetlightforum.com style-css-2 2/24/2023, 1:23:30 AM
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+@-moz-document url-prefix("https://budgetlightforum.com/") {
+   /* Discourse base stylesheet overrides
  * Copyright (C) Selene ToyKeeper
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -20,7 +29,7 @@
     /* border-bottom: 4px solid var(--header_shadow); */
     height: 4em;
     background: linear-gradient(var(--header-top), var(--header-bottom));
-    border-bottom: 4px solid var(--header-border);
+    border-bottom: var(--section-border-width) solid var(--header-border);
 }
 .d-header-icons a {
     background-color: var(--header-icon-bg) !important;
@@ -44,7 +53,7 @@
 }
 body.has-sidebar-page .sidebar-wrapper {
     /* only draw border when sidebar is NOT collapsed */
-    border-right: 4px solid var(--sidebar-border);
+    border-right: var(--section-border-width) solid var(--sidebar-border);
 }
 .sidebar-footer-wrapper .sidebar-footer-container,
 .sidebar-hamburger-dropdown .sidebar-footer-wrapper .sidebar-footer-container {
@@ -649,4 +658,6 @@ div.dummy-placeholder {
     --post-padding: 8px;
     --button-border-radius: 16px;
     --post-action-bar-border-radius: 6px;
+    --section-border-width: 4px
+}
 }
