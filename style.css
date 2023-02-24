@@ -16,11 +16,10 @@
 
 /********** banner at top of page **********/
 .d-header {
-    /* background-color: var(--header_background); */
-    /* border-bottom: 4px solid var(--header_shadow); */
     height: 4em;
     background: linear-gradient(var(--header-top), var(--header-bottom));
     border-bottom: 4px solid var(--header-border);
+    box-shadow: var(--header-shadow);
 }
 .d-header-icons a {
     background-color: var(--header-icon-bg) !important;
@@ -89,6 +88,7 @@ article {
     border-radius: var(--post-border-radius);
     padding: var(--post-padding);
     margin: 0px 0px 10px 0px;
+    box-shadow: var(--post-shadows);
 }
 
 /* extra messages at top of post, like "it's been a while since we saw this user" */
@@ -105,6 +105,7 @@ article {
 /* draw a box around avatar pics */
 div.topic-avatar, .embedded-posts .topic-avatar {
     background: linear-gradient(-45deg, var(--avatar-bot),var(--avatar-top));
+    box-shadow: var(--post-widget-shadows);
     border: 1px outset var(--avatar-hl);
     border-radius: 6px;
     padding: 5px 6px 6px 5px;
@@ -132,6 +133,7 @@ div.topic-meta-data {
     margin: 0px;
     border-radius: 6px 6px 0px 0px;
     border-style: none;
+    box-shadow: var(--post-widget-shadows);
 }
 /* reply-to header */
 .topic-body .reply-to-tab {
@@ -191,6 +193,7 @@ div.actions {
     padding: 5px;
     border-radius: var(--post-action-bar-border-radius);
     background: var(--post-actions-bar-bg);
+    box-shadow: var(--action-bar-shadows);
 }
 nav.post-controls .actions button.create, nav.post-controls .actions button.create .d-icon {
     color: var(--reply-action);
@@ -385,6 +388,7 @@ span.highlighted {
 }
 .d-editor-button-bar .btn {
     border: none;
+    box-shadow: none;
 }
 .d-editor-textarea-wrapper {
     border: 3px inset var(--editor-hl);
@@ -411,6 +415,26 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     border: 1px outset var(--topic-map-bg);
     border-radius: var(--post-border-radius);
     padding: var(--post-padding);
+    box-shadow: var(--post-shadows);
+}
+
+/********** user info pop-up widget **********/
+.user-card.show, .group-card.show {
+    border-radius: var(--post-border-radius);
+    background: linear-gradient(var(--post-def-top), var(--post-def-bot));
+    outline: none;
+    border: 3px outset var(--post-def-hl);
+    box-shadow: 0.5em 1.5em 2em var(--shadow-color);
+}
+.user-card .card-content, .group-card .card-content {
+    background: none;
+}
+.user-card-avatar {
+    background: linear-gradient(-45deg, var(--avatar-bot),var(--avatar-top));
+    border: 1px outset var(--avatar-hl);
+    border-radius: 6px;
+    padding: 5px 6px 6px 5px;
+    box-shadow: 0.333em 0.5em 0.5em var(--shadow-color);
 }
 
 /********** Topic List widget(s) **********/
@@ -418,13 +442,14 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 .suggested-topics, /* topic list at bottom of threads */
 .contents.ember-view, /* front page topic list */
 .paginated-topics-list, /* private message list */
-.directory-table-container /* user list */
-{
+.directory-table-container, /* user list */
+div.dummy-placeholder {
     margin: 0.75em 0 0.75em 0;
     border: 3px outset var(--post-def-hl);
     background: linear-gradient(var(--post-def-top), var(--post-def-bot));
     /* border-radius: var(--post-border-radius); */
     padding: 5px;
+    box-shadow: var(--table-shadows);
 }
 .topic-list-item, tr {
     /* border-bottom: 1px solid var(--tertiary-500); */
@@ -434,8 +459,9 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 }
 .topic-list-item:nth-child(odd), /* topic list rows */
 .category-list tr:nth-child(odd), /* category list rows */
-.directory table tr:nth-child(odd) /* user list rows */
-{
+.directory table tr:nth-child(odd), /* user list rows */
+.summary-category-list tr:nth-child(odd), /* user info page "top categories" */
+div.dummy-placeholder {
     background: var(--table-odd-row-bg) !important;
 }
 tbody {
@@ -507,9 +533,12 @@ tbody {
 
 /* this pops up sometimes, over the top of other widgets */
 .alert {
+    color: var(--alert-fg) !important;
+    background-color: var(--alert-bg) !important;
     border-radius: var(--button-border-radius);
-    border: 3px outset var(--button-bg);
-    padding: 0.25em 0.75em 0.25em 0.75em !important;
+    border: 3px outset var(--alert-border);
+    padding: 0.15em 0.75em !important;
+    margin-right: 0.75em !important;
 }
 
 /********** user list widget **********/
@@ -535,6 +564,7 @@ tbody {
     border-radius: var(--button-border-radius);
     border: 1px outset var(--button-border);
     background: var(--button-bg);
+    box-shadow: var(--button-shadows);
 }
 
 /* "Summarize This Topic" and "Reply" buttons */
@@ -542,6 +572,15 @@ tbody {
     border-radius: var(--button-border-radius);
     border: 1px outset var(--button-primary-border);
     background: var(--button-primary-bg);
+    box-shadow: var(--button-shadows);
+}
+.btn-flat {
+    box-shadow: none;
+    border: none;
+    background: none;
+}
+.quote-button {
+    box-shadow: var(--button-shadows);    
 }
 
 /* hamburger button in the page header */
@@ -566,6 +605,7 @@ tbody {
     border-radius: 12px;
     border: 1px outset var(--button-border);
     padding: 0.2em 0.4em;
+    box-shadow: var(--button-shadows);
 }
 /* bottom right corner version */
 #topic-progress {
@@ -601,6 +641,12 @@ a.mention, a.mention-group {
     color: var(--mention-color);
     background: var(--mention-bg);
     /* text-shadow: 0 0 5px #000; */
+}
+
+/* dot which shows up on unread posts */
+.read-state {
+    color: var(--unread-dot-color);
+    padding: 0.2em;
 }
 
 /* less padding around paragraphs */
