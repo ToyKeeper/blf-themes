@@ -116,7 +116,7 @@
     --unread-dot-color: #00e5ff;
     /* alert pop-up widget */
     --alert-fg: #abc;
-    --alert-bg: var(--header-bottom);
+    --alert-bg: var(--header-bot);
     --alert-border: var(--header-top);
     /* buttons */
     --button-bg: #abcdef10;
