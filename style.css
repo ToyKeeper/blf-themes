@@ -638,6 +638,14 @@ tbody {
     border: 0.15em outset var(--timeline-handle-border);
     margin-left: -0.73em !important;
 }
+/* a "back" button sometimes pops up over the timeline */
+.timeline-last-read {
+    margin-left: -1em !important;
+}
+.timeline-last-read svg {
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
 /********** tag box (like posts tagged "review") **********/
 a.discourse-tag {
