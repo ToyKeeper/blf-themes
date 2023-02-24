@@ -28,7 +28,7 @@
     /* --love: #b924c1; */ /* thumbs-up button */
     /* page header */
     --header-top: #2f2d2a;
-    --header-bottom: #2f2d2a;
+    --header-bot: #2f2d2a;
     --header-border: #474748;
     /* --header-icon-fg-hover: #000; */
     /* --header-icon-bg-hover: #ddf; */
@@ -104,6 +104,11 @@
     /* highlighted text */
     --highlighted-fg: var(--tertiary);
     --highlighted-bg: var(--tertiary-low);
+    /* timeline slider */
+    --timeline-scrollbar-bg: #00000028;
+    --timeline-handle-top: #484541;
+    --timeline-handle-bot: #3b3937;
+    --timeline-handle-border: #ffffff10;
     /* topic list */
     --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #2f2d2a;

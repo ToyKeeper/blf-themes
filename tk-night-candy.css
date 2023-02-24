@@ -12,7 +12,6 @@
     /* --tertiary-medium: #6298e8; */
     /* --tertiary-low: #93b7ee; */
     /* --tertiary-500: #93b7ee; */ /* topic list row borders */
-    /* --tertiary-low-or-tertiary-high: #6298e8; */ /* timeline slider */
     --quaternary: #ca4b92;
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #ccc;
@@ -29,14 +28,12 @@
     --table-shadows: var(--post-shadows);
     /* page header */
     --header-top: #3e3e52;
-    --header-bottom: #2b2b3c;
+    --header-bot: #2b2b3c;
     --header-border: #242433;
     --header-icon-fg: #000;
     --header-icon-bg: #88e;
     --header-icon-fg-hover: #fff;
     --header-icon-bg-hover: #77f;
-    /* --sidebar-toggle-button-bg: none; */
-    /* --sidebar-toggle-button-fg: var(--sidebar-color); */
     /* sidebar */
     --sidebar-color: #252533;
     --sidebar-border: #1f1f28;
@@ -101,6 +98,11 @@
     /* highlighted text */
     --highlighted-fg: var(--tertiary);
     --highlighted-bg: var(--tertiary-low);
+    /* timeline slider */
+    --timeline-scrollbar-bg: var(--button-bg);
+    --timeline-handle-top: #5b5b93;
+    --timeline-handle-bot: #3e3e52;
+    --timeline-handle-border: #4b4b72;
     /* topic list */
     --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #181818;

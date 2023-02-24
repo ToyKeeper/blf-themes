@@ -12,7 +12,7 @@
     --tertiary-medium: #6298e8;
     --tertiary-low: #93b7ee;
     --tertiary-500: #93b7ee; /* topic list row borders */
-    --tertiary-low-or-tertiary-high: #6298e8; /* timeline slider */
+    /* --tertiary-low-or-tertiary-high: #6298e8; */ /* timeline slider */
     /* --quaternary: #ca4b92; */
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #44a;
@@ -28,7 +28,7 @@
     --table-shadows: var(--post-shadows);
     /* page header */
     --header-top: #8f8feb;
-    --header-bottom: #4141a2;
+    --header-bot: #4141a2;
     --header-border: #32329a;
     --header-icon-fg: #000;
     --header-icon-bg: #ccf;
@@ -99,15 +99,11 @@
     /* highlighted text */
     --highlighted-fg: #c35c18;
     --highlighted-bg: #fdc389;
-    /* topic list */
-    --table-header-bg: var(--post-def-top);
-    --table-even-row-bg: #fff;
-    --table-odd-row-bg: #f4f4f4;
-    --post-table-even-row-bg: #00000008;
-    --post-table-odd-row-bg: #ffffff20;
-    --post-table-th-bg: #ffffff40;
-    --last-visit-bg: var(--danger-medium);
-    --last-visit-fg: #000;
+    /* timeline slider */
+    --timeline-scrollbar-bg: var(--button-bg);
+    --timeline-handle-top: var(--header-top);
+    --timeline-handle-bot: var(--header-border);
+    --timeline-handle-border: #a2a2f2;
     /* misc */
     --unread-dot-color: #00e5ff;
     /* alert pop-up widget */
@@ -119,6 +115,15 @@
     --button-border: #ffffff80;
     --button-primary-bg: var(--tertiary);
     --button-primary-border: var(--button-border);
+    /* topic list */
+    --table-header-bg: var(--post-def-top);
+    --table-even-row-bg: #fff;
+    --table-odd-row-bg: #f4f4f4;
+    --post-table-even-row-bg: #00000008;
+    --post-table-odd-row-bg: #ffffff20;
+    --post-table-th-bg: #ffffff40;
+    --last-visit-bg: var(--danger-medium);
+    --last-visit-fg: #000;
     /* --reply-action: #034c3b; */
     --primary-low-mid: #285892;
     --primary-low-mid-or-secondary-high: #285892;
