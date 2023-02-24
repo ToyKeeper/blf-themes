@@ -1,0 +1,99 @@
+/* ==UserStyle==
+@name           budgetlightforum.com - 2/22/2023, 8:52:06 PM
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+/********** vars **********/
+:root {
+    /* main colors */
+    --primary: #ccc;
+    --secondary: #222;
+    --quaternary: #ca4b92;
+    --primary-high-or-secondary-low: #fff;
+    --primary-med-or-secondary-med: #ccc;
+    --danger-medium: #2bbcf5;
+    /* page header */
+    --header_background: #333;
+    --header_shadow: #2b2b2b;
+    --header-top: #2b2b3c;
+    --header-bottom: #2b2b3c;
+    --header-border: #242433;
+    /* --header-icon-fg-hover: #000; */
+    /* --header-icon-bg-hover: #ddf; */
+    /* sidebar */
+    --sidebar-color: #282828;
+    --sidebar-border: #1d1d20;
+    /* ads */
+    --ads-top: #9ea221;
+    --ads-bot: #a78526;
+    --ads-hl: #c6c635;
+    /* post / comment box colors per user type */
+    --post-op-top: #333;
+    --post-op-bot: #24262a;
+    --post-op-hl: #214566;
+    --post-op-bar-top: #358ca6;
+    --post-op-bar-bot: #57b;
+    
+    --post-me-top: #333;
+    --post-me-bot: #333;
+    --post-me-hl: #5d375d;
+    --post-me-bar-top: #351c2d;
+    --post-me-bar-bot: #351c2d;
+    
+    --post-admin-top: #333;
+    --post-admin-bot: #333;
+    --post-admin-hl: #21594e;
+    --post-admin-bar-top: #172c20;
+    --post-admin-bar-bot: #172c20;
+    
+    --post-def-top: #333;
+    --post-def-bot: #333;
+    --post-def-hl: #444;
+    --post-def-bar-top: #282828;
+    --post-def-bar-bot: #282828;
+    /* other parts of posts */
+    --post-actions-bar-bg: rgba(0,0,0, 0.2);
+    --post-quote-border: #ffffff30;
+    --post-embed-hl: #333;
+    --post-embed-top: #2b2b2b;
+    --post-embed-bot: #1c1c1c;
+    --post-header-button: #bcd;
+    --topic-map-bg: #0088ff20;
+    /* --post-notice-top: #c0d777; */
+    /* --post-notice-bot: #998a47; */
+    /* --post-notice-fg: #2a2a07; */
+    --post-notice-top: var(--highlight);
+    --post-notice-bot: #292929;
+    --post-notice-fg: #ddd;
+    /* avatar */
+    --avatar-top: #282828;
+    --avatar-bot: #282828;
+    --avatar-hl: #555;
+    /* blockquotes */
+    --blend-primary-secondary-5: #ffffff18;
+    --primary-very-low: #00000030;
+    /* editor */
+    --editor-fg: var(--primary);
+    --editor-bg: var(--primary-very-low);
+    --editor-unfocused: var(--primary-400);
+    --editor-hl: var(--primary-300);
+    /* mentions */
+    --mention-color: #43bee3;
+    --mention-bg: #414141;
+    /* highlighted text */
+    --highlighted-fg: var(--tertiary);
+    --highlighted-bg: var(--tertiary-low);
+    /* misc */
+    --button-bg: #abcdef10;
+    /* --button-border: #ffffff20; */
+    --button-border: #585858;
+    --reply-action: #eee;
+    /* --primary-low-mid: #285892; */
+    /* --primary-low-mid-or-secondary-high: #285892; */
+    /* --primary-high-or-secondary-low: #034c3b; */
+    /* --tertiary-med-or-tertiary: #448; */
+    --hljs-bg: #ffffff30; /* <code> blocks */
+}
