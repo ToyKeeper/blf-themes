@@ -248,6 +248,7 @@ blockquote { background: var(--blockquote-bg-odd) !important; }
 blockquote blockquote { background: var(--blockquote-bg-even) !important; }
 blockquote blockquote blockquote { background: var(--blockquote-bg-odd) !important; }
 blockquote blockquote blockquote blockquote{ background: var(--blockquote-bg-even) !important; }
+blockquote blockquote blockquote blockquote blockquote{ background: var(--blockquote-bg-odd) !important; }
 aside.quote .title { /* title bar for quoted posts */
     background: linear-gradient(var(--quote-header-top), var(--quote-header-bot));
     padding: 0.25em;
