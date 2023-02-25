@@ -19,6 +19,7 @@
     /* --love: #b924c1; */ /* thumbs-up button */
     /* shadows */
     --shadow-color: #000000c0;
+    --menu-shadow-color: var(--shadow-color);
     --header-shadow: 0 0.05em 0.75em var(--shadow-color);
     --post-shadows: 0.15em 0.15em 0.333em var(--shadow-color);
     --post-widget-shadows: 0.1em 0.1em 0.2em var(--shadow-color);
@@ -98,6 +99,11 @@
     /* highlighted text */
     --highlighted-fg: var(--tertiary);
     --highlighted-bg: var(--tertiary-low);
+    /* tags */
+    --tag-fg: var(--primary);
+    --tag-bg: #ffffff30;
+    /* --tag-fg: var(--highlighted-fg); */
+    /* --tag-bg: var(--highlighted-bg); */
     /* timeline slider */
     --timeline-scrollbar-bg: var(--button-bg);
     --timeline-handle-top: #5b5b93;
@@ -114,12 +120,13 @@
     --last-visit-fg: #000;
     /* misc */
     --unread-dot-color: #00e5ff;
+    --simple-theme-link-color: #7e97cd;
     /* alert pop-up widget */
     --alert-fg: #abc;
     --alert-bg: var(--header-bot);
     --alert-border: var(--header-top);
     /* buttons */
-    --button-bg: #abcdef10;
+    --button-bg: #89bcef18;
     --button-border: #585858;
     --button-primary-bg: var(--tertiary);
     --button-primary-border: var(--button-border);
@@ -129,6 +136,8 @@
     /* --primary-high-or-secondary-low: #034c3b; */
     /* --tertiary-med-or-tertiary: #448; */
     --hljs-bg: #ffffff30; /* <code> blocks */
+    /* main nav controls on front page */
+    --d-nav-pill-border-radius: var(--post-border-radius);
 
     /********** defaults copied from parent theme **********/
     --scheme-type: dark;
@@ -195,7 +204,8 @@
     --quaternary-low: #3a160b;
     --highlight-bg: #22170b;
     --highlight-low: #22170b;
-    --highlight-medium: #4c3319;
+    --highlight-medium: #89bcef30;
+    /* --highlight-medium: #4c3319; */
     --highlight-high: #976632;
     --danger-low: #591b0c;
     --danger-low-mid: rgba(99, 30, 13, 0.7);

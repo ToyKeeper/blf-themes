@@ -26,6 +26,8 @@
     --primary-med-or-secondary-med: #ccc;
     --danger-medium: #66cccc;
     /* --love: #b924c1; */ /* thumbs-up button */
+    /* shadows */
+    --menu-shadow-color: #00000060;
     /* page header */
     --header-top: #2f2d2a;
     --header-bot: #2f2d2a;
@@ -104,6 +106,11 @@
     /* highlighted text */
     --highlighted-fg: var(--tertiary);
     --highlighted-bg: var(--tertiary-low);
+    /* tags */
+    --tag-fg: var(--primary);
+    --tag-bg: #ffffff28;
+    /* --tag-fg: var(--highlighted-fg); */
+    /* --tag-bg: var(--highlighted-bg); */
     /* timeline slider */
     --timeline-scrollbar-bg: #00000028;
     --timeline-handle-top: #484541;
@@ -120,6 +127,8 @@
     --last-visit-fg: #333;
     /* misc */
     --unread-dot-color: #b49041;
+    --simple-theme-link-color: var(--tertiary);
+    /* --simple-theme-link-color: #7e97cd; */
     /* alert pop-up widget */
     --alert-fg: #abc;
     --alert-bg: var(--header-bot);
@@ -135,6 +144,7 @@
     /* --primary-high-or-secondary-low: #034c3b; */
     /* --tertiary-med-or-tertiary: #448; */
     --hljs-bg: #ffffff30; /* <code> blocks */
+    --d-nav-pill-border-radius: 100px;
 
     /********** defaults copied from parent theme **********/
     --scheme-type: dark;
@@ -202,7 +212,8 @@
     --quaternary-low: #3b3937;
     --highlight-bg: #22170b;
     --highlight-low: #22170b;
-    --highlight-medium: #3b3937;
+    --highlight-medium: #ffffff10;
+    /* --highlight-medium: #3b3937; */
     --highlight-high: #d27b53;
     --danger-low: #71383a;
     --danger-low-mid: rgba(94, 54, 44, .7);

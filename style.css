@@ -84,7 +84,11 @@ div.topic-post {
 /* outer container for comments */
 /* using "article" instead of "div.topic-post"
  * because "article" has more attributes to select by, for per-user styling */
-article, article.boxed {
+article, /* regular post */
+article.boxed, /* mobile version */
+.user-stream .item, /* user activity feed */
+.search-results .fps-result, /* search widget item */
+div.dummy-placeholder {
     border: 1px outset var(--post-def-hl);
     background: linear-gradient(var(--post-def-top), var(--post-def-bot));
     border-radius: var(--post-border-radius);
@@ -105,21 +109,31 @@ article, article.boxed {
 }
 
 /* draw a box around avatar pics */
-div.topic-avatar, .embedded-posts .topic-avatar {
+div.topic-avatar, /* main post avatar */
+.embedded-posts .topic-avatar, /* embedded post avatar */
+div.avatar-wrapper, /* per item in user activity stream */
+.search-results .avatar, /* search widget results */
+div.dummy-placeholder {
     background: linear-gradient(-45deg, var(--avatar-bot),var(--avatar-top));
     box-shadow: var(--post-widget-shadows);
     border: 1px outset var(--avatar-hl);
     border-radius: 6px;
     padding: 5px 6px 6px 5px;
     /* important because some posts explicitly set a huge bottom margin */
-    margin: 0px 6px 0px 0px !important;
+    margin: 0px 8px 0px 0px !important;
 }
-.embedded-posts .topic-avatar {
+.embedded-posts .topic-avatar, div.avatar-wrapper {
     border-radius: 5px;
     padding: 3px 4px 4px 3px;
+    margin: 0 6px 0 0 !important;
 }
 img.avatar {
     border-radius: 0.15em;
+}
+.avatar-wrapper {
+    /* remove blue circle behind avatar in user activity stream */
+    background: unset;
+    border-radius: unset;
 }
 
 .topic-body {
@@ -192,6 +206,7 @@ section.post-menu-area, section.post-actions {
 /* reduce extra space around buttons at bottom of comments */
 nav.post-controls .actions button, nav.post-controls .show-replies {
     padding: 0px 5px;
+    border-radius: var(--button-border-radius);
 }
 /* remove spurious scrollbar on mobile */
 nav.post-controls {
@@ -250,28 +265,28 @@ aside.quote .title { /* top right corner of a quote */
 /********** embedded posts **********/
 /* make embedded posts (expanded replies) look indented */
 .embedded-posts {
-    /* margin-top: 10px; */
+    margin-top: 10px;
     border: none;
-    /* border-radius: 10px; */
-    /* padding: 5px; */
-    /* background: linear-gradient(#222, #111); */
+}
+.embedded-posts .topic-body {
+    width: 100%; /* remove calculated extra padding from parent theme */
 }
 .embedded-posts .reply {
     margin-top: 10px;
-    padding: 5px 0px 5px 5px;  /* unsure where extra right padding comes from */
+    padding: 5px;
     border: 1px inset var(--post-embed-hl);
     border-radius: var(--post-border-radius);
     background: linear-gradient(var(--post-embed-top), var(--post-embed-bot));
 }
-.embedded-posts.bottom {
-    margin-bottom: 0px;
+.embedded-posts.bottom .row {
+    padding: 0; /* remove extra space inside bottom of embedded posts */
 }
+.embedded-posts.bottom {
+    margin-bottom: 0px; /* remove extra space below embedded posts */
+}
+
 /* quoted part of a post, when expanded to show the rest */
 span.highlighted {
-    /* background-color: var(--tertiary-medium); */
-    /* color: var(--primary-very-high); */
-    /* background: none; */
-    /* color: var(--tertiary); */
     color: var(--highlighted-fg);
     background: var(--highlighted-bg);
 }
@@ -389,6 +404,9 @@ span.highlighted {
 }
 
 /********** editor **********/
+#reply-control {
+    box-shadow: 0 -0.5em 1.0em var(--shadow-color);
+}
 #reply-control .reply-area {
     background: var(--primary-low);
 }
@@ -402,14 +420,16 @@ span.highlighted {
     box-shadow: none;
 }
 .d-editor-textarea-wrapper {
-    border: 3px inset var(--editor-hl);
+    border: 3px inset var(--editor-hl) !important;
     background: var(--editor-bg);
 }
 .d-editor-preview-wrapper {
-    border: 3px outset var(--post-me-hl);
+    border: 1px outset var(--post-me-hl);
     background: linear-gradient(var(--post-me-top), var(--post-me-bot));
     padding: var(--post-padding);
     border-radius: var(--post-border-radius);
+    box-shadow: var(--post-shadows);
+
 }
 textarea {
     color: var(--editor-unfocused); /* unfocused */
@@ -440,12 +460,22 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 .user-card .card-content, .group-card .card-content {
     background: none;
 }
-.user-card-avatar {
+.user-card-avatar, /* pop-up widget */
+.controls .avatar, /* user prefs page */
+.user-profile-avatar .avatar, /* user info page */
+div.dummy-placeholder {
     background: linear-gradient(-45deg, var(--avatar-bot),var(--avatar-top));
     border: 1px outset var(--avatar-hl);
     border-radius: 6px;
     padding: 5px 6px 6px 5px;
     box-shadow: 0.333em 0.5em 0.5em var(--shadow-color);
+}
+.collapsed-info .avatar {
+    /* smaller shadow on user info page when not expanded */
+    box-shadow: 0.25em 0.25em 0.25em var(--shadow-color);
+}
+.controls .avatar {
+    margin-right: 1em;
 }
 
 /********** Topic List widget(s) **********/
@@ -454,6 +484,7 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 .contents.ember-view, /* front page topic list */
 .paginated-topics-list, /* private message list */
 .directory-table-container, /* user list */
+.search-container .search-header, /* search page big search widget */
 div.dummy-placeholder {
     margin: 0.75em 0 0.75em 0;
     border: 3px outset var(--post-def-hl);
@@ -569,6 +600,96 @@ tbody {
     margin-top: 0;
 }
 
+/********** search page **********/
+.search-container .search-advanced .search-results {
+    padding: 0.75em; /* remove huge blank spaces on left/right */
+}
+.search-container .search-bar,
+.search-container .search-filters,
+.search-container .search-filters .search-advanced-filters,
+div.dummy-placeholder {
+    background: unset;
+}
+.fps-result .author {
+    padding: 0;
+    margin: 0;
+}
+.search-container .search-filters details.advanced-filters,
+.search-container .search-filters details.search-advanced-additional-options,
+.search-container .search-filters .search-advanced-filters .control-group,
+.search-container .search-filters details.advanced-filters[open]>summary,
+.search-container .search-filters details.search-advanced-additional-options[open]>summary,
+div.dummy-placeholder
+{
+    margin-top: 0.25em;
+    margin-bottom: 0;
+}
+
+/* notifications page */
+.notifications-filter {
+    margin-bottom: 0.75em;
+}
+
+/********** upper-right menu **********/
+.user-menu.revamped {
+    /* header bar icons display a border over the user menu, unless
+       we set the z-index reeeeeally high, and for some reason,
+       those icons refuse to have their border removed */
+    z-index: 10000;
+}
+.menu-panel.drop-down {
+    border-radius: 0 0 0 var(--button-border-radius);
+    box-shadow: -0.5em 1em 1em var(--menu-shadow-color);
+}
+.user-menu.revamped .quick-access-panel li {
+    background-color: unset;
+    border-radius: var(--button-border-radius);
+}
+/* notifications (one per) */
+.user-menu .quick-access-panel li {
+    /* prevent shadow from getting clipped */
+    max-width: calc(100% - 0.3em);
+}
+/* unread notifications */
+.user-menu.revamped .quick-access-panel li.unread,
+.user-menu.revamped .quick-access-panel li.pending {
+    border: 1px outset var(--button-border);
+    margin: 0.1em 0; /* small gap between unread items */
+    box-shadow: 0.1em 0.1em 0.2em var(--shadow-color);
+    background: var(--button-bg);
+}
+.user-menu.revamped .quick-access-panel li:hover {
+    background: var(--highlight-medium) !important;
+}
+.user-menu .quick-access-panel li a {
+    /* slightly reduce size of notification items */
+    margin: 0.15em;
+}
+.drop-down-mode .d-header-icons .active .icon,
+.d-header-icons .icon,
+.icons,
+li.active,
+.icon {
+    /* try to remove the dang border! */
+    /* (it refuses to disappear though) */
+    border: none !important;
+    outline: none !important;
+}
+.menu-panel .panel-body { /* full menu when screen is too narrow */
+    max-height: 100%;  /* allow menu to fill the screen vertically */
+}
+/* menu sections in upper right */
+.user-menu.revamped .menu-tabs-container {
+    box-shadow: 0.25em -0em 1em var(--shadow-color);
+    background-color: var(--sidebar-border);
+    border-radius: 0 0 0 var(--button-border-radius);
+    height: min-content;
+    padding: 0.75em 0.25em 0.25em 0.25em;
+}
+.user-menu.revamped .bottom-tabs {
+    border: none;
+}
+
 /********** misc buttons **********/
 /* lots of site buttons */
 .btn {
@@ -629,14 +750,14 @@ tbody {
     background: var(--tertiary-medium);
 }
 .timeline-scrollarea {
-    margin-left: 1em !important;
-    border-left: 1.1em solid var(--timeline-scrollbar-bg) !important;
+    margin-left: 0.75em !important;
+    border-left: 1em solid var(--timeline-scrollbar-bg) !important;
 }
 .timeline-handle {
-    width: 0.5em !important;
+    width: 0.6em !important;
     background: linear-gradient(var(--timeline-handle-top), var(--timeline-handle-bot));
     border: 0.15em outset var(--timeline-handle-border);
-    margin-left: -0.73em !important;
+    margin-left: -0.75em !important;
 }
 /* a "back" button sometimes pops up over the timeline */
 .timeline-last-read {
@@ -646,14 +767,33 @@ tbody {
     margin: 0 !important;
     padding: 0 !important;
 }
+/* ensure the "123 / 456 Jan 23" part has enough room, and is visible
+ * (sometimes it was failing, no clue why, but it couldn't even show
+ *  things like "3 / 8 Jan 1")
+ */
+.timeline-container .topic-timeline .timeline-scrollarea {
+    min-width: 4em;
+}
+.timeline-container .topic-timeline .timeline-replies,
+.timeline-container .topic-timeline .timeline-ago {
+    overflow: visible;
+    max-width: unset;
+}
+.timeline-container .topic-timeline .timeline-scroller-content {
+    overflow: visible;
+    padding-left: 0.5em;
+    max-height: unset;
+}
 
 /********** tag box (like posts tagged "review") **********/
 a.discourse-tag {
-    color: var(--tertiary-low) !important;
+    color: var(--tag-fg) !important;
 }
-.discourse-tag.box {
-    background-color: var(--tertiary);
+.discourse-tag.box, a.hashtag-cooked {
+    color: var(--tag-fg);
+    background-color: var(--tag-bg);
     border-radius: 6px;
+    padding: 0px 6px;
 }
 
 /********** "skip to content" button (pops up sometimes) **********/
@@ -689,12 +829,14 @@ p {
 *::-webkit-scrollbar {
     /* background: #00000000; */
     background: var(--timeline-scrollbar-bg);
+    border-radius: 100px;
 }
 
 *::-webkit-scrollbar-track {
     /* color of the tracking area */
     background: #00000000;
     /* background: var(--timeline-scrollbar-bg); */
+    border-radius: 100px;
 }
 
 *::-webkit-scrollbar-thumb {
