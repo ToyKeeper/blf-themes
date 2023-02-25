@@ -1,5 +1,5 @@
 /* ==UserStyle==
-@name           BLF-koZ
+@name           BLF-koZ-3
 @namespace      github.com/openstyles/stylus
 @version        1.0.0
 @description    A new userstyle
@@ -17,9 +17,6 @@
     --primary: #B8B8B8;
     --secondary: #2f2d2a;
     --tertiary: #6699cc; 
-    /* --tertiary: #e66100; */
-    /* --tertiary-medium: #6298e8; */
-    /* --tertiary-low: #93b7ee; */
     /* --tertiary-500: #93b7ee; */ /* topic list row borders */
     --quaternary: #cc99cc;
     --primary-high-or-secondary-low: #fff;
@@ -35,6 +32,8 @@
     /* sidebar */
     --sidebar-color: #3b3937;
     --sidebar-border: #2f2d2a;
+    --sidebar-text-hover: #f2777a;
+    --button-text-hover: #ffcc66;
     /* ads */
     --ads-top: #ffcc66;
     --ads-bot: #d27b53;
@@ -119,9 +118,9 @@
     --last-visit-bg: var(--danger-medium);
     --last-visit-fg: #333;
     /* misc */
-    --unread-dot-color: #b49041;
+    --unread-dot-color: #ffcc66;
     /* alert pop-up widget */
-    --alert-fg: #abc;
+    --alert-fg: #eca7a991;
     --alert-bg: var(--header-bot);
     --alert-border: var(--header-top);
     /* buttons */
@@ -139,11 +138,7 @@
     /********** defaults copied from parent theme **********/
     --scheme-type: dark;
     --post-action-bar-border-radius: 60px;
-    /* --primary: #dddddd; */
-    /* --secondary: #222222; */
-    --tertiary: #6699cc;
-    /* --quaternary: #c14924; */
-    /* --header_background: #111111; */
+    /* --tertiary: #6699cc; */
     --header_primary: #dddddd;
     --highlight: #d27b53;
     --danger: #f2777a;
