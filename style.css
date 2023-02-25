@@ -481,7 +481,7 @@ div.dummy-placeholder {
 /********** Topic List widget(s) **********/
 /* "Suggested Topics" widget at bottom of pages */
 .suggested-topics, /* topic list at bottom of threads */
-.contents.ember-view, /* front page topic list */
+#list-area .contents, /* front page topic list */
 .paginated-topics-list, /* private message list */
 .directory-table-container, /* user list */
 .search-container .search-header, /* search page big search widget */
