@@ -12,15 +12,23 @@
     --tertiary-medium: #6298e8;
     --tertiary-low: #93b7ee;
     --tertiary-500: #93b7ee; /* topic list row borders */
-    --tertiary-low-or-tertiary-high: #6298e8 ; /* timeline slider */
+    /* --tertiary-low-or-tertiary-high: #6298e8; */ /* timeline slider */
     /* --quaternary: #ca4b92; */
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #44a;
     --danger-medium: #2bbcf5;
     --love: #b924c1; /* thumbs-up button */
+    /* shadows */
+    --shadow-color: #00000080;
+    --header-shadow: 0 0.05em 0.75em var(--shadow-color);
+    --post-shadows: 0.15em 0.15em 0.333em var(--shadow-color);
+    --post-widget-shadows: 0.1em 0.1em 0.2em var(--shadow-color);
+    --action-bar-shadows: 0.05em 0.05em 0.1em var(--shadow-color);
+    --button-shadows: 0.1em 0.1em 0.2em var(--shadow-color);
+    --table-shadows: var(--post-shadows);
     /* page header */
     --header-top: #8f8feb;
-    --header-bottom: #4141a2;
+    --header-bot: #4141a2;
     --header-border: #32329a;
     --header-icon-fg: #000;
     --header-icon-bg: #ccf;
@@ -38,7 +46,7 @@
     /* post / comment box colors per user type */
     --post-op-top: #a1cef3;
     --post-op-bot: #84a1d9;
-    --post-op-hl: #a9e1f7;
+    --post-op-hl: #a2dbf2;
     --post-op-bar-top: #59c0da;
     --post-op-bar-bot: #597ca8;
     --post-me-top: #f3c1fc;
@@ -64,7 +72,7 @@
     --post-embed-bot: #ddd;
     --quote-header-top: #bacef880;
     --quote-header-bot: #4b60c680;
-    --topic-map-bg: #ddeeff60;
+    --topic-map-bg: #bbddff60;
     --post-notice-top: #c0d777;
     --post-notice-bot: #998a47;
     --post-notice-fg: #f9f9f7;
@@ -76,6 +84,8 @@
     --avatar-bot: #ccc;
     --avatar-hl: #fff;
     /* blockquotes */
+    --blockquote-bg-odd: #00000010;
+    --blockquote-bg-even: #ffffff70;
     --blend-primary-secondary-5: #ffffff80;
     --primary-very-low: #00000020;
     /* editor */
@@ -89,8 +99,19 @@
     /* highlighted text */
     --highlighted-fg: #c35c18;
     --highlighted-bg: #fdc389;
+    /* timeline slider */
+    --timeline-scrollbar-bg: var(--button-bg);
+    --timeline-handle-top: var(--header-top);
+    --timeline-handle-bot: var(--header-border);
+    --timeline-handle-border: #a2a2f2;
     /* misc */
-    --button-bg: #b4b5ff80;
+    --unread-dot-color: #00e5ff;
+    /* alert pop-up widget */
+    --alert-fg: #def;
+    --alert-bg: var(--header-bot);
+    --alert-border: var(--header-top);
+    /* buttons */
+    --button-bg: #ffffffc0;
     --button-border: #ffffff80;
     --button-primary-bg: var(--tertiary);
     --button-primary-border: var(--button-border);
@@ -98,6 +119,9 @@
     --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #fff;
     --table-odd-row-bg: #f4f4f4;
+    --post-table-even-row-bg: #00000008;
+    --post-table-odd-row-bg: #ffffff20;
+    --post-table-th-bg: #ffffff40;
     --last-visit-bg: var(--danger-medium);
     --last-visit-fg: #000;
     /* --reply-action: #034c3b; */
