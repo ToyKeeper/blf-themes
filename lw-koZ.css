@@ -22,7 +22,9 @@
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #ccc;
     --danger-medium: #66cccc;
-    /* --love: #b924c1; */ /* thumbs-up button */
+    --shadow-color: #00000017;
+    --post-shadows: 0.15em 0.15em 2.333em var(--shadow-color);
+    --table-shadows: var(--post-shadows);
     /* page header */
     --header-top: #2f2d2a;
     --header-bot: #2f2d2a;
@@ -105,9 +107,11 @@
     --highlighted-bg: var(--tertiary-low);
     /* timeline slider */
     --timeline-scrollbar-bg: #00000028;
-    --timeline-handle-top: #484541;
-    --timeline-handle-bot: #3b3937;
+    --timeline-handle-top: #979188;
+    --timeline-handle-bot: #96928d;
     --timeline-handle-border: #ffffff10;
+    --timeline-handle-hover: #f99157;
+    --timeline-handle-click: #f2777a;
     /* topic list */
     --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #2f2d2a;
@@ -143,7 +147,7 @@
     --highlight: #d27b53;
     --danger: #f2777a;
     --success: #99cc99;
-    --love: #fa6c8d;
+    --love: #fa6c8d; /* thumbs-up button */
     --d-selected: #2c2c2c;
     --d-hover: #3b3937;
     --always-black-rgb: 0, 0, 0;
