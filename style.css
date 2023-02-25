@@ -485,6 +485,7 @@ div.dummy-placeholder {
 .paginated-topics-list, /* private message list */
 .directory-table-container, /* user list */
 .search-container .search-header, /* search page big search widget */
+.bookmark-list-wrapper, /* bookmarks page */
 div.dummy-placeholder {
     margin: 0.75em 0 0.75em 0;
     border: 3px outset var(--post-def-hl);
