@@ -148,7 +148,7 @@
     --danger: #f2777a;
     --success: #99cc99;
     --love: #fa6c8d; /* thumbs-up button */
-    --d-selected: #2c2c2c;
+    --d-selected: #2e2c2b;
     --d-hover: #3b3937;
     --always-black-rgb: 0, 0, 0;
     --primary-rgb: 221, 221, 221;
@@ -203,10 +203,10 @@
     --highlight-low: #22170b;
     --highlight-medium: #3b3937;
     --highlight-high: #d27b53;
-    --danger-low: #71383a;
+    --danger-low: #371112;
     --danger-low-mid: rgba(94, 54, 44, .7);
     /* --danger-medium: #a13116; */
-    --danger-hover: #933822;
+    --danger-hover: #bc373b;
     --success-low: #506a50;
     --success-medium: #99cc99;
     --success-hover: #93d0a4;
