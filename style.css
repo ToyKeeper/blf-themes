@@ -661,6 +661,20 @@ tbody {
     border: 0.15em outset var(--timeline-handle-border);
     margin-left: -0.73em !important;
 }
+
+
+.timeline-handle:hover, .timeline-scroller-content:hover { /* change color of scrollbar handle on hover */
+    color: var(--timeline-handle-hover);
+    --timeline-handle-top: var(--timeline-handle-hover);
+    --timeline-handle-bot: var(--timeline-handle-hover);
+     transition: 0.5s;
+}
+
+.timeline-handle:active { /* change color of scrollbar handle on click */
+    color: var(--timeline-handle-click);
+    --timeline-handle-top: var(--timeline-handle-hover);
+    --timeline-handle-bot: var(--timeline-handle-hover);
+}
 /* a "back" button sometimes pops up over the timeline */
 .timeline-last-read {
     margin-left: -1em !important;
@@ -795,8 +809,10 @@ div.dummy-placeholder {
     --post-border-radius: 10px;
     --post-padding: 8px;
     --button-border-radius: 16px;
-    --button-text-hover: #fff;
+    --button-text-hover: #efefef;
     --sidebar-text-hover: #68b9c8;
+    --timeline-handle-hover: #efefef;
+    --timeline-handle-click: #68b9c8;
     --post-action-bar-border-radius: 6px;
     --section-border-width: 4px;
 }
