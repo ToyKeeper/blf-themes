@@ -3,11 +3,11 @@
 @namespace      github.com/openstyles/stylus
 @version        1.0.0
 @description    A new userstyle
-@author         Me
+@author         LuxWad
 ==/UserStyle== */
 
-@-moz-document url-prefix("https://budgetlightforum.com/") {
-    /* Discourse "ko-Z" color palette
+@-moz-document domain("budgetlightforum.com") {
+/* Discourse "ko-Z" color palette
  * Copyright (C) Selene ToyKeeper
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -17,9 +17,6 @@
     --primary: #B8B8B8;
     --secondary: #2f2d2a;
     --tertiary: #6699cc; 
-    /* --tertiary: #e66100; */
-    /* --tertiary-medium: #6298e8; */
-    /* --tertiary-low: #93b7ee; */
     /* --tertiary-500: #93b7ee; */ /* topic list row borders */
     --quaternary: #cc99cc;
     --primary-high-or-secondary-low: #fff;
@@ -27,16 +24,16 @@
     --danger-medium: #66cccc;
     /* --love: #b924c1; */ /* thumbs-up button */
     /* page header */
-    --header_background: #333;
-    --header_shadow: #2b2b2b;
     --header-top: #2f2d2a;
-    --header-bottom: #2f2d2a;
+    --header-bot: #2f2d2a;
     --header-border: #474748;
     /* --header-icon-fg-hover: #000; */
     /* --header-icon-bg-hover: #ddf; */
     /* sidebar */
     --sidebar-color: #3b3937;
     --sidebar-border: #2f2d2a;
+    --sidebar-text-hover: #f2777a;
+    --button-text-hover: #ffcc66;
     /* ads */
     --ads-top: #ffcc66;
     --ads-bot: #d27b53;
@@ -45,8 +42,9 @@
     --post-op-top: #3b3937;
     --post-op-bot: #3b3937;
     --post-op-hl: #444;
-    --post-op-bar-top: #6699cc;
-    --post-op-bar-bot: #6699cc;
+    --post-op-bar-top: #3c5a79;
+    --post-op-bar-bot: #3c5a79;
+    /* --post-op-bar-bot: #6699cc; */
     
     --post-me-top: #3b3937;
     --post-me-bot: #3b3937;
@@ -68,12 +66,16 @@
     /* other parts of posts */
     --post-actions-bar-bg: rgba(0,0,0, 0.2);
     --post-quote-border: #ffffff30;
-    --post-embed-hl: #333;
-    --post-embed-top: #4b4846;
-    --post-embed-bot: #333230;
-    --quote-header-top: ##3b3937;
-    --quote-header-bot: ##3b3937;
-    --topic-map-bg: #2d2f2a;
+    --post-embed-hl: #444;
+    /* --post-embed-top: #4b4846; */
+    --post-embed-top: #00000018;
+    --post-embed-bot: #00000018;
+    /* --quote-header-top: #ffffff20; */
+    /* --quote-header-bot: #ffffff20; */
+    --quote-header-top: #00000020;
+    --quote-header-bot: #00000020;
+    --topic-map-bg: #00000030;
+    /* --topic-map-bg: #2d2f2a; */
     --post-notice-top: var(--highlight);
     --post-notice-bot: #292929;
     --post-notice-fg: #ddd;
@@ -86,6 +88,8 @@
     --avatar-bot: #2f2d2a;
     --avatar-hl: #555;
     /* blockquotes */
+    --blockquote-bg-odd: #ffffff18;
+    --blockquote-bg-even: #00000030;
     --blend-primary-secondary-5: #a4a4a418;
     --primary-very-low: #00000030;
     /* editor */
@@ -99,13 +103,27 @@
     /* highlighted text */
     --highlighted-fg: var(--tertiary);
     --highlighted-bg: var(--tertiary-low);
+    /* timeline slider */
+    --timeline-scrollbar-bg: #00000028;
+    --timeline-handle-top: #484541;
+    --timeline-handle-bot: #3b3937;
+    --timeline-handle-border: #ffffff10;
     /* topic list */
     --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #2f2d2a;
     --table-odd-row-bg: #3b3937;
+    --post-table-even-row-bg: #00000010;
+    --post-table-odd-row-bg: #ffffff08;
+    --post-table-th-bg: #ffffff10;
     --last-visit-bg: var(--danger-medium);
     --last-visit-fg: #333;
     /* misc */
+    --unread-dot-color: #ffcc66;
+    /* alert pop-up widget */
+    --alert-fg: #eca7a991;
+    --alert-bg: var(--header-bot);
+    --alert-border: var(--header-top);
+    /* buttons */
     --button-bg: #2f2d2a;
     --button-border: #3b3937;
     --button-primary-bg: var(--tertiary);
@@ -120,11 +138,7 @@
     /********** defaults copied from parent theme **********/
     --scheme-type: dark;
     --post-action-bar-border-radius: 60px;
-    /* --primary: #dddddd; */
-    /* --secondary: #222222; */
-    --tertiary: #6699cc;
-    /* --quaternary: #c14924; */
-    /* --header_background: #111111; */
+    /* --tertiary: #6699cc; */
     --header_primary: #dddddd;
     --highlight: #d27b53;
     --danger: #f2777a;
@@ -234,4 +248,5 @@
     --gold: rgb(231, 195, 0);
     --silver: #c0c0c0;
     --bronze: #cd7f32;
+}
 }
