@@ -1,13 +1,12 @@
 /* ==UserStyle==
-@name           budgetlightforum.com style-css-2 2/24/2023, 1:23:30 AM
+@name           BLF-style-css-3
 @namespace      github.com/openstyles/stylus
 @version        1.0.0
 @description    A new userstyle
 @author         Me
 ==/UserStyle== */
 
-@-moz-document url-prefix("https://budgetlightforum.com/") {
-   /* Discourse base stylesheet overrides
+/* Discourse base stylesheet overrides
  * Copyright (C) Selene ToyKeeper
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -25,16 +24,17 @@
 
 /********** banner at top of page **********/
 .d-header {
-    /* background-color: var(--header_background); */
-    /* border-bottom: 4px solid var(--header_shadow); */
     height: 4em;
-    background: linear-gradient(var(--header-top), var(--header-bottom));
+    background: linear-gradient(var(--header-top), var(--header-bot));
     border-bottom: var(--section-border-width) solid var(--header-border);
+    box-shadow: var(--header-shadow);
 }
+/*
 .d-header-icons a {
     background-color: var(--header-icon-bg) !important;
     color: var(--header-icon-fg) !important;
 }
+*/
 .d-header-icons a:hover {
     background-color: var(--header-icon-bg-hover) !important;
     color: var(--header-icon-fg-hover) !important;
@@ -92,12 +92,13 @@ div.topic-post {
 /* outer container for comments */
 /* using "article" instead of "div.topic-post"
  * because "article" has more attributes to select by, for per-user styling */
-article {
+article, article.boxed {
     border: 1px outset var(--post-def-hl);
     background: linear-gradient(var(--post-def-top), var(--post-def-bot));
     border-radius: var(--post-border-radius);
     padding: var(--post-padding);
     margin: 0px 0px 10px 0px;
+    box-shadow: var(--post-shadows);
 }
 
 /* extra messages at top of post, like "it's been a while since we saw this user" */
@@ -114,6 +115,7 @@ article {
 /* draw a box around avatar pics */
 div.topic-avatar, .embedded-posts .topic-avatar {
     background: linear-gradient(-45deg, var(--avatar-bot),var(--avatar-top));
+    box-shadow: var(--post-widget-shadows);
     border: 1px outset var(--avatar-hl);
     border-radius: 6px;
     padding: 5px 6px 6px 5px;
@@ -123,6 +125,9 @@ div.topic-avatar, .embedded-posts .topic-avatar {
 .embedded-posts .topic-avatar {
     border-radius: 5px;
     padding: 3px 4px 4px 3px;
+}
+img.avatar {
+    border-radius: 0.15em;
 }
 
 .topic-body {
@@ -141,6 +146,8 @@ div.topic-meta-data {
     margin: 0px;
     border-radius: 6px 6px 0px 0px;
     border-style: none;
+    box-shadow: var(--post-widget-shadows);
+    padding: 3px 5px;
 }
 /* reply-to header */
 .topic-body .reply-to-tab {
@@ -181,7 +188,8 @@ div.topic-meta-data {
 
 /* remove extra space after last paragraph of each comment */
 .cooked p:last-of-type {
-    margin-bottom: 2px;
+    /* margin-bottom: 2px; */ /* looks good with text, bad when p>img is last element */
+    margin-bottom: 0.5em;
 }
 
 /* remove extra space at bottom of comments */
@@ -193,12 +201,18 @@ section.post-menu-area, section.post-actions {
 nav.post-controls .actions button, nav.post-controls .show-replies {
     padding: 0px 5px;
 }
+/* remove spurious scrollbar on mobile */
+nav.post-controls {
+    /* overflow-x: auto; */ /* causes clipping and a scrollbar when using box-shadow() */
+    overflow-x: visible;
+}
 
 /* container for buttons at the bottom of posts */
 div.actions {
     padding: 5px;
     border-radius: var(--post-action-bar-border-radius);
     background: var(--post-actions-bar-bg);
+    box-shadow: var(--action-bar-shadows);
 }
 nav.post-controls .actions button.create, nav.post-controls .actions button.create .d-icon {
     color: var(--reply-action);
@@ -206,26 +220,27 @@ nav.post-controls .actions button.create, nav.post-controls .actions button.crea
 
 /********** quoted posts **********/
 aside.quote {
-    /* padding-top: 0.25em; */
     margin-top: 0;
     margin-bottom: 0.5em;
-    /* border-radius: 8px; */
+    background: none !important;
 }
 .quote aside .quote { /* remove inconsistent blockquote border */
     border-left: 0;
 }
 blockquote,
-aside.quote .title,
-.quote aside blockquote,
-.quote aside aside.quote>blockquote,
-.quote aside aside.quote>.title
+aside.quote .title
 { /* add a consistent blockquote border */
-    border-left: 5px solid var(--post-quote-border);
+    border-left: 5px solid var(--post-quote-border) !important;
 }
-blockquote {
+blockquote { /* bare blockquote with no title */
     padding: 0.5em;
     margin: 0 0 0.5em 0;
+    border-radius: 0 8px 8px 0;
 }
+blockquote { background: var(--blockquote-bg-odd) !important; }
+blockquote blockquote { background: var(--blockquote-bg-even) !important; }
+blockquote blockquote blockquote { background: var(--blockquote-bg-odd) !important; }
+blockquote blockquote blockquote blockquote{ background: var(--blockquote-bg-even) !important; }
 aside.quote .title { /* title bar for quoted posts */
     background: linear-gradient(var(--quote-header-top), var(--quote-header-bot));
     padding: 0.25em;
@@ -233,7 +248,7 @@ aside.quote .title { /* title bar for quoted posts */
 aside.quote .title { /* top right corner of a quote */
     border-radius: 0 8px 0 0;
 }
-blockquote, .quote aside blockquote { /* bottom right corner of a quote */
+.title + blockquote { /* quote after a title bar */
     border-radius: 0 0 8px 0;
 }
 .quote-controls {
@@ -268,6 +283,22 @@ span.highlighted {
     color: var(--highlighted-fg);
     background: var(--highlighted-bg);
 }
+
+/********** tables inside posts **********/
+.cooked tbody {
+    border: none;
+}
+.cooked th {
+    background: var(--post-table-th-bg);
+    color: var(--primary);
+}
+.cooked tr {
+    background: var(--post-table-even-row-bg);
+}
+.cooked tr:nth-child(odd) {
+    background: var(--post-table-odd-row-bg);
+}
+
 
 /********** linked threads at bottom of post **********/
 .post-links-container .post-links {
@@ -376,6 +407,7 @@ span.highlighted {
 }
 .d-editor-button-bar .btn {
     border: none;
+    box-shadow: none;
 }
 .d-editor-textarea-wrapper {
     border: 3px inset var(--editor-hl);
@@ -402,6 +434,26 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     border: 1px outset var(--topic-map-bg);
     border-radius: var(--post-border-radius);
     padding: var(--post-padding);
+    box-shadow: var(--post-shadows);
+}
+
+/********** user info pop-up widget **********/
+.user-card.show, .group-card.show {
+    border-radius: var(--post-border-radius);
+    background: linear-gradient(var(--post-def-top), var(--post-def-bot));
+    outline: none;
+    border: 3px outset var(--post-def-hl);
+    box-shadow: 0.5em 1.5em 2em var(--shadow-color);
+}
+.user-card .card-content, .group-card .card-content {
+    background: none;
+}
+.user-card-avatar {
+    background: linear-gradient(-45deg, var(--avatar-bot),var(--avatar-top));
+    border: 1px outset var(--avatar-hl);
+    border-radius: 6px;
+    padding: 5px 6px 6px 5px;
+    box-shadow: 0.333em 0.5em 0.5em var(--shadow-color);
 }
 
 /********** Topic List widget(s) **********/
@@ -409,13 +461,14 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 .suggested-topics, /* topic list at bottom of threads */
 .contents.ember-view, /* front page topic list */
 .paginated-topics-list, /* private message list */
-.directory-table-container /* user list */
-{
+.directory-table-container, /* user list */
+div.dummy-placeholder {
     margin: 0.75em 0 0.75em 0;
     border: 3px outset var(--post-def-hl);
     background: linear-gradient(var(--post-def-top), var(--post-def-bot));
     /* border-radius: var(--post-border-radius); */
     padding: 5px;
+    box-shadow: var(--table-shadows);
 }
 .topic-list-item, tr {
     /* border-bottom: 1px solid var(--tertiary-500); */
@@ -425,8 +478,9 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 }
 .topic-list-item:nth-child(odd), /* topic list rows */
 .category-list tr:nth-child(odd), /* category list rows */
-.directory table tr:nth-child(odd) /* user list rows */
-{
+.directory table tr:nth-child(odd), /* user list rows */
+.summary-category-list tr:nth-child(odd), /* user info page "top categories" */
+div.dummy-placeholder {
     background: var(--table-odd-row-bg) !important;
 }
 tbody {
@@ -498,9 +552,12 @@ tbody {
 
 /* this pops up sometimes, over the top of other widgets */
 .alert {
+    color: var(--alert-fg) !important;
+    background-color: var(--alert-bg) !important;
     border-radius: var(--button-border-radius);
-    border: 3px outset var(--button-bg);
-    padding: 0.25em 0.75em 0.25em 0.75em !important;
+    border: 3px outset var(--alert-border);
+    padding: 0.15em 0.75em !important;
+    margin-right: 0.75em !important;
 }
 
 /********** user list widget **********/
@@ -520,12 +577,28 @@ tbody {
     margin-top: 0;
 }
 
+.sidebar-section-header-text:hover { /* change text color for section headers on hover !!CONSIDER REMOVING :HOVER */
+    color: var(--button-text-hover);
+    transition: .75s;
+}
+
+.sidebar-more-section-links-details-summary:hover { /* "more" button */
+    color: var(--button-text-hover);
+    transition: .3s;
+}
+
+.sidebar-section-link:hover { /* change topic colors on hover */
+    color: var(--sidebar-text-hover);
+    transition: 0.3s;
+}
+
 /********** misc buttons **********/
 /* lots of site buttons */
 .btn {
     border-radius: var(--button-border-radius);
     border: 1px outset var(--button-border);
     background: var(--button-bg);
+    box-shadow: var(--button-shadows);
 }
 
 /* "Summarize This Topic" and "Reply" buttons */
@@ -533,6 +606,15 @@ tbody {
     border-radius: var(--button-border-radius);
     border: 1px outset var(--button-primary-border);
     background: var(--button-primary-bg);
+    box-shadow: var(--button-shadows);
+}
+.btn-flat {
+    box-shadow: none;
+    border: none;
+    background: none;
+}
+.quote-button {
+    box-shadow: var(--button-shadows);    
 }
 
 /* hamburger button in the page header */
@@ -548,6 +630,7 @@ tbody {
 /* "Tracking" button */
 .select-kit-header {
     border: 1px outset var(--button-border) !important;
+    background: var(--button-bg) !important;
 }
 
 /********** timeline **********/
@@ -557,6 +640,7 @@ tbody {
     border-radius: 12px;
     border: 1px outset var(--button-border);
     padding: 0.2em 0.4em;
+    box-shadow: var(--button-shadows);
 }
 /* bottom right corner version */
 #topic-progress {
@@ -566,6 +650,24 @@ tbody {
 #topic-progress .bg {
     border-radius: 13px;
     background: var(--tertiary-medium);
+}
+.timeline-scrollarea {
+    margin-left: 1em !important;
+    border-left: 1.1em solid var(--timeline-scrollbar-bg) !important;
+}
+.timeline-handle {
+    width: 0.5em !important;
+    background: linear-gradient(var(--timeline-handle-top), var(--timeline-handle-bot));
+    border: 0.15em outset var(--timeline-handle-border);
+    margin-left: -0.73em !important;
+}
+/* a "back" button sometimes pops up over the timeline */
+.timeline-last-read {
+    margin-left: -1em !important;
+}
+.timeline-last-read svg {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 /********** tag box (like posts tagged "review") **********/
@@ -594,11 +696,47 @@ a.mention, a.mention-group {
     /* text-shadow: 0 0 5px #000; */
 }
 
+/* dot which shows up on unread posts */
+.read-state {
+    color: var(--unread-dot-color);
+    padding: 0.2em;
+}
+
 /* less padding around paragraphs */
 p {
     margin-block-start: 0.5em;
     margin-block-end: 0.5em;
 }
+
+/********** scrollbars **********/
+*::-webkit-scrollbar {
+    /* background: #00000000; */
+    background: var(--timeline-scrollbar-bg);
+}
+
+*::-webkit-scrollbar-track {
+    /* color of the tracking area */
+    background: #00000000;
+    /* background: var(--timeline-scrollbar-bg); */
+}
+
+*::-webkit-scrollbar-thumb {
+    /* creates padding around scroll thumb */
+    border: 0.15em outset var(--timeline-handle-border);
+    border-radius: 100px;
+    color: var(--primary);
+    /* color of the scroll thumb */
+    background: linear-gradient(var(--timeline-handle-top), var(--timeline-handle-bot));
+    /* box-shadow: var(--button-shadows); */ /* nope, hits a browser bug */
+}
+
+* {
+    /* firefox, I think */
+    /* scroll thumb and track */ 
+    scrollbar-color: var(--timeline-scrollbar-bg) var(--timeline-handle-top);
+}
+
+
 
 /********** theme posts per user type **********/
 /* make OP visible */
@@ -657,7 +795,8 @@ div.dummy-placeholder {
     --post-border-radius: 10px;
     --post-padding: 8px;
     --button-border-radius: 16px;
+    --button-text-hover: #fff;
+    --sidebar-text-hover: #68b9c8;
     --post-action-bar-border-radius: 6px;
-    --section-border-width: 4px
-}
+    --section-border-width: 4px;
 }
