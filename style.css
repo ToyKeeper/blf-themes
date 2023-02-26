@@ -901,7 +901,7 @@ p {
 * {
     /* firefox, I think */
     /* scroll thumb and track */
-    scrollbar-color: var(--timeline-scrollbar-bg) var(--timeline-handle-top);
+    scrollbar-color: var(--timeline-handle-top) var(--timeline-scrollbar-bg);
 }
 
 
