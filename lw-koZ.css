@@ -67,7 +67,8 @@
     --post-def-bar-top: #2f2d2a;
     --post-def-bar-bot: #2f2d2a;
     /* other parts of posts */
-    --post-actions-bar-bg: rgba(0,0,0, 0.2);
+    --post-action-bar-bg: rgba(0,0,0, 0.2);
+    --post-action-bar-border-radius: 60px;
     --post-quote-border: #ffffff30;
     --post-embed-hl: #444;
     /* --post-embed-top: #4b4846; */
@@ -116,39 +117,41 @@
     --timeline-handle-top: #484541;
     --timeline-handle-bot: #3b3937;
     --timeline-handle-border: #ffffff10;
-    /* topic list */
-    --table-header-bg: var(--post-def-top);
-    --table-even-row-bg: #2f2d2a;
-    --table-odd-row-bg: #3b3937;
-    --post-table-even-row-bg: #00000010;
-    --post-table-odd-row-bg: #ffffff08;
-    --post-table-th-bg: #ffffff10;
-    --last-visit-bg: var(--danger-medium);
-    --last-visit-fg: #333;
     /* misc */
     --unread-dot-color: #b49041;
     --simple-theme-link-color: var(--tertiary);
     /* --simple-theme-link-color: #7e97cd; */
     /* alert pop-up widget */
     --alert-fg: #abc;
-    --alert-bg: var(--header-bot);
-    --alert-border: var(--header-top);
+    --alert-bg: var(--header-bg-bot);
+    --alert-border: var(--header-bg-top);
     /* buttons */
     --button-bg: #2f2d2a;
     --button-border: #3b3937;
     --button-primary-bg: var(--tertiary);
     --button-primary-border: var(--button-border);
+    /* topic list */
+    --table-header-bg: var(--post-def-top);
+    --table-even-row-bg: #2f2d2a;
+    --table-odd-row-bg: #3b3937;
+    --table-even-row-hl-bg: #46273b; /* bookmarked */
+    --table-odd-row-hl-bg: #493043; /* bookmarked */
+    --post-table-even-row-bg: #00000010;
+    --post-table-odd-row-bg: #ffffff08;
+    --post-table-th-bg: #ffffff10;
+    --last-visit-bg: var(--danger-medium);
+    --last-visit-fg: #333;
     --reply-action: #B8B8B8;
     /* --primary-low-mid: #285892; */
     /* --primary-low-mid-or-secondary-high: #285892; */
     /* --primary-high-or-secondary-low: #034c3b; */
     /* --tertiary-med-or-tertiary: #448; */
     --hljs-bg: #ffffff30; /* <code> blocks */
+    /* main nav controls on front page */
     --d-nav-pill-border-radius: 100px;
 
     /********** defaults copied from parent theme **********/
     --scheme-type: dark;
-    --post-action-bar-border-radius: 60px;
     /* --primary: #dddddd; */
     /* --secondary: #222222; */
     --tertiary: #6699cc;

@@ -88,6 +88,7 @@ article, /* regular post */
 article.boxed, /* mobile version */
 .user-stream .item, /* user activity feed */
 .search-results .fps-result, /* search widget item */
+.d-toc-main, /* table of contents on first post */
 div.dummy-placeholder {
     border: 1px outset var(--post-def-hl);
     background: linear-gradient(var(--post-def-top), var(--post-def-bot));
@@ -95,6 +96,9 @@ div.dummy-placeholder {
     padding: var(--post-padding);
     margin: 0px 0px 10px 0px;
     box-shadow: var(--post-shadows);
+}
+.topic-list-item td:first-child, .topic-post {
+    border-left: none; /* override keyboard_shortcuts.scss:3 */
 }
 
 /* extra messages at top of post, like "it's been a while since we saw this user" */
@@ -145,7 +149,7 @@ img.avatar {
 }
 
 /* put the post header data into a themed bar */
-div.topic-meta-data {
+.topic-body .topic-meta-data {
     background: linear-gradient(var(--post-def-bar-top), var(--post-def-bar-bot));
     /* padding: 3px 2px 3px 3px; */
     /* margin: 0px 0px 0px 5px; */
@@ -153,7 +157,8 @@ div.topic-meta-data {
     border-radius: 6px 6px 0px 0px;
     border-style: none;
     box-shadow: var(--post-widget-shadows);
-    padding: 3px 5px;
+    /* override topic-post.scss:476 */
+    padding: 3px 8px 2px 8px;
 }
 /* reply-to header */
 .topic-body .reply-to-tab {
@@ -162,7 +167,7 @@ div.topic-meta-data {
 .reply-to-tab img.avatar {
     position: absolute;
     margin-left: 18px;
-    margin-top: 4px;
+    margin-top: 0px;
 }
 .reply-to-tab .d-icon-share {
     margin-right: 32px;
@@ -458,10 +463,11 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     border: 3px outset var(--post-def-hl);
     box-shadow: 0.5em 1.5em 2em var(--shadow-color);
 }
-.user-card .card-content, .group-card .card-content {
+.user-card .card-content, .group-card .card-content, .d-user-card__main-content {
     background: none;
 }
 .user-card-avatar, /* pop-up widget */
+.d-user-card__avatar img.avatar, /* pop-up on meta.discourse.org */
 .controls .avatar, /* user prefs page */
 .user-profile-avatar .avatar, /* user info page */
 div.dummy-placeholder {
@@ -508,6 +514,14 @@ div.dummy-placeholder {
 div.dummy-placeholder {
     background: var(--table-odd-row-bg) !important;
 }
+.topic-list-item.bookmarked {
+    /* important because parent theme set it that way */
+    background-color: var(--table-even-row-hl-bg) !important;
+}
+.topic-list-item.bookmarked:nth-child(odd) {
+    /* important because parent theme set it that way */
+    background-color: var(--table-odd-row-hl-bg) !important;
+}
 tbody {
     border-top: 3px solid var(--post-quote-border);
 }
@@ -546,8 +560,8 @@ tbody {
     padding: 0px 5px;
 }
 .last-post .poster-avatar {
-    /* margin-right: 10px; */
-    margin-top: 0;
+    margin-right: 5px;
+    margin-top: -2px;
     float: right;
 }
 .last-post .poster-avatar img.avatar {
@@ -555,7 +569,8 @@ tbody {
     height: 1.5em;
 }
 .poster-info {
-    width: 125px;
+    /* 100% - img.avatar:width - .poster-avatar:margin-right - 2px */
+    width: calc(100% - 1.5em - 7px);
 }
 .topic-list .topic-list-data, .topic-list .creator a, .topic-list .editor a {
     color: var(--quaternary);
@@ -774,7 +789,7 @@ li.active,
  *  things like "3 / 8 Jan 1")
  */
 .timeline-container .topic-timeline .timeline-scrollarea {
-    min-width: 4em;
+    min-width: 5em;
 }
 .timeline-container .topic-timeline .timeline-replies,
 .timeline-container .topic-timeline .timeline-ago {
@@ -788,13 +803,19 @@ li.active,
 }
 
 /********** tag box (like posts tagged "review") **********/
-a.discourse-tag {
+a.discourse-tag, a.hashtag-cooked {
     color: var(--tag-fg) !important;
+    background-color: var(--tag-bg);
+    border-radius: 99px;
+    padding: 0px 6px;
+    font-size: var(--font-down-1);
 }
-.discourse-tag.box, a.hashtag-cooked {
+
+/* user titles, group names, etc */
+.names .new_user a, .names .user-title a {
     color: var(--tag-fg);
     background-color: var(--tag-bg);
-    border-radius: 6px;
+    border-radius: 99px;
     padding: 0px 6px;
 }
 
@@ -818,7 +839,12 @@ a.mention, a.mention-group {
 /* dot which shows up on unread posts */
 .read-state {
     color: var(--unread-dot-color);
-    padding: 0.2em;
+    margin-left: 0.5em;
+    position: relative;
+}
+.read-state.read {
+    position: absolute;
+    /* display: none; */
 }
 
 /* less padding around paragraphs */
@@ -872,6 +898,14 @@ p {
 .topic-owner article > .row > .topic-avatar {
     background: linear-gradient(-45deg, var(--post-op-bar-bot), var(--post-op-bar-top));
     border: 1px outset var(--post-op-bar-top);
+}
+/* table of contents on first post */
+.d-toc-main {
+    border: 1px outset var(--post-op-hl);
+    background: linear-gradient(var(--post-op-top), var(--post-op-bot));
+}
+.d-toc-main a {
+    color: var(--tertiary);
 }
 
 
