@@ -676,6 +676,10 @@ div.dummy-placeholder
     background-color: unset;
     border-radius: var(--button-border-radius);
 }
+.user-menu.revamped .quick-access-panel ul {
+    /* ensure hidden items are entirely hidden */
+    gap: 0em 5em;
+}
 /* notifications (one per) */
 .user-menu .quick-access-panel li {
     /* prevent shadow from getting clipped */
