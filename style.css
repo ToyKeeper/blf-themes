@@ -155,7 +155,7 @@ div.topic-meta-data {
 }
 .post-info.edits {
     background-color: var(--post-header-button-bg);
-    border-radius: 4px;
+    border-radius: var(--button-border-radius);
     margin: 0.15em 0.5em 0 0;
     padding: 0.06em 0 0.06em 0;
 }
@@ -167,6 +167,15 @@ div.topic-meta-data {
 }
 .quote-controls, .quote-controls .d-icon {
     color: var(--post-header-button);
+}
+
+/* heatmap + post edited colors */
+.heatmap-low, .heatmap-low a, .heatmap-low .d-icon, .heatmap-low .d-button-label {
+  color: var(--heatmap-low-color) !important;
+}
+
+.heatmap-high, .heatmap-high a, .heatmap-high .d-icon, .heatmap-high .d-button-label {
+  color: var(--heatmap-high-color) !important;
 }
 
 /* main comment body */
@@ -726,7 +735,7 @@ p {
 /********** scrollbars **********/
 *::-webkit-scrollbar {
     /* background: #00000000; */
-    background: var(--timeline-scrollbar-bg);
+    background: var(--main-scrollbar-bg);
 }
 
 *::-webkit-scrollbar-track {
@@ -748,7 +757,7 @@ p {
 * {
     /* firefox, I think */
     /* scroll thumb and track */ 
-    scrollbar-color: var(--timeline-scrollbar-bg) var(--timeline-handle-top);
+    scrollbar-color: var(--main-scrollbar-button) var(--main-scrollbar-bg);
 }
 
 
@@ -814,6 +823,8 @@ div.dummy-placeholder {
     --sidebar-text-hover: #68b9c8;
     --timeline-handle-hover: #efefef;
     --timeline-handle-click: #68b9c8;
+    --heatmap-high-color: #fe7a15;
+    --heatmap-low-color: #9b764f;
     --post-action-bar-border-radius: 6px;
     --section-border-width: 4px;
 }
