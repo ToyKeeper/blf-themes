@@ -29,8 +29,8 @@
     /* shadows */
     --menu-shadow-color: #00000060;
     /* page header */
-    --header-top: #2f2d2a;
-    --header-bot: #2f2d2a;
+    --header-bg-top: #2f2d2a;
+    --header-bg-bot: #2f2d2a;
     --header-border: #474748;
     /* --header-icon-fg-hover: #000; */
     /* --header-icon-bg-hover: #ddf; */

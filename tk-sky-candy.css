@@ -28,8 +28,8 @@
     --button-shadows: 0.1em 0.1em 0.2em var(--shadow-color);
     --table-shadows: var(--post-shadows);
     /* page header */
-    --header-top: #8f8feb;
-    --header-bot: #4141a2;
+    --header-bg-top: #8f8feb;
+    --header-bg-bot: #4141a2;
     --header-border: #32329a;
     --header-icon-fg: #000;
     --header-icon-bg: #ccf;

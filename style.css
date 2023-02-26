@@ -17,7 +17,7 @@
 /********** banner at top of page **********/
 .d-header {
     height: 4em;
-    background: linear-gradient(var(--header-top), var(--header-bot));
+    background: linear-gradient(var(--header-bg-top), var(--header-bg-bot));
     border-bottom: var(--section-border-width) solid var(--header-border);
     box-shadow: var(--header-shadow);
 }
@@ -784,7 +784,7 @@ li.active,
 .timeline-container .topic-timeline .timeline-scroller-content {
     overflow: visible;
     padding-left: 0.5em;
-    max-height: unset;
+    max-height: 4em;
 }
 
 /********** tag box (like posts tagged "review") **********/
