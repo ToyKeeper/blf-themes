@@ -424,8 +424,16 @@ span.highlighted {
 }
 
 /********** editor **********/
+.open .grippie {
+    background: linear-gradient(var(--post-me-bar-top), var(--post-me-bar-bot));
+    border-top: 1px outset var(--post-me-bar-top);
+    padding: 6px 0;
+}
+.open .grippie:before {
+    border-top: 3px double #ffffff60;
+}
 #reply-control {
-    box-shadow: 0 -0.5em 1.0em var(--shadow-color);
+    box-shadow: 0 -0.5em 1.0em var(--menu-shadow-color);
 }
 #reply-control .reply-area {
     background: var(--primary-low);
