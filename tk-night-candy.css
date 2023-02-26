@@ -67,7 +67,7 @@
     --post-action-bar-bg: rgba(0,0,0, 0.2);
     --post-quote-border: #ffffff30;
     --post-embed-hl: #333;
-    --post-embed-top: #1c1c1c;
+    --post-embed-top: #1e1e1e;
     --post-embed-bot: #242424;
     --quote-header-top: #5577bb60;
     --quote-header-bot: #22335560;
@@ -104,6 +104,9 @@
     --tag-bg: #ffffff30;
     /* --tag-fg: var(--highlighted-fg); */
     /* --tag-bg: var(--highlighted-bg); */
+    /* user titles */
+    --user-title-fg: var(--primary);
+    --user-title-bg: #00000060;
     /* timeline slider */
     --timeline-scrollbar-bg: var(--button-bg);
     --timeline-handle-top: #5b5b93;

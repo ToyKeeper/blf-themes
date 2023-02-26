@@ -68,7 +68,7 @@
     --post-action-bar-bg: #ffffff80;
     --post-quote-border: #00000030;
     --post-embed-hl: #fff;
-    --post-embed-top: #ccc;
+    --post-embed-top: #d4d4d4;
     --post-embed-bot: #ddd;
     --quote-header-top: #bacef880;
     --quote-header-bot: #4b60c680;
@@ -104,6 +104,9 @@
     --tag-bg: #00000030;
     /* --tag-fg: var(--highlighted-fg); */
     /* --tag-bg: var(--highlighted-bg); */
+    /* user titles */
+    --user-title-fg: var(--primary);
+    --user-title-bg: #ffffff60;
     /* timeline slider */
     --timeline-scrollbar-bg: var(--button-bg);
     --timeline-handle-top: var(--header-bg-top);

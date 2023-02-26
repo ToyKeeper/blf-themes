@@ -112,6 +112,9 @@
     --tag-bg: #ffffff28;
     /* --tag-fg: var(--highlighted-fg); */
     /* --tag-bg: var(--highlighted-bg); */
+    /* user titles */
+    --user-title-fg: var(--primary);
+    --user-title-bg: #ffffff18;
     /* timeline slider */
     --timeline-scrollbar-bg: #00000028;
     --timeline-handle-top: #484541;

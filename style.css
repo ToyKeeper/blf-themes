@@ -231,7 +231,8 @@ nav.post-controls .actions button.create, nav.post-controls .actions button.crea
 }
 
 /********** quoted posts **********/
-aside.quote {
+aside.quote, /* quoted post */
+div.dummy-placeholder {
     margin-top: 0;
     margin-bottom: 0.5em;
     background: none !important;
@@ -277,7 +278,7 @@ aside.quote .title { /* top right corner of a quote */
 .embedded-posts .topic-body {
     width: 100%; /* remove calculated extra padding from parent theme */
 }
-.embedded-posts .reply {
+.embedded-posts .reply, aside.onebox {
     margin-top: 10px;
     padding: 5px;
     border: 1px inset var(--post-embed-hl);
@@ -289,6 +290,19 @@ aside.quote .title { /* top right corner of a quote */
 }
 .embedded-posts.bottom {
     margin-bottom: 0px; /* remove extra space below embedded posts */
+}
+aside.onebox header {
+    margin-bottom: 0.5em;
+}
+.onebox article {
+    margin: 0;
+}
+.onebox .label1 {
+    /* override onebox.scss:748 */
+    /* parent theme breaks part of the post out of its container,
+       which makes it draw over other elements ... so don't do that.
+       */
+    float: none !important;
 }
 
 /* quoted part of a post, when expanded to show the rest */
@@ -812,11 +826,14 @@ a.discourse-tag, a.hashtag-cooked {
 }
 
 /* user titles, group names, etc */
-.names .new_user a, .names .user-title a {
-    color: var(--tag-fg);
-    background-color: var(--tag-bg);
+.names .new_user, .names .user-title {
+    color: var(--user-title-fg);
+    background-color: var(--user-title-bg);
     border-radius: 99px;
     padding: 0px 6px;
+}
+.names .new_user a, .names .user-title, .names .user-title a {
+    color: var(--user-title-fg);
 }
 
 /********** "skip to content" button (pops up sometimes) **********/
