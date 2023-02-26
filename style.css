@@ -1,11 +1,3 @@
-/* ==UserStyle==
-@name           BLF-style-css-3
-@namespace      github.com/openstyles/stylus
-@version        1.0.0
-@description    A new userstyle
-@author         Me
-==/UserStyle== */
-
 /* Discourse base stylesheet overrides
  * Copyright (C) Selene ToyKeeper
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -663,18 +655,27 @@ tbody {
 }
 
 
-.timeline-handle:hover, .timeline-scroller-content:hover { /* change color of scrollbar handle on hover */
+.timeline-scrollarea:hover { /* change color of scrollbar handle on hover */
     color: var(--timeline-handle-hover);
     --timeline-handle-top: var(--timeline-handle-hover);
     --timeline-handle-bot: var(--timeline-handle-hover);
      transition: 0.5s;
 }
 
-.timeline-handle:active { /* change color of scrollbar handle on click */
+.timeline-scrollarea:active, .timeline-handle:active { /* change color of scrollbar handle on click */
     color: var(--timeline-handle-click);
-    --timeline-handle-top: var(--timeline-handle-hover);
-    --timeline-handle-bot: var(--timeline-handle-hover);
+    --timeline-handle-top: var(--timeline-handle-click);
+    --timeline-handle-bot: var(--timeline-handle-click);
 }
+
+.d-label:hover, .timeline-scroller-content:hover { /* change color of date buttons on hover */
+    color: var(--button-text-hover);
+    transition: .3s;
+}
+.d-label:active, .timeline-scroller-content:active {  /* change color of date buttons on click */
+    color: var(--timeline-handle-click);
+}
+
 /* a "back" button sometimes pops up over the timeline */
 .timeline-last-read {
     margin-left: -1em !important;
