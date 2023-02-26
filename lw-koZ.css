@@ -81,8 +81,10 @@
     --post-notice-top: var(--highlight);
     --post-notice-bot: #292929;
     --post-notice-fg: #ddd;
-    /* --post-header-button-bg: #ffffff30; */
+    --post-header-button-bg: #3b39377d; 
     --post-header-button: #96928d;
+    --heatmap-low-color: #d27b53;
+    --heatmap-high-color: #ffcc66;
     /* --post-header-button: #285892; */
     /* --post-header-button: #eee; */
     /* avatar */
@@ -133,6 +135,9 @@
     --button-primary-bg: var(--tertiary);
     --button-primary-border: var(--button-border);
     --reply-action: #B8B8B8;
+    /*main-site scrollbars */
+    --main-scrollbar-bg: #3b3937;
+    --main-scrollbar-button: #96928d;
     /* --primary-low-mid: #285892; */
     /* --primary-low-mid-or-secondary-high: #285892; */
     /* --primary-high-or-secondary-low: #034c3b; */
