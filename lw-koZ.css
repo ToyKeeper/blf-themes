@@ -132,8 +132,10 @@
     --button-primary-border: var(--button-border);
     /* topic list */
     --table-header-bg: var(--post-def-top);
-    --table-even-row-bg: #2f2d2a;
-    --table-odd-row-bg: #3b3937;
+    --table-even-row-bg: #00000040;
+    --table-odd-row-bg: #ffffff00;
+    /* --table-even-row-bg: #2f2d2a; */
+    /* --table-odd-row-bg: #3b3937; */
     --table-even-row-hl-bg: #46273b; /* bookmarked */
     --table-odd-row-hl-bg: #493043; /* bookmarked */
     --post-table-even-row-bg: #00000010;

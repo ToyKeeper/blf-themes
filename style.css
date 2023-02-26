@@ -223,7 +223,7 @@ nav.post-controls {
 div.actions {
     padding: 5px;
     border-radius: var(--post-action-bar-border-radius);
-    background: var(--post-actions-bar-bg);
+    background: var(--post-action-bar-bg);
     box-shadow: var(--action-bar-shadows);
 }
 nav.post-controls .actions button.create, nav.post-controls .actions button.create .d-icon {
