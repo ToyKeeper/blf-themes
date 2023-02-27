@@ -89,6 +89,7 @@ article.boxed, /* mobile version */
 .user-stream .item, /* user activity feed */
 .search-results .fps-result, /* search widget item */
 .d-toc-main, /* table of contents on first post */
+.presence-users, /* pops up when someone is writing a reply */
 div.dummy-placeholder {
     border: 1px outset var(--post-def-hl);
     background: linear-gradient(var(--post-def-top), var(--post-def-bot));
@@ -117,6 +118,7 @@ div.topic-avatar, /* main post avatar */
 .embedded-posts .topic-avatar, /* embedded post avatar */
 div.avatar-wrapper, /* per item in user activity stream */
 .search-results .avatar, /* search widget results */
+.presence-avatars, /* when someone is writing a reply */
 div.dummy-placeholder {
     background: linear-gradient(-45deg, var(--avatar-bot),var(--avatar-top));
     box-shadow: var(--post-widget-shadows);
@@ -126,7 +128,10 @@ div.dummy-placeholder {
     /* important because some posts explicitly set a huge bottom margin */
     margin: 0px 8px 0px 0px !important;
 }
-.embedded-posts .topic-avatar, div.avatar-wrapper {
+.embedded-posts .topic-avatar,
+div.avatar-wrapper,
+.presence-avatars, /* when someone is writing a reply */
+div.dummy-placeholder {
     border-radius: 5px;
     padding: 3px 4px 4px 3px;
     margin: 0 6px 0 0 !important;
@@ -467,6 +472,14 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     outline-color: var(--primary-low);
     border-color: var(--editor-hl);
 }
+ /* pops up when someone is writing a reply, remove some decoration */
+.reply-to .presence-users, .reply-to .presence-avatars {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+}
 
 /********** user info screen **********/
 .user-main .about .details, .user-main .about.collapsed-info .details {
@@ -785,12 +798,20 @@ li.active,
 }
 /* bottom right corner version */
 #topic-progress {
-    border-radius: 16px;
-    border: 3px outset var(--tertiary);
+    border-radius: 12px;
+    background: var(--secondary);
+    color: var(--primary);
+    border: 4px outset var(--timeline-handle-border);
+    box-shadow: 0.25em 0.25em 1.0em var(--menu-shadow-color);
+    margin-bottom: 0.5em;
+    outline: none;
+    padding: 0;
 }
 #topic-progress .bg {
-    border-radius: 13px;
-    background: var(--tertiary-medium);
+    border-radius: 8px;
+    background: linear-gradient(var(--timeline-handle-top), var(--timeline-handle-bot));
+    /* it doesn't quite reach the top and bottom for some reason */
+    margin: -0.2px 0 -0.1px 0;
 }
 .timeline-scrollarea {
     margin-left: 0.75em !important;
