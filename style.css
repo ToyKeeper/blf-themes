@@ -164,6 +164,10 @@ img.avatar {
     /* override topic-post.scss:476 */
     padding: 3px 8px 2px 8px;
 }
+.relative-date:hover{
+  color: var(--button-text-hover);
+    transition: .25s;
+}
 /* reply-to header */
 .topic-body .reply-to-tab {
     color: var(--post-header-button);
@@ -193,12 +197,20 @@ img.avatar {
 }
 
 /* heatmap + post edited colors */
-.heatmap-low, .heatmap-low a, .heatmap-low .d-icon, .heatmap-low .d-button-label {
-  color: var(--heatmap-low-color) !important;
+.post-info.edits .widget-button .d-icon, .post-info.edits .widget-button .d-button-label  {
+  transition: color .25s;
+  color: var(--heatmap-low-color);
 }
 
 .heatmap-high, .heatmap-high a, .heatmap-high .d-icon, .heatmap-high .d-button-label {
   color: var(--heatmap-high-color) !important;
+}
+
+.discourse-no-touch .post-info.edits .widget-button:hover .d-icon, .discourse-no-touch .post-info.edits .widget-button:hover .d-button-label {
+    color: var(--heatmap-high-color);
+}
+.post-info.edits .widget-button .d-icon {
+    transition: color .3s;
 }
 
 /* main comment body */
@@ -1052,7 +1064,7 @@ div.dummy-placeholder {
     --timeline-handle-hover: #efefef;
     --timeline-handle-click: #68b9c8;
     --heatmap-high-color: #fe7a15;
-    --heatmap-low-color: #9b764f; */
-    --post-action-bar-border-radius: 6px;
+    --heatmap-low-color: #9b764f;
+    --post-action-bar-border-radius: 6px;*/
     --section-border-width: 4px;
 }
