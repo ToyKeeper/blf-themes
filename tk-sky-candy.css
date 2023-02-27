@@ -39,6 +39,7 @@
     /* sidebar */
     --sidebar-color: #dadafd;
     --sidebar-border: #dfdffb;
+    --sidebar-text-hover: #008;
     /* ads */
     --ads-top: #d6dc24;
     --ads-bot: #ceb827;
@@ -109,10 +110,14 @@
     --user-title-fg: var(--primary);
     --user-title-bg: #ffffff60;
     /* timeline slider */
+    --main-scrollbar-bg: #00000000;
+    --main-scrollbar-button: var(--timeline-handle-top);
     --timeline-scrollbar-bg: var(--button-bg);
     --timeline-handle-top: var(--header-bg-top);
     --timeline-handle-bot: var(--header-border);
     --timeline-handle-border: #a2a2f2;
+    --timeline-handle-hover: var(--header-bg-top);
+    --timeline-handle-click: #afaffa;
     /* misc */
     --unread-dot-color: #00e5ff;
     --simple-theme-link-color: #0207ff;
@@ -125,6 +130,7 @@
     --button-border: #ffffff80;
     --button-primary-bg: var(--tertiary);
     --button-primary-border: #ffffff20;
+    --button-text-hover: #008;
     /* topic list */
     --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #ffffffd0;
