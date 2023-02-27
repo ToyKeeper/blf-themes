@@ -144,6 +144,7 @@ img.avatar {
     background: unset;
     border-radius: unset;
 }
+
 .topic-body {
     padding: 0;
     /* border: 1px outset #555; */
@@ -164,8 +165,8 @@ img.avatar {
     /* override topic-post.scss:476 */
     padding: 3px 8px 2px 8px;
 }
-.relative-date:hover{
-  color: var(--button-text-hover);
+.relative-date:hover {
+    color: var(--button-text-hover);
     transition: .25s;
 }
 /* reply-to header */
@@ -197,18 +198,23 @@ img.avatar {
 }
 
 /* heatmap + post edited colors */
-.post-info.edits .widget-button .d-icon, .post-info.edits .widget-button .d-button-label  {
-  transition: color .25s;
-  color: var(--heatmap-low-color);
+.post-info.edits .widget-button .d-icon,
+.post-info.edits .widget-button .d-button-label {
+    transition: color .25s;
+    color: var(--heatmap-low-color);
 }
 
-.heatmap-high, .heatmap-high a, .heatmap-high .d-icon, .heatmap-high .d-button-label {
-  color: var(--heatmap-high-color) !important;
+.heatmap-high, .heatmap-high a,
+.heatmap-high .d-icon,
+.heatmap-high .d-button-label {
+    color: var(--heatmap-high-color) !important;
 }
 
-.discourse-no-touch .post-info.edits .widget-button:hover .d-icon, .discourse-no-touch .post-info.edits .widget-button:hover .d-button-label {
+.discourse-no-touch .post-info.edits .widget-button:hover .d-icon,
+.discourse-no-touch .post-info.edits .widget-button:hover .d-button-label {
     color: var(--heatmap-high-color);
 }
+
 .post-info.edits .widget-button .d-icon {
     transition: color .3s;
 }
@@ -518,7 +524,7 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     border: 3px outset var(--post-def-hl);
     box-shadow: 0.5em 1.5em 2em var(--shadow-color);
 }
-.user-card .card-content, .group-card .card-content, .d-user-card_main-content {
+.user-card .card-content, .group-card .card-content, .d-user-card__main-content {
     background: none;
 }
 .user-card-avatar, /* pop-up widget */
@@ -672,7 +678,8 @@ tbody {
     margin-top: 0;
 }
 
-.sidebar-section-header-text:hover { /* change text color for section headers on hover !!CONSIDER REMOVING :HOVER */
+/* change text color for section headers */
+.sidebar-section-header-text {
     color: var(--button-text-hover);
     transition: .75s;
 }
@@ -859,25 +866,26 @@ li.active,
     margin-left: -0.75em !important;
 }
 
-
 .timeline-scrollarea:hover { /* change color of scrollbar handle on hover */
     color: var(--timeline-handle-hover);
     --timeline-handle-top: var(--timeline-handle-hover);
     --timeline-handle-bot: var(--timeline-handle-hover);
      transition: 0.5s;
 }
-
-.timeline-scrollarea:active, .timeline-handle:active { /* change color of scrollbar handle on click */
+.timeline-scrollarea:active,
+.timeline-handle:active { /* change color of scrollbar handle on click */
     color: var(--timeline-handle-click);
     --timeline-handle-top: var(--timeline-handle-click);
     --timeline-handle-bot: var(--timeline-handle-click);
 }
 
-.d-label:hover, .timeline-scroller-content:hover { /* change color of date buttons on hover */
+.d-label:hover,
+.timeline-scroller-content:hover { /* change color of date buttons on hover */
     color: var(--button-text-hover);
     transition: .3s;
 }
-.d-label:active, .timeline-scroller-content:active {  /* change color of date buttons on click */
+.d-label:active,
+.timeline-scroller-content:active {  /* change color of date buttons on click */
     color: var(--timeline-handle-click);
 }
 
@@ -1007,7 +1015,6 @@ p {
     background: linear-gradient(-45deg, var(--post-op-bar-bot), var(--post-op-bar-top));
     border: 1px outset var(--post-op-bar-top);
 }
-
 /* table of contents on first post */
 .d-toc-main {
     border: 1px outset var(--post-op-hl);
@@ -1059,12 +1066,14 @@ div.dummy-placeholder {
     --post-border-radius: 10px;
     --post-padding: 8px;
     --button-border-radius: 16px;
-   /* --button-text-hover: #efefef; //these defaults override scheme colors...
+    /* these defaults override theme colors...
+    --button-text-hover: #efefef;
     --sidebar-text-hover: #68b9c8;
     --timeline-handle-hover: #efefef;
     --timeline-handle-click: #68b9c8;
     --heatmap-high-color: #fe7a15;
     --heatmap-low-color: #9b764f;
-    --post-action-bar-border-radius: 6px;*/
+    --post-action-bar-border-radius: 6px;
+    */
     --section-border-width: 4px;
 }

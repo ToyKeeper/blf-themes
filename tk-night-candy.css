@@ -6,7 +6,7 @@
 :root {
     /* main colors */
     --primary: #ccc;
-    --secondary: #222;
+    --secondary: #222; /* main page background */
     /* --tertiary: #216cdd; */
     /* --tertiary: #e66100; */
     /* --tertiary-medium: #6298e8; */
@@ -19,6 +19,7 @@
     /* --love: #b924c1; */ /* thumbs-up button */
     /* shadows */
     --shadow-color: #000000c0;
+    --menu-shadow-color: var(--shadow-color);
     --header-shadow: 0 0.05em 0.75em var(--shadow-color);
     --post-shadows: 0.15em 0.15em 0.333em var(--shadow-color);
     --post-widget-shadows: 0.1em 0.1em 0.2em var(--shadow-color);
@@ -27,8 +28,8 @@
     --button-shadows: 0.1em 0.1em 0.2em var(--shadow-color);
     --table-shadows: var(--post-shadows);
     /* page header */
-    --header-top: #3e3e52;
-    --header-bot: #2b2b3c;
+    --header-bg-top: #3e3e52;
+    --header-bg-bot: #2b2b3c;
     --header-border: #242433;
     --header-icon-fg: #000;
     --header-icon-bg: #88e;
@@ -63,10 +64,11 @@
     --post-def-bar-top: #57b;
     --post-def-bar-bot: #235;
     /* other parts of posts */
-    --post-actions-bar-bg: rgba(0,0,0, 0.2);
+    --post-action-bar-bg: rgba(0,0,0, 0.2);
+    --post-action-bar-border-radius: 6px;
     --post-quote-border: #ffffff30;
     --post-embed-hl: #333;
-    --post-embed-top: #1c1c1c;
+    --post-embed-top: #1e1e1e;
     --post-embed-bot: #242424;
     --quote-header-top: #5577bb60;
     --quote-header-bot: #22335560;
@@ -98,37 +100,52 @@
     /* highlighted text */
     --highlighted-fg: var(--tertiary);
     --highlighted-bg: var(--tertiary-low);
+    /* tags */
+    --tag-fg: var(--primary);
+    --tag-bg: #ffffff30;
+    /* --tag-fg: var(--highlighted-fg); */
+    /* --tag-bg: var(--highlighted-bg); */
+    /* user titles */
+    --user-title-fg: var(--primary);
+    --user-title-bg: #00000060;
     /* timeline slider */
     --timeline-scrollbar-bg: var(--button-bg);
     --timeline-handle-top: #5b5b93;
     --timeline-handle-bot: #3e3e52;
     --timeline-handle-border: #4b4b72;
+    /* misc */
+    --unread-dot-color: #00e5ff;
+    --simple-theme-link-color: #7e97cd;
+    /* alert pop-up widget */
+    --alert-fg: #abc;
+    --alert-bg: var(--header-bg-bot);
+    --alert-border: var(--header-bg-top);
+    /* buttons */
+    --button-bg: #89bcef18;
+    --button-border: #585858;
+    --button-primary-bg: var(--tertiary);
+    --button-primary-border: var(--button-border);
     /* topic list */
     --table-header-bg: var(--post-def-top);
-    --table-even-row-bg: #181818;
-    --table-odd-row-bg: #282828;
+    --table-even-row-bg: #00000080;
+    --table-odd-row-bg: #00000040;
+    /* --table-even-row-bg: #181818; */
+    /* --table-odd-row-bg: #282828; */
+    --table-even-row-hl-bg: #380838;
+    --table-odd-row-hl-bg: #481848;
     --post-table-even-row-bg: #00000010;
     --post-table-odd-row-bg: #ffffff08;
     --post-table-th-bg: #ffffff10;
     --last-visit-bg: var(--danger-medium);
     --last-visit-fg: #000;
-    /* misc */
-    --unread-dot-color: #00e5ff;
-    /* alert pop-up widget */
-    --alert-fg: #abc;
-    --alert-bg: var(--header-bot);
-    --alert-border: var(--header-top);
-    /* buttons */
-    --button-bg: #abcdef10;
-    --button-border: #585858;
-    --button-primary-bg: var(--tertiary);
-    --button-primary-border: var(--button-border);
     --reply-action: #eee;
     /* --primary-low-mid: #285892; */
     /* --primary-low-mid-or-secondary-high: #285892; */
     /* --primary-high-or-secondary-low: #034c3b; */
     /* --tertiary-med-or-tertiary: #448; */
     --hljs-bg: #ffffff30; /* <code> blocks */
+    /* main nav controls on front page */
+    --d-nav-pill-border-radius: var(--post-border-radius);
 
     /********** defaults copied from parent theme **********/
     --scheme-type: dark;
@@ -195,7 +212,8 @@
     --quaternary-low: #3a160b;
     --highlight-bg: #22170b;
     --highlight-low: #22170b;
-    --highlight-medium: #4c3319;
+    --highlight-medium: #89bcef30;
+    /* --highlight-medium: #4c3319; */
     --highlight-high: #976632;
     --danger-low: #591b0c;
     --danger-low-mid: rgba(99, 30, 13, 0.7);
