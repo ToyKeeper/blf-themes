@@ -142,6 +142,18 @@
     --post-table-even-row-bg: #00000010;
     --post-table-odd-row-bg: #ffffff08;
     --post-table-th-bg: #ffffff10;
+    --heatmap-none-color: #884444;
+    /* --heatmap-low-color: #a06633; */
+    /* --heatmap-medium-color: #cc8822; */
+    /* --heatmap-high-color: #eecc00; */
+    --heatmap-low-color: #b70;
+    --heatmap-medium-color: #cc0;
+    --heatmap-high-color: #ffff44;
+    --heatmap-none-shadow: none;
+    --heatmap-low-shadow: none;
+    --heatmap-medium-shadow: -1px 1px 5px #d00, 1px 1px 5px #d00, 1px -1px 5px #d00, -1px -1px 5px #d00;
+    --heatmap-high-shadow: -1px 1px 5px #f00, 1px 1px 5px #f00, 1px -1px 5px #f00, -1px -1px 5px #f00;
+    /* last visit marker */
     --last-visit-bg: var(--danger-medium);
     --last-visit-fg: #000;
     --reply-action: #eee;

@@ -197,17 +197,11 @@ img.avatar {
     color: var(--post-header-button);
 }
 
-/* heatmap + post edited colors */
+/* post edited colors */
 .post-info.edits .widget-button .d-icon,
 .post-info.edits .widget-button .d-button-label {
     transition: color .25s;
-    color: var(--heatmap-low-color);
-}
-
-.heatmap-high, .heatmap-high a,
-.heatmap-high .d-icon,
-.heatmap-high .d-button-label {
-    color: var(--heatmap-high-color) !important;
+    color: var(--heatmap-medium-color);
 }
 
 .discourse-no-touch .post-info.edits .widget-button:hover .d-icon,
@@ -617,9 +611,32 @@ tbody {
 .badge-wrapper.bullet span.badge-category {
     color: var(--primary-medium);
 }
+
+/* num-posts cell uses colors to indicate "posts-to-likes" ratio */
 .topic-list .num .badge-posts {
     padding: 0px 5px;
+    color: var(--heatmap-none-color);
+    text-shadow: var(--heatmap-none-shadow);
 }
+.heatmap-low, .heatmap-low a,
+.heatmap-low .d-icon,
+.heatmap-low .d-button-label {
+    color: var(--heatmap-low-color) !important;
+    text-shadow: var(--heatmap-low-shadow) !important;
+}
+.heatmap-med, .heatmap-med a,
+.heatmap-med .d-icon,
+.heatmap-med .d-button-label {
+    color: var(--heatmap-medium-color) !important;
+    text-shadow: var(--heatmap-medium-shadow) !important;
+}
+.heatmap-high, .heatmap-high a,
+.heatmap-high .d-icon,
+.heatmap-high .d-button-label {
+    color: var(--heatmap-high-color) !important;
+    text-shadow: var(--heatmap-high-shadow) !important;
+}
+
 .last-post .poster-avatar {
     margin-right: 5px;
     margin-top: -2px;

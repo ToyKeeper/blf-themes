@@ -135,6 +135,14 @@
     --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #ffffffd0;
     --table-odd-row-bg: #00000000;
+    --heatmap-none-color: #ff440060;
+    --heatmap-low-color: #ff0000b0;
+    --heatmap-medium-color: #ff0;
+    --heatmap-high-color: #ffff00;
+    --heatmap-none-shadow: none;
+    --heatmap-low-shadow: none;
+    --heatmap-medium-shadow: -1px 1px 5px #f88, 1px 1px 5px #f88, 1px -1px 5px #f88, -1px -1px 5px #f88;
+    --heatmap-high-shadow: -1px 1px 3px #f00, 1px 1px 3px #f00, 1px -1px 3px #f00, -1px -1px 3px #f00;
     /* --table-even-row-bg: #fff; */
     /* --table-odd-row-bg: #f4f4f4; */
     --table-even-row-hl-bg: #fedcc1;
