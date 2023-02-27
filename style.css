@@ -17,7 +17,7 @@
 /********** banner at top of page **********/
 .d-header {
     height: 4em;
-    background: linear-gradient(var(--header-top), var(--header-bot));
+    background: linear-gradient(var(--header-bg-top), var(--header-bg-bot));
     border-bottom: var(--section-border-width) solid var(--header-border);
     box-shadow: var(--header-shadow);
 }
@@ -52,7 +52,7 @@ body.has-sidebar-page .sidebar-wrapper {
     background: none;
 }
 .sidebar-footer-wrapper .sidebar-footer-container:before,
-.sidebar-hamburger-dropdown .sidebar-footer-wrapper .sidebar-footer-container:before 
+.sidebar-hamburger-dropdown .sidebar-footer-wrapper .sidebar-footer-container:before
 {
     background: linear-gradient(#00000000, var(--sidebar-color));
 }
@@ -84,13 +84,22 @@ div.topic-post {
 /* outer container for comments */
 /* using "article" instead of "div.topic-post"
  * because "article" has more attributes to select by, for per-user styling */
-article, article.boxed {
+article, /* regular post */
+article.boxed, /* mobile version */
+.user-stream .item, /* user activity feed */
+.search-results .fps-result, /* search widget item */
+.d-toc-main, /* table of contents on first post */
+.presence-users, /* pops up when someone is writing a reply */
+div.dummy-placeholder {
     border: 1px outset var(--post-def-hl);
     background: linear-gradient(var(--post-def-top), var(--post-def-bot));
     border-radius: var(--post-border-radius);
     padding: var(--post-padding);
     margin: 0px 0px 10px 0px;
     box-shadow: var(--post-shadows);
+}
+.topic-list-item td:first-child, .topic-post {
+    border-left: none; /* override keyboard_shortcuts.scss:3 */
 }
 
 /* extra messages at top of post, like "it's been a while since we saw this user" */
@@ -105,23 +114,36 @@ article, article.boxed {
 }
 
 /* draw a box around avatar pics */
-div.topic-avatar, .embedded-posts .topic-avatar {
+div.topic-avatar, /* main post avatar */
+.embedded-posts .topic-avatar, /* embedded post avatar */
+div.avatar-wrapper, /* per item in user activity stream */
+.search-results .avatar, /* search widget results */
+.presence-avatars, /* when someone is writing a reply */
+div.dummy-placeholder {
     background: linear-gradient(-45deg, var(--avatar-bot),var(--avatar-top));
     box-shadow: var(--post-widget-shadows);
     border: 1px outset var(--avatar-hl);
     border-radius: 6px;
     padding: 5px 6px 6px 5px;
     /* important because some posts explicitly set a huge bottom margin */
-    margin: 0px 6px 0px 0px !important;
+    margin: 0px 8px 0px 0px !important;
 }
-.embedded-posts .topic-avatar {
+.embedded-posts .topic-avatar,
+div.avatar-wrapper,
+.presence-avatars, /* when someone is writing a reply */
+div.dummy-placeholder {
     border-radius: 5px;
     padding: 3px 4px 4px 3px;
+    margin: 0 6px 0 0 !important;
 }
 img.avatar {
     border-radius: 0.15em;
 }
-
+.avatar-wrapper {
+    /* remove blue circle behind avatar in user activity stream */
+    background: unset;
+    border-radius: unset;
+}
 .topic-body {
     padding: 0;
     /* border: 1px outset #555; */
@@ -131,7 +153,7 @@ img.avatar {
 }
 
 /* put the post header data into a themed bar */
-div.topic-meta-data {
+.topic-body .topic-meta-data {
     background: linear-gradient(var(--post-def-bar-top), var(--post-def-bar-bot));
     /* padding: 3px 2px 3px 3px; */
     /* margin: 0px 0px 0px 5px; */
@@ -139,7 +161,8 @@ div.topic-meta-data {
     border-radius: 6px 6px 0px 0px;
     border-style: none;
     box-shadow: var(--post-widget-shadows);
-    padding: 3px 5px;
+    /* override topic-post.scss:476 */
+    padding: 3px 8px 2px 8px;
 }
 /* reply-to header */
 .topic-body .reply-to-tab {
@@ -148,7 +171,7 @@ div.topic-meta-data {
 .reply-to-tab img.avatar {
     position: absolute;
     margin-left: 18px;
-    margin-top: 4px;
+    margin-top: 0px;
 }
 .reply-to-tab .d-icon-share {
     margin-right: 32px;
@@ -201,6 +224,7 @@ section.post-menu-area, section.post-actions {
 /* reduce extra space around buttons at bottom of comments */
 nav.post-controls .actions button, nav.post-controls .show-replies {
     padding: 0px 5px;
+    border-radius: var(--button-border-radius);
 }
 /* remove spurious scrollbar on mobile */
 nav.post-controls {
@@ -212,7 +236,7 @@ nav.post-controls {
 div.actions {
     padding: 5px;
     border-radius: var(--post-action-bar-border-radius);
-    background: var(--post-actions-bar-bg);
+    background: var(--post-action-bar-bg);
     box-shadow: var(--action-bar-shadows);
 }
 nav.post-controls .actions button.create, nav.post-controls .actions button.create .d-icon {
@@ -220,7 +244,8 @@ nav.post-controls .actions button.create, nav.post-controls .actions button.crea
 }
 
 /********** quoted posts **********/
-aside.quote {
+aside.quote, /* quoted post */
+div.dummy-placeholder {
     margin-top: 0;
     margin-bottom: 0.5em;
     background: none !important;
@@ -242,6 +267,7 @@ blockquote { background: var(--blockquote-bg-odd) !important; }
 blockquote blockquote { background: var(--blockquote-bg-even) !important; }
 blockquote blockquote blockquote { background: var(--blockquote-bg-odd) !important; }
 blockquote blockquote blockquote blockquote{ background: var(--blockquote-bg-even) !important; }
+blockquote blockquote blockquote blockquote blockquote{ background: var(--blockquote-bg-odd) !important; }
 aside.quote .title { /* title bar for quoted posts */
     background: linear-gradient(var(--quote-header-top), var(--quote-header-bot));
     padding: 0.25em;
@@ -259,28 +285,41 @@ aside.quote .title { /* top right corner of a quote */
 /********** embedded posts **********/
 /* make embedded posts (expanded replies) look indented */
 .embedded-posts {
-    /* margin-top: 10px; */
-    border: none;
-    /* border-radius: 10px; */
-    /* padding: 5px; */
-    /* background: linear-gradient(#222, #111); */
-}
-.embedded-posts .reply {
     margin-top: 10px;
-    padding: 5px 0px 5px 5px;  /* unsure where extra right padding comes from */
+    border: none;
+}
+.embedded-posts .topic-body {
+    width: 100%; /* remove calculated extra padding from parent theme */
+}
+.embedded-posts .reply, aside.onebox {
+    margin-top: 10px;
+    padding: 5px;
     border: 1px inset var(--post-embed-hl);
     border-radius: var(--post-border-radius);
     background: linear-gradient(var(--post-embed-top), var(--post-embed-bot));
 }
-.embedded-posts.bottom {
-    margin-bottom: 0px;
+.embedded-posts.bottom .row {
+    padding: 0; /* remove extra space inside bottom of embedded posts */
 }
+.embedded-posts.bottom {
+    margin-bottom: 0px; /* remove extra space below embedded posts */
+}
+aside.onebox header {
+    margin-bottom: 0.5em;
+}
+.onebox article {
+    margin: 0;
+}
+.onebox .label1 {
+    /* override onebox.scss:748 */
+    /* parent theme breaks part of the post out of its container,
+       which makes it draw over other elements ... so don't do that.
+       */
+    float: none !important;
+}
+
 /* quoted part of a post, when expanded to show the rest */
 span.highlighted {
-    /* background-color: var(--tertiary-medium); */
-    /* color: var(--primary-very-high); */
-    /* background: none; */
-    /* color: var(--tertiary); */
     color: var(--highlighted-fg);
     background: var(--highlighted-bg);
 }
@@ -398,6 +437,17 @@ span.highlighted {
 }
 
 /********** editor **********/
+.open .grippie {
+    background: linear-gradient(var(--post-me-bar-top), var(--post-me-bar-bot));
+    border-top: 1px outset var(--post-me-bar-top);
+    padding: 6px 0;
+}
+.open .grippie:before {
+    border-top: 3px double #ffffff60;
+}
+#reply-control {
+    box-shadow: 0 -0.5em 1.0em var(--menu-shadow-color);
+}
 #reply-control .reply-area {
     background: var(--primary-low);
 }
@@ -411,14 +461,16 @@ span.highlighted {
     box-shadow: none;
 }
 .d-editor-textarea-wrapper {
-    border: 3px inset var(--editor-hl);
+    border: 3px inset var(--editor-hl) !important;
     background: var(--editor-bg);
 }
 .d-editor-preview-wrapper {
-    border: 3px outset var(--post-me-hl);
+    border: 1px outset var(--post-me-hl);
     background: linear-gradient(var(--post-me-top), var(--post-me-bot));
     padding: var(--post-padding);
     border-radius: var(--post-border-radius);
+    box-shadow: var(--post-shadows);
+
 }
 textarea {
     color: var(--editor-unfocused); /* unfocused */
@@ -427,6 +479,14 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     color: var(--editor-fg);
     outline-color: var(--primary-low);
     border-color: var(--editor-hl);
+}
+ /* pops up when someone is writing a reply, remove some decoration */
+.reply-to .presence-users, .reply-to .presence-avatars {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
 }
 
 /********** user info screen **********/
@@ -446,23 +506,36 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     border: 3px outset var(--post-def-hl);
     box-shadow: 0.5em 1.5em 2em var(--shadow-color);
 }
-.user-card .card-content, .group-card .card-content {
+.user-card .card-content, .group-card .card-content, .d-user-card_main-content {
     background: none;
 }
-.user-card-avatar {
+.user-card-avatar, /* pop-up widget */
+.d-user-card__avatar img.avatar, /* pop-up on meta.discourse.org */
+.controls .avatar, /* user prefs page */
+.user-profile-avatar .avatar, /* user info page */
+div.dummy-placeholder {
     background: linear-gradient(-45deg, var(--avatar-bot),var(--avatar-top));
     border: 1px outset var(--avatar-hl);
     border-radius: 6px;
     padding: 5px 6px 6px 5px;
     box-shadow: 0.333em 0.5em 0.5em var(--shadow-color);
 }
+.collapsed-info .avatar {
+    /* smaller shadow on user info page when not expanded */
+    box-shadow: 0.25em 0.25em 0.25em var(--shadow-color);
+}
+.controls .avatar {
+    margin-right: 1em;
+}
 
 /********** Topic List widget(s) **********/
 /* "Suggested Topics" widget at bottom of pages */
 .suggested-topics, /* topic list at bottom of threads */
-.contents.ember-view, /* front page topic list */
+#list-area .contents, /* front page topic list */
 .paginated-topics-list, /* private message list */
 .directory-table-container, /* user list */
+.search-container .search-header, /* search page big search widget */
+.bookmark-list-wrapper, /* bookmarks page */
 div.dummy-placeholder {
     margin: 0.75em 0 0.75em 0;
     border: 3px outset var(--post-def-hl);
@@ -483,6 +556,14 @@ div.dummy-placeholder {
 .summary-category-list tr:nth-child(odd), /* user info page "top categories" */
 div.dummy-placeholder {
     background: var(--table-odd-row-bg) !important;
+}
+.topic-list-item.bookmarked {
+    /* important because parent theme set it that way */
+    background-color: var(--table-even-row-hl-bg) !important;
+}
+.topic-list-item.bookmarked:nth-child(odd) {
+    /* important because parent theme set it that way */
+    background-color: var(--table-odd-row-hl-bg) !important;
 }
 tbody {
     border-top: 3px solid var(--post-quote-border);
@@ -522,8 +603,8 @@ tbody {
     padding: 0px 5px;
 }
 .last-post .poster-avatar {
-    /* margin-right: 10px; */
-    margin-top: 0;
+    margin-right: 5px;
+    margin-top: -2px;
     float: right;
 }
 .last-post .poster-avatar img.avatar {
@@ -531,7 +612,8 @@ tbody {
     height: 1.5em;
 }
 .poster-info {
-    width: 125px;
+    /* 100% - img.avatar:width - .poster-avatar:margin-right - 2px */
+    width: calc(100% - 1.5em - 7px);
 }
 .topic-list .topic-list-data, .topic-list .creator a, .topic-list .editor a {
     color: var(--quaternary);
@@ -593,6 +675,100 @@ tbody {
     transition: 0.3s;
 }
 
+/********** search page **********/
+.search-container .search-advanced .search-results {
+    padding: 0.75em; /* remove huge blank spaces on left/right */
+}
+.search-container .search-bar,
+.search-container .search-filters,
+.search-container .search-filters .search-advanced-filters,
+div.dummy-placeholder {
+    background: unset;
+}
+.fps-result .author {
+    padding: 0;
+    margin: 0;
+}
+.search-container .search-filters details.advanced-filters,
+.search-container .search-filters details.search-advanced-additional-options,
+.search-container .search-filters .search-advanced-filters .control-group,
+.search-container .search-filters details.advanced-filters[open]>summary,
+.search-container .search-filters details.search-advanced-additional-options[open]>summary,
+div.dummy-placeholder
+{
+    margin-top: 0.25em;
+    margin-bottom: 0;
+}
+
+/* notifications page */
+.notifications-filter {
+    margin-bottom: 0.75em;
+}
+
+/********** upper-right menu **********/
+.user-menu.revamped {
+    /* header bar icons display a border over the user menu, unless
+       we set the z-index reeeeeally high, and for some reason,
+       those icons refuse to have their border removed */
+    z-index: 10000;
+}
+.menu-panel.drop-down {
+    border-radius: 0 0 0 var(--button-border-radius);
+    box-shadow: -0.5em 1em 1em var(--menu-shadow-color);
+}
+.user-menu.revamped .quick-access-panel li {
+    background-color: unset;
+    border-radius: var(--button-border-radius);
+}
+.user-menu.revamped .quick-access-panel ul {
+    /* ensure hidden items are entirely hidden */
+    gap: 0em 5em;
+}
+/* notifications (one per) */
+.user-menu .quick-access-panel li {
+    /* prevent shadow from getting clipped */
+    max-width: calc(100% - 0.3em);
+}
+/* unread notifications */
+.user-menu.revamped .quick-access-panel li.unread,
+.user-menu.revamped .quick-access-panel li.pending {
+    border: 1px outset var(--button-border);
+    margin: 0.1em 0; /* small gap between unread items */
+    box-shadow: 0.1em 0.1em 0.2em var(--shadow-color);
+    background: var(--button-bg);
+}
+.user-menu.revamped .quick-access-panel li:hover {
+    background: var(--highlight-medium) !important;
+}
+.user-menu .quick-access-panel li a {
+    /* slightly reduce size of notification items */
+    margin: 0.15em;
+}
+.drop-down-mode .d-header-icons .active .icon,
+.d-header-icons .icon,
+.icons,
+li.active,
+.icon {
+    /* try to remove the dang border! */
+    /* (it refuses to disappear though) */
+    border: none !important;
+    outline: none !important;
+}
+.menu-panel .panel-body { /* full menu when screen is too narrow */
+    max-height: 100%;  /* allow menu to fill the screen vertically */
+}
+/* menu sections in upper right */
+.user-menu.revamped .menu-tabs-container {
+    box-shadow: 0.25em -0em 1em var(--shadow-color);
+    background-color: var(--sidebar-border);
+    border-radius: 0 0 0 var(--button-border-radius);
+    height: min-content;
+    padding: 0.75em 0.25em 0.25em 0.25em;
+}
+.user-menu.revamped .bottom-tabs {
+    border: none;
+}
+
 /********** misc buttons **********/
 /* lots of site buttons */
 .btn {
@@ -615,7 +791,7 @@ tbody {
     background: none;
 }
 .quote-button {
-    box-shadow: var(--button-shadows);    
+    box-shadow: var(--button-shadows);
 }
 
 /* hamburger button in the page header */
@@ -645,22 +821,30 @@ tbody {
 }
 /* bottom right corner version */
 #topic-progress {
-    border-radius: 16px;
-    border: 3px outset var(--tertiary);
+    border-radius: 12px;
+    background: var(--secondary);
+    color: var(--primary);
+    border: 4px outset var(--timeline-handle-border);
+    box-shadow: 0.25em 0.25em 1.0em var(--menu-shadow-color);
+    margin-bottom: 0.5em;
+    outline: none;
+    padding: 0;
 }
 #topic-progress .bg {
-    border-radius: 13px;
-    background: var(--tertiary-medium);
+    border-radius: 8px;
+    background: linear-gradient(var(--timeline-handle-top), var(--timeline-handle-bot));
+    /* it doesn't quite reach the top and bottom for some reason */
+    margin: -0.2px 0 -0.1px 0;
 }
 .timeline-scrollarea {
-    margin-left: 1em !important;
-    border-left: 1.1em solid var(--timeline-scrollbar-bg) !important;
+    margin-left: 0.75em !important;
+    border-left: 1em solid var(--timeline-scrollbar-bg) !important;
 }
 .timeline-handle {
-    width: 0.5em !important;
+    width: 0.6em !important;
     background: linear-gradient(var(--timeline-handle-top), var(--timeline-handle-bot));
     border: 0.15em outset var(--timeline-handle-border);
-    margin-left: -0.73em !important;
+    margin-left: -0.75em !important;
 }
 
 
@@ -693,14 +877,42 @@ tbody {
     margin: 0 !important;
     padding: 0 !important;
 }
+/* ensure the "123 / 456 Jan 23" part has enough room, and is visible
+ * (sometimes it was failing, no clue why, but it couldn't even show
+ *  things like "3 / 8 Jan 1")
+ */
+.timeline-container .topic-timeline .timeline-scrollarea {
+    min-width: 5em;
+}
+.timeline-container .topic-timeline .timeline-replies,
+.timeline-container .topic-timeline .timeline-ago {
+    overflow: visible;
+    max-width: unset;
+}
+.timeline-container .topic-timeline .timeline-scroller-content {
+    overflow: visible;
+    padding-left: 0.5em;
+    max-height: 4em;
+}
 
 /********** tag box (like posts tagged "review") **********/
-a.discourse-tag {
-    color: var(--tertiary-low) !important;
+a.discourse-tag, a.hashtag-cooked {
+    color: var(--tag-fg) !important;
+    background-color: var(--tag-bg);
+    border-radius: 99px;
+    padding: 0px 6px;
+    font-size: var(--font-down-1);
 }
-.discourse-tag.box {
-    background-color: var(--tertiary);
-    border-radius: 6px;
+
+/* user titles, group names, etc */
+.names .new_user, .names .user-title {
+    color: var(--user-title-fg);
+    background-color: var(--user-title-bg);
+    border-radius: 99px;
+    padding: 0px 6px;
+}
+.names .new_user a, .names .user-title, .names .user-title a {
+    color: var(--user-title-fg);
 }
 
 /********** "skip to content" button (pops up sometimes) **********/
@@ -723,7 +935,12 @@ a.mention, a.mention-group {
 /* dot which shows up on unread posts */
 .read-state {
     color: var(--unread-dot-color);
-    padding: 0.2em;
+    margin-left: 0.5em;
+    position: relative;
+}
+.read-state.read {
+    position: absolute;
+    /* display: none; */
 }
 
 /* less padding around paragraphs */
@@ -736,12 +953,14 @@ p {
 *::-webkit-scrollbar {
     /* background: #00000000; */
     background: var(--main-scrollbar-bg);
+    border-radius: 100px;
 }
 
 *::-webkit-scrollbar-track {
     /* color of the tracking area */
     background: #00000000;
     /* background: var(--timeline-scrollbar-bg); */
+    border-radius: 100px;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -756,7 +975,7 @@ p {
 
 * {
     /* firefox, I think */
-    /* scroll thumb and track */ 
+    /* scroll thumb and track */
     scrollbar-color: var(--main-scrollbar-button) var(--main-scrollbar-bg);
 }
 
@@ -775,6 +994,15 @@ p {
 .topic-owner article > .row > .topic-avatar {
     background: linear-gradient(-45deg, var(--post-op-bar-bot), var(--post-op-bar-top));
     border: 1px outset var(--post-op-bar-top);
+}
+
+/* table of contents on first post */
+.d-toc-main {
+    border: 1px outset var(--post-op-hl);
+    background: linear-gradient(var(--post-op-top), var(--post-op-bot));
+}
+.d-toc-main a {
+    color: var(--tertiary);
 }
 
 
@@ -819,12 +1047,12 @@ div.dummy-placeholder {
     --post-border-radius: 10px;
     --post-padding: 8px;
     --button-border-radius: 16px;
-    --button-text-hover: #efefef;
+   /* --button-text-hover: #efefef; //these defaults override scheme colors...
     --sidebar-text-hover: #68b9c8;
     --timeline-handle-hover: #efefef;
     --timeline-handle-click: #68b9c8;
     --heatmap-high-color: #fe7a15;
-    --heatmap-low-color: #9b764f;
+    --heatmap-low-color: #9b764f; */
     --post-action-bar-border-radius: 6px;
     --section-border-width: 4px;
 }
