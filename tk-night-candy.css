@@ -38,6 +38,7 @@
     /* sidebar */
     --sidebar-color: #252533;
     --sidebar-border: #1f1f28;
+    --sidebar-text-hover: var(--tertiary-hover);
     /* ads */
     --ads-top: #9ea221;
     --ads-bot: #a78526;
@@ -65,6 +66,7 @@
     --post-def-bar-bot: #235;
     /* other parts of posts */
     --post-action-bar-bg: rgba(0,0,0, 0.2);
+    --post-action-bar-border-radius: 6px;
     --post-quote-border: #ffffff30;
     --post-embed-hl: #333;
     --post-embed-top: #1e1e1e;
@@ -108,10 +110,14 @@
     --user-title-fg: var(--primary);
     --user-title-bg: #00000060;
     /* timeline slider */
+    --main-scrollbar-bg: #00000000;
+    --main-scrollbar-button: var(--timeline-handle-top);
     --timeline-scrollbar-bg: var(--button-bg);
     --timeline-handle-top: #5b5b93;
     --timeline-handle-bot: #3e3e52;
     --timeline-handle-border: #4b4b72;
+    --timeline-handle-hover: #5b5b93;
+    --timeline-handle-click: #88bbff80;
     /* misc */
     --unread-dot-color: #00e5ff;
     --simple-theme-link-color: #7e97cd;
@@ -124,6 +130,7 @@
     --button-border: #585858;
     --button-primary-bg: var(--tertiary);
     --button-primary-border: var(--button-border);
+    --button-text-hover: var(--tertiary-hover);
     /* topic list */
     --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #00000080;
@@ -135,6 +142,18 @@
     --post-table-even-row-bg: #00000010;
     --post-table-odd-row-bg: #ffffff08;
     --post-table-th-bg: #ffffff10;
+    --heatmap-none-color: #884444;
+    /* --heatmap-low-color: #a06633; */
+    /* --heatmap-medium-color: #cc8822; */
+    /* --heatmap-high-color: #eecc00; */
+    --heatmap-low-color: #b70;
+    --heatmap-medium-color: #cc0;
+    --heatmap-high-color: #ffff44;
+    --heatmap-none-shadow: none;
+    --heatmap-low-shadow: none;
+    --heatmap-medium-shadow: -1px 1px 5px #d00, 1px 1px 5px #d00, 1px -1px 5px #d00, -1px -1px 5px #d00;
+    --heatmap-high-shadow: -1px 1px 5px #f00, 1px 1px 5px #f00, 1px -1px 5px #f00, -1px -1px 5px #f00;
+    /* last visit marker */
     --last-visit-bg: var(--danger-medium);
     --last-visit-fg: #000;
     --reply-action: #eee;

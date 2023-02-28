@@ -1,109 +1,91 @@
 /* ==UserStyle==
-@name           BLF-koZ
+@name           BLF-flat-dark
 @namespace      github.com/openstyles/stylus
 @version        1.0.0
 @description    A new userstyle
-@author         LuxWad
+@author         Me
 ==/UserStyle== */
 
-@-moz-document domain("budgetlightforum.com") {
-/* Discourse "ko-Z" color palette
+@-moz-document url-prefix("https://budgetlightforum.com/") {
+    /* Discourse "Flat Dark" color palette
  * Copyright (C) Selene ToyKeeper
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 /********** vars **********/
 :root {
     /* main colors */
-    --primary: #B8B8B8;
-    --secondary: #2f2d2a;
-    --tertiary: #6699cc; 
+    --primary: #ccc;
+    --secondary: #222;
+    --tertiary: #3c84cc; 
+    /* --tertiary: #e66100; */
+    /* --tertiary-medium: #6298e8; */
+    /* --tertiary-low: #93b7ee; */
     /* --tertiary-500: #93b7ee; */ /* topic list row borders */
-    --quaternary: #cc99cc;
+    --quaternary: #b1b1b1e8;
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #ccc;
-    --danger-medium: #66cccc;
-    /* shadows */
-    --menu-shadow-color: #00000060;
-    --shadow-color: #00000017;
-    --post-shadows: 0.15em 0.15em 2.333em var(--shadow-color);
-    --table-shadows: var(--post-shadows);
+    --danger-medium: #2bbcf5;
+    /* --love: #b924c1; */ /* thumbs-up button */
     /* page header */
-    --header-bg-top: #2f2d2a;
-    --header-bg-bot: #2f2d2a;
+    --header_background: #333;
+    --header_shadow: #2b2b2b;
+    --header-top: #2f2d2a;
+    --header-bottom: #2f2d2a;
     --header-border: #474748;
     /* --header-icon-fg-hover: #000; */
     /* --header-icon-bg-hover: #ddf; */
     /* sidebar */
-    --sidebar-color: #3b3937;
-    --sidebar-border: #2f2d2a;
-    --sidebar-text-hover: #f2777a;
-    --button-text-hover: #ffcc66;
+    --sidebar-color: #282828;
+    --sidebar-border: #1d1d20;
     /* ads */
-    --ads-top: #ffcc66;
-    --ads-bot: #d27b53;
-    --ads-hl: #f2777a;
+    --ads-top: #ffd581;
+    --ads-bot: #ffd581;
+    --ads-hl: #ffbb34;
     /* post / comment box colors per user type */
-    --post-op-top: #3b3937;
-    --post-op-bot: #3b3937;
-    --post-op-hl: #444;
-    --post-op-bar-top: #3c5a79;
-    --post-op-bar-bot: #3c5a79;
-    /* --post-op-bar-bot: #6699cc; */
+    --post-op-top: #333;
+    --post-op-bot: #333;
+    --post-op-hl: #214566;
+    --post-op-bar-top: #4ba5ff;
+    --post-op-bar-bot: #4ba5ff;
     
-    --post-me-top: #3b3937;
-    --post-me-bot: #3b3937;
-    --post-me-hl: #444;
-    --post-me-bar-top: #4d394d;
-    --post-me-bar-bot: #513d51;
+    --post-me-top: #333;
+    --post-me-bot: #333;
+    --post-me-hl: #2a1f2a;
+    --post-me-bar-top: #737;
+    --post-me-bar-bot: #737;
     
-    --post-admin-top: #3b3937;
-    --post-admin-bot: #3b3937;
+    --post-admin-top: #333;
+    --post-admin-bot: #333;
     --post-admin-hl: #21594e;
     --post-admin-bar-top: #3a593a;
     --post-admin-bar-bot: #3a593a;
     
-    --post-def-top: #3b3937;
-    --post-def-bot: #3b3937;
+    --post-def-top: #333;
+    --post-def-bot: #333;
     --post-def-hl: #444;
-    --post-def-bar-top: #2f2d2a;
-    --post-def-bar-bot: #2f2d2a;
+    --post-def-bar-top: #282828;
+    --post-def-bar-bot: #282828;
     /* other parts of posts */
-    --post-action-bar-bg: rgba(0,0,0, 0.2);
-    --post-action-bar-border-radius: 60px;
+    --post-actions-bar-bg: rgba(0,0,0, 0.2);
     --post-quote-border: #ffffff30;
-    --post-embed-hl: #444;
-    /* --post-embed-top: #4b4846; */
-    --post-embed-top: #00000018;
-    --post-embed-bot: #00000018;
-    /* --quote-header-top: #ffffff20; */
-    /* --quote-header-bot: #ffffff20; */
-    --quote-header-top: #00000020;
-    --quote-header-bot: #00000020;
-    --topic-map-bg: #00000030;
-    /* --topic-map-bg: #2d2f2a; */
+    --post-embed-hl: #333;
+    --post-embed-top: #4b4846;
+    --post-embed-bot: #333230;
+    --quote-header-top: ##444;
+    --quote-header-bot: ##444;
+    --topic-map-bg: #0088ff20;
     --post-notice-top: var(--highlight);
     --post-notice-bot: #292929;
     --post-notice-fg: #ddd;
-    --post-header-button-bg: #3b39377d;
-    --post-header-button: #96928d;
-    /* heat map (color-codes topics by likes-to-posts ratio) */
-    /* --heatmap-none-color: #884444; */
-    --heatmap-low-color: #d27b53;
-    --heatmap-medium-color: #e1a05c;
-    --heatmap-high-color: #ffcc66;
-    --heatmap-none-shadow: none;
-    --heatmap-low-shadow: none;
-    --heatmap-medium-shadow: none;
-    --heatmap-high-shadow: none;
+    /* --post-header-button-bg: #ffffff30; */
+    --post-header-button: #919191;
     /* --post-header-button: #285892; */
     /* --post-header-button: #eee; */
     /* avatar */
-    --avatar-top: #2f2d2a;
-    --avatar-bot: #2f2d2a;
+    --avatar-top: #282828;
+    --avatar-bot: #282828;
     --avatar-hl: #555;
     /* blockquotes */
-    --blockquote-bg-odd: #ffffff18;
-    --blockquote-bg-even: #00000030;
     --blend-primary-secondary-5: #a4a4a418;
     --primary-very-low: #00000030;
     /* editor */
@@ -112,71 +94,44 @@
     --editor-unfocused: var(--primary-400);
     --editor-hl: var(--primary-300);
     /* mentions */
-    --mention-color: #66cccc;
-    --mention-bg: #2f2d2a;
+    --mention-color: #fff;
+    --mention-bg: #7b7b7b;
     /* highlighted text */
     --highlighted-fg: var(--tertiary);
     --highlighted-bg: var(--tertiary-low);
-    /* tags */
-    --tag-fg: var(--primary);
-    --tag-bg: #ffffff28;
-    /* --tag-fg: var(--highlighted-fg); */
-    /* --tag-bg: var(--highlighted-bg); */
-    /* user titles */
-    --user-title-fg: var(--primary);
-    --user-title-bg: #ffffff18;
-    /* timeline slider */
-    --timeline-scrollbar-bg: #00000028;
-    --timeline-handle-top: #979188;
-    --timeline-handle-bot: #96928d;
-    --timeline-handle-border: #ffffff10;
-    --timeline-handle-hover: #f99157;
-    --timeline-handle-click: #f2777a;
-    /* misc */
-    --unread-dot-color: #ffcc66;
-    --simple-theme-link-color: var(--tertiary);
-    /* --simple-theme-link-color: #7e97cd; */
-    /* alert pop-up widget */
-    --alert-fg: #eca7a991;
-    --alert-bg: var(--header-bg-bot);
-    --alert-border: var(--header-bg-top);
-    /* buttons */
-    --button-bg: #2f2d2a;
-    --button-border: #3b3937;
-    --button-border-radius: 30px;
-    --button-primary-bg: var(--tertiary);
-    --button-primary-border: var(--button-border);
-    --reply-action: #B8B8B8;
     /* topic list */
     --table-header-bg: var(--post-def-top);
-    --table-even-row-bg: #2f2d2a;
-    --table-odd-row-bg: #3b3937;
-    --post-table-even-row-bg: #00000010;
-    --post-table-odd-row-bg: #ffffff08;
-    --post-table-th-bg: #ffffff10;
+    --table-even-row-bg: #282828;
+    --table-odd-row-bg: #333;
     --last-visit-bg: var(--danger-medium);
     --last-visit-fg: #333;
-    /*main-site scrollbars - firefox */
-    --main-scrollbar-bg: #3b3937;
-    --main-scrollbar-button: #96928d;
+    /* misc */
+    --button-bg: #abcdef10;
+    --button-border: #585858;
+    --button-primary-bg: var(--tertiary);
+    --button-primary-border: var(--button-border);
+    --reply-action: #a9a9a9;
     /* --primary-low-mid: #285892; */
     /* --primary-low-mid-or-secondary-high: #285892; */
     /* --primary-high-or-secondary-low: #034c3b; */
     /* --tertiary-med-or-tertiary: #448; */
     --hljs-bg: #ffffff30; /* <code> blocks */
-    /* main nav controls on front page */
-    --d-nav-pill-border-radius: 100px;
 
     /********** defaults copied from parent theme **********/
     --scheme-type: dark;
-    --tertiary: #6699cc; 
+    --post-action-bar-border-radius: 5px;
+    /* --primary: #dddddd; */
+    /* --secondary: #222222; */
+    --tertiary: #4ba5ff;
+    /* --quaternary: #c14924; */
+    /* --header_background: #111111; */
     --header_primary: #dddddd;
-    --highlight: #d27b53;
-    --danger: #f2777a;
-    --success: #99cc99;
-    --love: #fa6c8d; /* thumbs-up button */
-    --d-selected: #2e2c2b;
-    --d-hover: #3b3937;
+    --highlight: #ea7f4e;
+    --danger: #c03437;
+    --success: #77d877;
+    --love: #fa6c8d;
+    --d-selected: #2c2c2c;
+    --d-hover: #333;
     --always-black-rgb: 0, 0, 0;
     --primary-rgb: 221, 221, 221;
     --primary-low-rgb: 49, 49, 49;
@@ -186,9 +141,9 @@
     --tertiary-rgb: 15, 130, 175;
     --highlight-rgb: 168, 113, 55;
     /* --primary-very-low: #282828; */
-    --primary-low: #2f2d2a;
-    --primary-low-mid: #96928d;
-    --primary-medium: #f2777a;
+    --primary-low: #333;
+    --primary-low-mid: #a9a9a9;
+    --primary-medium: #cff0ff;
     --primary-high: #a6a6a6;
     --primary-very-high: #B8B8B8;
     --primary-50: #282828;
@@ -213,7 +168,7 @@
     --tertiary-very-low: #1a3a3a;
     --tertiary-low: #2f5c5c;
     --tertiary-medium: #52a2a2;
-    --tertiary-high: #66cccc;
+    --tertiary-high: #70e5e5;
     --tertiary-hover: #428888;
     --tertiary-50: #04212c;
     --tertiary-100: #042431;
@@ -228,18 +183,15 @@
     --quaternary-low: #3b3937;
     --highlight-bg: #22170b;
     --highlight-low: #22170b;
-    --highlight-medium: #ffffff10;
-    --highlight-medium: #3b3937;
-    --highlight-high: #d27b53;
-    /* --danger-low: #371112; */
+    --highlight-medium: #484e56;
+    --highlight-high: #ff8852;
     --danger-low: #71383a;
     --danger-low-mid: rgba(94, 54, 44, .7);
     /* --danger-medium: #a13116; */
-    /* --danger-hover: #bc373b; */
     --danger-hover: #933822;
-    --success-low: #506a50;
-    --success-medium: #99cc99;
-    --success-hover: #93d0a4;
+    --success-low: #417141;
+    --success-medium: #77d877;
+    --success-hover: #88f488;
     --love-low: #8a0524;
     --wiki: green;
     /* --blend-primary-secondary-5: rgb(60, 60, 60); */
@@ -265,7 +217,7 @@
     --hljs-attribute: #0ee;
     --hljs-symbol: #fbe;
     /* --hljs-bg: #333; */
-    --hljs-builtin-name: #66cccc;
+    --hljs-builtin-name: #34aaaa;
     --google: #ffffff;
     --google-hover: #f2f2f2;
     --instagram: #e1306c;
@@ -282,5 +234,4 @@
     --gold: rgb(231, 195, 0);
     --silver: #c0c0c0;
     --bronze: #cd7f32;
-}
 }

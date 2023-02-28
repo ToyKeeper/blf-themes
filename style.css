@@ -165,6 +165,10 @@ img.avatar {
     /* override topic-post.scss:476 */
     padding: 3px 8px 2px 8px;
 }
+.relative-date:hover {
+    color: var(--button-text-hover);
+    transition: .25s;
+}
 /* reply-to header */
 .topic-body .reply-to-tab {
     color: var(--post-header-button);
@@ -179,7 +183,7 @@ img.avatar {
 }
 .post-info.edits {
     background-color: var(--post-header-button-bg);
-    border-radius: 4px;
+    border-radius: var(--button-border-radius);
     margin: 0.15em 0.5em 0 0;
     padding: 0.06em 0 0.06em 0;
 }
@@ -191,6 +195,22 @@ img.avatar {
 }
 .quote-controls, .quote-controls .d-icon {
     color: var(--post-header-button);
+}
+
+/* post edited colors */
+.post-info.edits .widget-button .d-icon,
+.post-info.edits .widget-button .d-button-label {
+    transition: color .25s;
+    color: var(--heatmap-medium-color);
+}
+
+.discourse-no-touch .post-info.edits .widget-button:hover .d-icon,
+.discourse-no-touch .post-info.edits .widget-button:hover .d-button-label {
+    color: var(--heatmap-high-color);
+}
+
+.post-info.edits .widget-button .d-icon {
+    transition: color .3s;
 }
 
 /* main comment body */
@@ -591,9 +611,32 @@ tbody {
 .badge-wrapper.bullet span.badge-category {
     color: var(--primary-medium);
 }
+
+/* num-posts cell uses colors to indicate "posts-to-likes" ratio */
 .topic-list .num .badge-posts {
     padding: 0px 5px;
+    color: var(--heatmap-none-color);
+    text-shadow: var(--heatmap-none-shadow);
 }
+.heatmap-low, .heatmap-low a,
+.heatmap-low .d-icon,
+.heatmap-low .d-button-label {
+    color: var(--heatmap-low-color) !important;
+    text-shadow: var(--heatmap-low-shadow) !important;
+}
+.heatmap-med, .heatmap-med a,
+.heatmap-med .d-icon,
+.heatmap-med .d-button-label {
+    color: var(--heatmap-medium-color) !important;
+    text-shadow: var(--heatmap-medium-shadow) !important;
+}
+.heatmap-high, .heatmap-high a,
+.heatmap-high .d-icon,
+.heatmap-high .d-button-label {
+    color: var(--heatmap-high-color) !important;
+    text-shadow: var(--heatmap-high-shadow) !important;
+}
+
 .last-post .poster-avatar {
     margin-right: 5px;
     margin-top: -2px;
@@ -650,6 +693,22 @@ tbody {
 }
 .categories-list .category .category-description {
     margin-top: 0;
+}
+
+/* change text color for section headers */
+.sidebar-section-header-text {
+    color: var(--button-text-hover);
+    transition: .75s;
+}
+
+.sidebar-more-section-links-details-summary:hover { /* "more" button */
+    color: var(--button-text-hover);
+    transition: .3s;
+}
+
+.sidebar-section-link:hover { /* change topic colors on hover */
+    color: var(--sidebar-text-hover);
+    transition: 0.3s;
 }
 
 /********** search page **********/
@@ -823,6 +882,30 @@ li.active,
     border: 0.15em outset var(--timeline-handle-border);
     margin-left: -0.75em !important;
 }
+
+.timeline-scrollarea:hover { /* change color of scrollbar handle on hover */
+    color: var(--timeline-handle-hover);
+    --timeline-handle-top: var(--timeline-handle-hover);
+    --timeline-handle-bot: var(--timeline-handle-hover);
+     transition: 0.5s;
+}
+.timeline-scrollarea:active,
+.timeline-handle:active { /* change color of scrollbar handle on click */
+    color: var(--timeline-handle-click);
+    --timeline-handle-top: var(--timeline-handle-click);
+    --timeline-handle-bot: var(--timeline-handle-click);
+}
+
+.d-label:hover,
+.timeline-scroller-content:hover { /* change color of date buttons on hover */
+    color: var(--button-text-hover);
+    transition: .3s;
+}
+.d-label:active,
+.timeline-scroller-content:active {  /* change color of date buttons on click */
+    color: var(--timeline-handle-click);
+}
+
 /* a "back" button sometimes pops up over the timeline */
 .timeline-last-read {
     margin-left: -1em !important;
@@ -906,7 +989,7 @@ p {
 /********** scrollbars **********/
 *::-webkit-scrollbar {
     /* background: #00000000; */
-    background: var(--timeline-scrollbar-bg);
+    background: var(--main-scrollbar-bg);
     border-radius: 100px;
 }
 
@@ -930,7 +1013,7 @@ p {
 * {
     /* firefox, I think */
     /* scroll thumb and track */
-    scrollbar-color: var(--timeline-handle-top) var(--timeline-scrollbar-bg);
+    scrollbar-color: var(--main-scrollbar-button) var(--main-scrollbar-bg);
 }
 
 
@@ -1000,6 +1083,14 @@ div.dummy-placeholder {
     --post-border-radius: 10px;
     --post-padding: 8px;
     --button-border-radius: 16px;
+    /* these defaults override theme colors...
+    --button-text-hover: #efefef;
+    --sidebar-text-hover: #68b9c8;
+    --timeline-handle-hover: #efefef;
+    --timeline-handle-click: #68b9c8;
+    --heatmap-high-color: #fe7a15;
+    --heatmap-low-color: #9b764f;
     --post-action-bar-border-radius: 6px;
+    */
     --section-border-width: 4px;
 }

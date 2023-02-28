@@ -1,0 +1,242 @@
+/* ==UserStyle==
+@name           BLF-Reddit-dark
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         Me
+==/UserStyle== */
+
+@-moz-document url-prefix("https://budgetlightforum.com/") {
+    /* Discourse "Reddit-dark" color palette
+ * Copyright (C) Selene ToyKeeper
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+/********** vars **********/
+:root {
+    /* main colors */
+    --primary: #d7dadc;
+    --secondary: #030303;
+    --tertiary: #0079d3;
+    /* --tertiary: #e66100; */
+    /* --tertiary-medium: #6298e8; */
+    /* --tertiary-low: #93b7ee; */
+    /* --tertiary-500: #93b7ee; */ /* topic list row borders */
+    --quaternary: #b1b1b1e8;
+    --primary-high-or-secondary-low: #fff;
+    --primary-med-or-secondary-med: #ccc;
+    --danger-medium: #4fbcff;
+    /* --love: #b924c1; */ /* thumbs-up button */
+    /* page header */
+    --header_background: #1a1a1b;
+    --header_shadow: #2b2b2b;
+    --header-top: #1a1a1b;
+    --header-bottom: #1a1a1b;
+    --header-border: #343536;
+    /* --header-icon-fg-hover: #000; */
+    /* --header-icon-bg-hover: #ddf; */
+    /* sidebar */
+    --sidebar-color: #1a1a1b;
+    --sidebar-border: #343536;
+    /* ads */
+    --ads-top: #ffae0b;
+    --ads-bot: #e19600;
+    --ads-hl: #ffbb34;
+    /* post / comment box colors per user type */
+    --post-op-top:#3b3716;
+    --post-op-bot: #1a1a1b;
+    --post-op-hl: #214566;
+    --post-op-bar-top: #0079d3;
+    --post-op-bar-bot: #0079d3;
+    
+    --post-me-top: #003258;
+    --post-me-bot: #1a1a1b;
+    --post-me-hl: #343536;
+    --post-me-bar-top:#0079d3;
+    --post-me-bar-bot: #0079d3;
+    
+    --post-admin-top: #880d0e;
+    --post-admin-bot: #1a1a1b;
+    --post-admin-hl: #1b5438;
+    --post-admin-bar-top: #48d15e;
+    --post-admin-bar-bot: #48d15e;
+    
+    --post-def-top: #1a1a1b;
+    --post-def-bot: #1a1a1b;
+    --post-def-hl: #444;
+    --post-def-bar-top: #1a1a1b;
+    --post-def-bar-bot: #1a1a1b;
+    /* other parts of posts */
+    --post-actions-bar-bg: #1a1a1b;
+    --post-quote-border: #ffffff30;
+    --post-embed-hl: #333;
+    --post-embed-top: #242426;
+    --post-embed-bot: #242426;
+    --quote-header-top: #242426;
+    --quote-header-bot: #242426;
+    --topic-map-bg: #0088ff20;
+    --post-notice-top: var(--highlight);
+    --post-notice-bot: #292929;
+    --post-notice-fg: #ddd;
+    /* --post-header-button-bg: #ffffff30; */
+    --post-header-button: #919191;
+    /* --post-header-button: #285892; */
+    /* --post-header-button: #eee; */
+    /* avatar */
+    --avatar-top: #282828;
+    --avatar-bot: #282828;
+    --avatar-hl: #555;
+    /* blockquotes */
+    --blend-primary-secondary-5: #a4a4a418;
+    --primary-very-low: #00000030;
+    /* editor */
+    --editor-fg: var(--primary);
+    --editor-bg: var(--primary-very-low);
+    --editor-unfocused: var(--primary-400);
+    --editor-hl: var(--primary-300);
+    /* mentions */
+    --mention-color: #4fbcff;
+    --mention-bg: #19191a
+    /* highlighted text */
+    --highlighted-fg: var(--tertiary);
+    --highlighted-bg: var(--tertiary-low);
+    /* topic list */
+    --table-header-bg: var(--post-def-top);
+    --table-even-row-bg: #030303;
+    --table-odd-row-bg: #19191a;
+    --last-visit-bg: var(--danger-medium);
+    --last-visit-fg: #333;
+    /* misc */
+    --button-bg: #343536;
+    --button-border: #343536;
+    --button-primary-bg: var(--tertiary);
+    --button-primary-border: var(--button-border);
+    --reply-action: #818384;
+    /* --primary-low-mid: #285892; */
+    /* --primary-low-mid-or-secondary-high: #285892; */
+    /* --primary-high-or-secondary-low: #034c3b; */
+    /* --tertiary-med-or-tertiary: #448; */
+    --hljs-bg: #ffffff30; /* <code> blocks */
+
+    /********** defaults copied from parent theme **********/
+    --scheme-type: dark;
+    --button-border-radius: 30px;
+    --post-action-bar-border-radius: 3px;
+    --post-border-radius: 5px;
+    --section-border-width: 1px;
+    /* --primary: #dddddd; */
+    /* --secondary: #222222; */
+    --tertiary: #4ba5ff;
+    /* --quaternary: #c14924; */
+    /* --header_background: #111111; */
+    --header_primary: #d7dadc;
+    --highlight: #ea7f4e;
+    --danger: #c03437;
+    --success: #77d877;
+    --love: #ff4500;
+    --d-selected: #2c2c2c;
+    --d-hover: #272729;
+    --always-black-rgb: 0, 0, 0;
+    --primary-rgb: 221, 221, 221;
+    --primary-low-rgb: 49, 49, 49;
+    --primary-very-low-rgb: 40, 40, 40;
+    --secondary-rgb: 34, 34, 34;
+    --header_background-rgb: 17, 17, 17;
+    --tertiary-rgb: 15, 130, 175;
+    --highlight-rgb: 168, 113, 55;
+    /* --primary-very-low: #282828; */
+    --primary-low: #333;
+    --primary-low-mid: #818384;
+    --primary-medium: #d7dadc;
+    --primary-high: #e0e0e0;
+    --primary-very-high: #d7dadc;
+    --primary-50: #282828;
+    --primary-100: #2c2c2c;
+    --primary-200: #313131;
+    --primary-300: #585858;
+    --primary-400: #7a7a7a;
+    --primary-500: #858585;
+    --primary-600: #909090;
+    --primary-700: #9b9b9b;
+    --primary-800: #a6a6a6;
+    --primary-900: #c7c7c7;
+    --header_primary-low: rgb(72, 72, 72);
+    --header_primary-low-mid: rgb(131, 131, 131);
+    --header_primary-medium: rgb(164, 164, 164);
+    --header_primary-high: rgb(185, 185, 185);
+    --header_primary-very-high: rgb(210, 210, 210);
+    --secondary-low: #bdbdbd;
+    --secondary-medium: #919191;
+    --secondary-high: #646464;
+    --secondary-very-high: #313131;
+    --tertiary-very-low: #132b3a
+    --tertiary-low: #255878;
+    --tertiary-medium: #0079d3;
+    --tertiary-high: #4fbcff;
+    --tertiary-hover: #4fbcffb0
+    --tertiary-50: #04212c;
+    --tertiary-100: #042431;
+    --tertiary-200: #052836;
+    --tertiary-300: #052e3d;
+    --tertiary-400: #06374a;
+    --tertiary-500: #073e54;
+    --tertiary-600: #084860;
+    --tertiary-700: #09516d;
+    --tertiary-800: #0a5a79;
+    --tertiary-900: #0b6283;
+    --quaternary-low: #272729;
+    --highlight-bg: #1a1a1b;
+    --highlight-low: #1a1a1b;
+    --highlight-medium: #272729;
+    --highlight-high: #ff8852;
+    --danger-low: #71383a;
+    --danger-low-mid: rgba(94, 54, 44, .7);
+    /* --danger-medium: #a13116; */
+    --danger-hover: #933822;
+    --success-low: #417141;
+    --success-medium: #77d877;
+    --success-hover: #88f488;
+    --love-low: #8a0524;
+    --wiki: green;
+    /* --blend-primary-secondary-5: rgb(60, 60, 60); */
+    /* --primary-med-or-secondary-med: #919191; */
+    --primary-med-or-secondary-high: #646464;
+    /* --primary-high-or-secondary-low: #bdbdbd; */
+    --primary-low-mid-or-secondary-high: #646464;
+    --primary-low-mid-or-secondary-low: #bdbdbd;
+    --primary-or-primary-low-mid: #7a7a7a;
+    --highlight-low-or-medium: #272729;
+    --tertiary-or-tertiary-low: #0079d3;
+    --tertiary-low-or-tertiary-high: #0079d3;
+    --tertiary-med-or-tertiary: #0079d3;
+    --secondary-or-primary: #dddddd;
+    --tertiary-or-white: #fff;
+    --facebook-or-white: #fff;
+    --twitter-or-white: #fff;
+    --hljs-comment: #bba;
+    --hljs-number: #aff;
+    --hljs-string: #f99;
+    --hljs-literal: #9ae;
+    --hljs-tag: #99f;
+    --hljs-attribute: #0ee;
+    --hljs-symbol: #fbe;
+    /* --hljs-bg: #333; */
+    --hljs-builtin-name: #34aaaa;
+    --google: #ffffff;
+    --google-hover: #f2f2f2;
+    --instagram: #e1306c;
+    --instagram-hover: #ac194b;
+    --facebook: #1877f2;
+    --facebook-hover: #0a54b3;
+    --cas: #70ba61;
+    --twitter: #1da1f2;
+    --twitter-hover: #0c85d0;
+    --github: #100e0f;
+    --github-hover: #463e42;
+    --discord: #7289da;
+    --discord-hover: #4a67cf;
+    --gold: rgb(231, 195, 0);
+    --silver: #c0c0c0;
+    --bronze: #cd7f32;
+}
+
+}
