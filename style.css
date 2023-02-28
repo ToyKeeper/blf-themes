@@ -75,6 +75,14 @@ div.p1-banner, div.p2-banner, div.p3-banner, div.house-banner {
     margin: 0px 0px 10px 0px;
 }
 
+/********** front page main navigation buttons **********/
+.nav-pills>li a {
+    transition: var(--hover-anim-time);
+}
+.nav-pills>li a:hover {
+    box-shadow: var(--hover-shadow-args);
+}
+
 /********** thread posts / comments **********/
 /* some posts get a bogus min-height style, unsure why */
 div.topic-post {
@@ -127,6 +135,7 @@ div.dummy-placeholder {
     padding: 5px 6px 6px 5px;
     /* important because some posts explicitly set a huge bottom margin */
     margin: 0px 8px 0px 0px !important;
+    transition: var(--hover-anim-time);
 }
 .embedded-posts .topic-avatar,
 div.avatar-wrapper,
@@ -135,6 +144,18 @@ div.dummy-placeholder {
     border-radius: 5px;
     padding: 3px 4px 4px 3px;
     margin: 0 6px 0 0 !important;
+    transition: var(--hover-anim-time);
+}
+div.topic-avatar:hover, /* main post avatar */
+.embedded-posts .topic-avatar:hover, /* embedded post avatar */
+div.avatar-wrapper:hover, /* per item in user activity stream */
+.search-results .avatar:hover, /* search widget results */
+.presence-avatars:hover, /* when someone is writing a reply */
+.embedded-posts .topic-avatar:hover,
+div.avatar-wrapper:hover,
+.presence-avatars:hover, /* when someone is writing a reply */
+div.dummy-placeholder {
+    box-shadow: var(--hover-shadow-args);
 }
 img.avatar {
     border-radius: 0.15em;
@@ -250,6 +271,14 @@ div.actions {
     border-radius: var(--post-action-bar-border-radius);
     background: var(--post-action-bar-bg);
     box-shadow: var(--action-bar-shadows);
+    transition: var(--hover-anim-time);
+}
+div.actions:hover {
+    /* border-radius: var(--hover-border-radius); */
+    box-shadow: var(--hover-shadow-args);
+}
+div.actions .btn-flat:hover {
+    box-shadow: none;
 }
 nav.post-controls .actions button.create, nav.post-controls .actions button.create .d-icon {
     color: var(--reply-action);
@@ -456,6 +485,10 @@ span.highlighted {
 }
 .open .grippie:before {
     border-top: 3px double #ffffff60;
+    width: 3em;
+}
+.open .grippie:hover:before {
+    border-top: 3px double #ffffffc0;
 }
 #reply-control {
     box-shadow: 0 -0.5em 1.0em var(--menu-shadow-color);
@@ -754,7 +787,9 @@ div.dummy-placeholder
 }
 .user-menu.revamped .quick-access-panel li {
     background-color: unset;
+    border: 1px outset #00000000;
     border-radius: var(--button-border-radius);
+    transition: var(--hover-anim-time);
 }
 .user-menu.revamped .quick-access-panel ul {
     /* ensure hidden items are entirely hidden */
@@ -774,7 +809,9 @@ div.dummy-placeholder
     background: var(--button-bg);
 }
 .user-menu.revamped .quick-access-panel li:hover {
+    border: 1px outset var(--button-border);
     background: var(--highlight-medium) !important;
+    box-shadow: var(--hover-mini-shadow-args) !important;
 }
 .user-menu .quick-access-panel li a {
     /* slightly reduce size of notification items */
@@ -812,6 +849,7 @@ li.active,
     border: 1px outset var(--button-border);
     background: var(--button-bg);
     box-shadow: var(--button-shadows);
+    transition: var(--hover-anim-time);
 }
 
 /* "Summarize This Topic" and "Reply" buttons */
@@ -820,14 +858,20 @@ li.active,
     border: 1px outset var(--button-primary-border);
     background: var(--button-primary-bg);
     box-shadow: var(--button-shadows);
+    transition: var(--hover-anim-time);
 }
 .btn-flat {
     box-shadow: none;
     border: none;
     background: none;
+    transition: var(--hover-anim-time);
 }
 .quote-button {
-    box-shadow: var(--button-shadows);
+    box-shadow: var(--hover-shadow-args);
+    transition: var(--hover-anim-time);
+}
+.btn:hover, .btn-primary:hover, .btn-flat:hover, .quote-button:hover {
+    box-shadow: var(--hover-shadow-args);
 }
 
 /* hamburger button in the page header */
@@ -845,6 +889,15 @@ li.active,
     border: 1px outset var(--button-border) !important;
     background: var(--button-bg) !important;
 }
+.select-kit-header:hover {
+    background: var(--primary-medium) !important;
+}
+.discourse-no-touch .btn:hover {
+    background: var(--primary-medium);
+}
+.discourse-no-touch .btn-flat:hover {
+    background: unset;
+}
 
 /********** timeline **********/
 /* make it obvious the dates are clickable */
@@ -854,6 +907,10 @@ li.active,
     border: 1px outset var(--button-border);
     padding: 0.2em 0.4em;
     box-shadow: var(--button-shadows);
+    transition: var(--hover-anim-time);
+}
+.timeline-date-wrapper a:hover {
+    box-shadow: var(--hover-shadow-args);
 }
 /* bottom right corner version */
 #topic-progress {
@@ -875,19 +932,20 @@ li.active,
 .timeline-scrollarea {
     margin-left: 0.75em !important;
     border-left: 1em solid var(--timeline-scrollbar-bg) !important;
+    transition: var(--hover-anim-time);
 }
 .timeline-handle {
     width: 0.6em !important;
     background: linear-gradient(var(--timeline-handle-top), var(--timeline-handle-bot));
     border: 0.15em outset var(--timeline-handle-border);
     margin-left: -0.75em !important;
+    transition: var(--hover-anim-time);
 }
 
 .timeline-scrollarea:hover { /* change color of scrollbar handle on hover */
     color: var(--timeline-handle-hover);
     --timeline-handle-top: var(--timeline-handle-hover);
     --timeline-handle-bot: var(--timeline-handle-hover);
-     transition: 0.5s;
 }
 .timeline-scrollarea:active,
 .timeline-handle:active { /* change color of scrollbar handle on click */
@@ -899,7 +957,7 @@ li.active,
 .d-label:hover,
 .timeline-scroller-content:hover { /* change color of date buttons on hover */
     color: var(--button-text-hover);
-    transition: .3s;
+    transition: var(--hover-anim-time);
 }
 .d-label:active,
 .timeline-scroller-content:active {  /* change color of date buttons on click */
@@ -966,7 +1024,10 @@ a#skip-link {
 a.mention, a.mention-group {
     color: var(--mention-color);
     background: var(--mention-bg);
-    /* text-shadow: 0 0 5px #000; */
+    transition: var(--hover-anim-time);
+}
+a.mention:hover, a.mention-group:hover {
+    box-shadow: var(--hover-shadow-args);
 }
 
 /* dot which shows up on unread posts */
@@ -1083,6 +1144,10 @@ div.dummy-placeholder {
     --post-border-radius: 10px;
     --post-padding: 8px;
     --button-border-radius: 16px;
+    --hover-anim-time: 0.25s;
+    /* --hover-border-radius: 30px; */
+    --hover-shadow-args: 0.15em 0.3em 0.5em #000000a0;
+    --hover-mini-shadow-args: 0.1em 0.1em 0.2em #000000e0;
     /* these defaults override theme colors...
     --button-text-hover: #efefef;
     --sidebar-text-hover: #68b9c8;
