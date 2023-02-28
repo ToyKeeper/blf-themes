@@ -81,8 +81,8 @@
     --quote-header-bot: #00000020;
     --topic-map-bg: #00000030;
     /* --topic-map-bg: #2d2f2a; */
-    --post-notice-top: var(--highlight);
-    --post-notice-bot: #292929;
+    --post-notice-top: #ad613e;
+    --post-notice-bot: #ad613e;
     --post-notice-fg: #ddd;
     --post-header-button-bg: #3b39377d;
     --post-header-button: #96928d;
