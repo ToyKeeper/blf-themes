@@ -477,6 +477,16 @@ span.highlighted {
     margin: 0 0 0 0.5em !important;
 }
 
+/********** widget showing the current view is a summary **********/
+.posts-filtered-notice {
+    box-shadow: 0 -0.5em 1.0em var(--menu-shadow-color);
+    color: var(--header_primary);
+    background: linear-gradient(var(--header-bg-bot), var(--header-bg-top));
+    border-radius: var(--post-border-radius) var(--post-border-radius) 0 0;
+    border: 1px outset var(--header-bg-top);
+    z-index: 100;  /* above the floating mini timeline widget */
+}
+
 /********** editor **********/
 .open .grippie {
     background: linear-gradient(var(--post-me-bar-top), var(--post-me-bar-bot));
@@ -926,8 +936,8 @@ li.active,
 #topic-progress .bg {
     border-radius: 8px;
     background: linear-gradient(var(--timeline-handle-top), var(--timeline-handle-bot));
-    /* it doesn't quite reach the top and bottom for some reason */
-    margin: -0.2px 0 -0.1px 0;
+    /* sometimes it doesn't quite reach the top and bottom for some reason */
+    margin: -0.4px 0 -0.2px 0;
 }
 .timeline-scrollarea {
     margin-left: 0.75em !important;
