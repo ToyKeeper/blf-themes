@@ -1,12 +1,11 @@
 /* ==UserStyle==
-@name           BLF-Reddit-dark
-@namespace      github.com/openstyles/stylus
+@name           BLF-Reddit
+@namespace      lw-r/flashlight
 @version        1.0.0
-@description    A new userstyle
-@author         Me
+@description    Theme to match (new) dark Reddit interface
+@author         LuxWad
 ==/UserStyle== */
-
-@-moz-document url-prefix("https://budgetlightforum.com/") {
+@-moz-document domain("budgetlightforum.com") {
     /* Discourse "Reddit-dark" color palette
  * Copyright (C) Selene ToyKeeper
  * SPDX-License-Identifier: GPL-3.0-or-later
@@ -17,26 +16,29 @@
     --primary: #d7dadc;
     --secondary: #030303;
     --tertiary: #0079d3;
-    /* --tertiary: #e66100; */
-    /* --tertiary-medium: #6298e8; */
-    /* --tertiary-low: #93b7ee; */
     /* --tertiary-500: #93b7ee; */ /* topic list row borders */
     --quaternary: #b1b1b1e8;
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #ccc;
     --danger-medium: #4fbcff;
-    /* --love: #b924c1; */ /* thumbs-up button */
+    /* shadows */
+    --menu-shadow-color: none;
+    --shadow-color: none
+    --post-shadows: none;
+    --table-shadows: var(--post-shadows); 
     /* page header */
     --header_background: #1a1a1b;
-    --header_shadow: #2b2b2b;
-    --header-top: #1a1a1b;
-    --header-bottom: #1a1a1b;
+    --header_shadow: none;
+    --header-bg-top: #1a1a1b;
+    --header-bg-bot: #1a1a1b;
     --header-border: #343536;
     /* --header-icon-fg-hover: #000; */
     /* --header-icon-bg-hover: #ddf; */
     /* sidebar */
     --sidebar-color: #1a1a1b;
     --sidebar-border: #343536;
+    --sidebar-text-hover: #4fbcff;
+    --button-text-hover: #d7dadc;
     /* ads */
     --ads-top: #ffae0b;
     --ads-bot: #e19600;
@@ -67,6 +69,7 @@
     --post-def-bar-bot: #1a1a1b;
     /* other parts of posts */
     --post-actions-bar-bg: #1a1a1b;
+    --post-action-bar-border-radius: 3px; 
     --post-quote-border: #ffffff30;
     --post-embed-hl: #333;
     --post-embed-top: #242426;
@@ -79,6 +82,15 @@
     --post-notice-fg: #ddd;
     /* --post-header-button-bg: #ffffff30; */
     --post-header-button: #919191;
+    /* heat map (color-codes topics by likes-to-posts ratio) */
+    --heatmap-none-color: #7a7b7c;
+    --heatmap-low-color: #4560ae;
+    --heatmap-medium-color: #ff4500;
+    --heatmap-high-color: #fddc35;
+    --heatmap-none-shadow: none;
+    --heatmap-low-shadow: none;
+    --heatmap-medium-shadow: none;
+    --heatmap-high-shadow: none; 
     /* --post-header-button: #285892; */
     /* --post-header-button: #eee; */
     /* avatar */
@@ -86,6 +98,8 @@
     --avatar-bot: #282828;
     --avatar-hl: #555;
     /* blockquotes */
+    --blockquote-bg-odd: #ffffff18;
+    --blockquote-bg-even: #00000030; 
     --blend-primary-secondary-5: #a4a4a418;
     --primary-very-low: #00000030;
     /* editor */
@@ -99,35 +113,59 @@
     /* highlighted text */
     --highlighted-fg: var(--tertiary);
     --highlighted-bg: var(--tertiary-low);
+    
+    /* tags */
+    --tag-fg: var(--primary);
+    --tag-bg: #ffffff28;
+    /* user titles */
+    --user-title-fg: var(--primary);
+    --user-title-bg: #ffffff18;
+    /* timeline slider */
+    --timeline-scrollbar-bg: #1a1a1b75;
+    --timeline-handle-top: #ccc;
+    --timeline-handle-bot: #ccc;
+    --timeline-handle-border: #ffffff10;
+    --timeline-handle-hover: #ff4500;
+    --timeline-handle-click: #ff4500;        
+    /* misc */
+    --unread-dot-color: #75d377;
+    --simple-theme-link-color: var(--tertiary);
+    /* alert pop-up widget */
+    --alert-fg: #dea8aa91;
+    --alert-bg: var(--header-bg-bot);
+    --alert-border: var(--header-bg-top);
+    
+    /* buttons */
+    --button-bg: #343536;
+    --button-border: #343536;
+    --button-border-radius: 30px;
+    --button-primary-bg: var(--tertiary);
+    --button-primary-border: var(--button-border);
+    --reply-action: #818384;
+    /*     --reply-action: #a9a9a9; */ 
     /* topic list */
     --table-header-bg: var(--post-def-top);
     --table-even-row-bg: #030303;
     --table-odd-row-bg: #19191a;
     --last-visit-bg: var(--danger-medium);
     --last-visit-fg: #333;
-    /* misc */
-    --button-bg: #343536;
-    --button-border: #343536;
-    --button-primary-bg: var(--tertiary);
-    --button-primary-border: var(--button-border);
-    --reply-action: #818384;
+    /* main-site scrollbars - firefox */
+    --main-scrollbar-bg: #1a1a1b;
+    --main-scrollbar-button: #d7dadc;
+
     /* --primary-low-mid: #285892; */
     /* --primary-low-mid-or-secondary-high: #285892; */
     /* --primary-high-or-secondary-low: #034c3b; */
     /* --tertiary-med-or-tertiary: #448; */
     --hljs-bg: #ffffff30; /* <code> blocks */
+       /* main nav controls on front page */
+    --d-nav-pill-border-radius: 3px;
 
     /********** defaults copied from parent theme **********/
     --scheme-type: dark;
-    --button-border-radius: 30px;
-    --post-action-bar-border-radius: 3px;
-    --post-border-radius: 5px;
+    --post-border-radius: 4px;
     --section-border-width: 1px;
-    /* --primary: #dddddd; */
-    /* --secondary: #222222; */
     --tertiary: #4ba5ff;
-    /* --quaternary: #c14924; */
-    /* --header_background: #111111; */
     --header_primary: #d7dadc;
     --highlight: #ea7f4e;
     --danger: #c03437;
@@ -146,7 +184,7 @@
     /* --primary-very-low: #282828; */
     --primary-low: #333;
     --primary-low-mid: #818384;
-    --primary-medium: #d7dadc;
+    --primary-medium: #6f7071;
     --primary-high: #e0e0e0;
     --primary-very-high: #d7dadc;
     --primary-50: #282828;
@@ -172,7 +210,7 @@
     --tertiary-low: #255878;
     --tertiary-medium: #0079d3;
     --tertiary-high: #4fbcff;
-    --tertiary-hover: #4fbcffb0
+    --tertiary-hover: #17232d;
     --tertiary-50: #04212c;
     --tertiary-100: #042431;
     --tertiary-200: #052836;
