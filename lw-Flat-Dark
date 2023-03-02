@@ -83,9 +83,10 @@
     /* --post-header-button-bg: #ffffff30; */
     --post-header-button: #919191;
     /* heat map (color-codes topics by likes-to-posts ratio) */
-    --heatmap-low-color: #707070;
-    --heatmap-medium-color: #949494;
-    --heatmap-high-color: #8ec9c9;
+    --heatmap-none-color: #868686;
+    --heatmap-low-color: #b4b4b4;
+    --heatmap-medium-color: #6cd8d8;
+    --heatmap-high-color: #62d279;
     --heatmap-none-shadow: none;
     --heatmap-low-shadow: none;
     --heatmap-medium-shadow: none;
