@@ -65,6 +65,10 @@ body.has-sidebar-page .sidebar-wrapper {
 body.has-sidebar-page #main-outlet-wrapper {
     gap: 0 0.75em;
 }
+/* reduce side padding on mobile view */
+.mobile-view #main-outlet-wrapper {
+    padding: 0 0.25em;
+}
 
 /********** ads **********/
 div.p1-banner, div.p2-banner, div.p3-banner, div.house-banner {
@@ -208,6 +212,9 @@ img.avatar {
     margin: 0.15em 0.5em 0 0;
     padding: 0.06em 0 0.06em 0;
 }
+.post-info.edits .btn-flat {
+    border-radius: var(--button-border-radius);
+}
 .topic-meta-data .post-info a {
     color: var(--post-header-button);
 }
@@ -249,6 +256,10 @@ img.avatar {
     margin-bottom: 0.5em;
 }
 
+.mobile-view .boxed .contents {
+    padding: 0;
+}
+
 /* remove extra space at bottom of comments */
 section.post-menu-area, section.post-actions {
     margin: 0px;
@@ -258,6 +269,11 @@ section.post-menu-area, section.post-actions {
 nav.post-controls .actions button, nav.post-controls .show-replies {
     padding: 0px 5px;
     border-radius: var(--button-border-radius);
+}
+.mobile-view nav.post-controls .actions button,
+.mobile-view nav.post-controls .show-replies {
+    /* override massive vertical padding */
+    padding: 0px 0.666em !important;
 }
 /* remove spurious scrollbar on mobile */
 nav.post-controls {
@@ -432,6 +448,10 @@ span.highlighted {
     border: 1px outset var(--topic-map-bg);
     background: var(--topic-map-bg);
 }
+.mobile-view .topic-map,
+.mobile-view .archetype-private_message .topic-map {
+    margin: 0.5em 0 0 0;
+}
 .topic-map section {
     border: none;
     border-radius: 8px;
@@ -573,6 +593,12 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 .user-card .card-content, .group-card .card-content, .d-user-card__main-content {
     background: none;
 }
+.user-card .first-row .names,
+.group-card .first-row .names {
+    /* parent theme's hard-coded size is wrong */
+    flex: 1 1 calc(100% - 120px - 16px - 0.75em);
+    padding-left: 0;
+}
 .user-card-avatar, /* pop-up widget */
 .d-user-card__avatar img.avatar, /* pop-up on meta.discourse.org */
 .controls .avatar, /* user prefs page */
@@ -583,6 +609,7 @@ div.dummy-placeholder {
     border-radius: 6px;
     padding: 5px 6px 6px 5px;
     box-shadow: 0.333em 0.5em 0.5em var(--shadow-color);
+    margin-right: 0.75em;
 }
 .collapsed-info .avatar {
     /* smaller shadow on user info page when not expanded */
@@ -666,6 +693,11 @@ tbody {
     display: none;
     /* float: right; */
 }
+.mobile-view .topic-list .badge-wrapper.bullet {
+    /* mobile leaves a space for it no matter what I do,
+     * so I may as well let it display */
+    display: inline-block;
+}
 .badge-wrapper.bullet span.badge-category {
     color: var(--primary-medium);
 }
@@ -724,6 +756,27 @@ tbody {
     background: var(--last-visit-bg);
     color: var(--last-visit-fg);
     border-radius: 99px;
+}
+
+/* make the mobile topic list more compact */
+.mobile-view .topic-list .topic-list-data:first-of-type {
+    padding: 0 !important; */
+}
+.mobile-view .topic-list td .main-link {
+    width: 100%;
+}
+.mobile-view .topic-item-stats {
+    margin: 0;
+}
+/*
+.mobile-view .topic-item-stats.clearfix {
+    clear: none;
+    float: right;
+}
+*/
+.mobile-view .topic-item-stats .num.activity {
+    margin: 0.333em 0.5em 0 auto;
+    padding: 0;
 }
 
 /* this pops up sometimes, over the top of other widgets */
