@@ -369,14 +369,23 @@ span.highlighted {
 .cooked tbody {
     border: none;
 }
-.cooked th {
+.cooked th,
+.d-editor-preview-wrapper th,
+.modal-body th  /* "expand table" view */
+{
     background: var(--post-table-th-bg);
     color: var(--primary);
 }
-.cooked tr {
+.cooked tr,
+.d-editor-preview-wrapper tr,
+.modal-body tr
+{
     background: var(--post-table-even-row-bg);
 }
-.cooked tr:nth-child(odd) {
+.cooked tr:nth-child(odd),
+.d-editor-preview-wrapper tr:nth-child(odd),
+.modal-body tr:nth-child(odd)
+{
     background: var(--post-table-odd-row-bg);
 }
 
@@ -619,6 +628,12 @@ div.dummy-placeholder {
 .topic-list-item.bookmarked:nth-child(odd) {
     /* important because parent theme set it that way */
     background-color: var(--table-odd-row-hl-bg) !important;
+}
+a.op-bookmark:before {
+    content: "BM";
+    font-size: 80%;
+    color: var(--heatmap-high-color);
+    text-shadow: var(--heatmap-high-shadow);
 }
 tbody {
     border-top: 3px solid var(--post-quote-border);
@@ -998,6 +1013,15 @@ li.active,
     overflow: visible;
     padding-left: 0.5em;
     max-height: 4em;
+}
+
+/********** pop-up thingy when clicking on num posts in topic list **********/
+#topic-entrance {
+    border-radius: var(--button-border-radius);
+    border: 1px outset var(--button-border);
+    /* background: var(--secondary); */
+    box-shadow: 0.25em 0.25em 1.0em var(--menu-shadow-color);
+    padding: 0.5em;
 }
 
 /********** tag box (like posts tagged "review") **********/
