@@ -1,84 +1,96 @@
 /* ==UserStyle==
-@name           BLF-Reddit-dark
-@namespace      github.com/openstyles/stylus
+@name           budgetlightforum.com - 3/2/2023, 12:45:50 AM
+@namespace      BLF-Flat-Dark
 @version        1.0.0
 @description    A new userstyle
-@author         Me
+@author         LuxWad
 ==/UserStyle== */
-
-@-moz-document url-prefix("https://budgetlightforum.com/") {
-    /* Discourse "Reddit-dark" color palette
+@-moz-document domain("budgetlightforum.com") {
+    /* Discourse "Flat Dark" color palette
  * Copyright (C) Selene ToyKeeper
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 /********** vars **********/
 :root {
     /* main colors */
-    --primary: #d7dadc;
-    --secondary: #030303;
-    --tertiary: #0079d3;
-    /* --tertiary: #e66100; */
-    /* --tertiary-medium: #6298e8; */
-    /* --tertiary-low: #93b7ee; */
+    --primary: #ccc;
+    --secondary: #222;
+    --tertiary: #2ba7cd; 
     /* --tertiary-500: #93b7ee; */ /* topic list row borders */
     --quaternary: #b1b1b1e8;
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #ccc;
-    --danger-medium: #4fbcff;
-    /* --love: #b924c1; */ /* thumbs-up button */
+    --danger-medium: #2bbcf5;
+    /* shadows */
+    --menu-shadow-color: #00000029;
+    --shadow-color: #0000000a;
+    --post-shadows: none;
+    --table-shadows: var(--post-shadows); 
     /* page header */
-    --header_background: #1a1a1b;
+    --header_background: #333;
     --header_shadow: #2b2b2b;
-    --header-top: #1a1a1b;
-    --header-bottom: #1a1a1b;
-    --header-border: #343536;
+    --header-bg-top: #292929;
+    --header-bg-bot: #292929;
+    --header-border: #474748;
     /* --header-icon-fg-hover: #000; */
     /* --header-icon-bg-hover: #ddf; */
     /* sidebar */
-    --sidebar-color: #1a1a1b;
-    --sidebar-border: #343536;
+    --sidebar-color: #282828;
+    --sidebar-border: #282828;
+    --sidebar-text-hover: #c5f3f3;
+    --button-text-hover: #52a2a2;
     /* ads */
-    --ads-top: #ffae0b;
-    --ads-bot: #e19600;
+    --ads-top: #f4bc4b;
+    --ads-bot: #f4bc4b;
     --ads-hl: #ffbb34;
     /* post / comment box colors per user type */
-    --post-op-top:#3b3716;
-    --post-op-bot: #1a1a1b;
+    --post-op-top: #333;
+    --post-op-bot: #333;
     --post-op-hl: #214566;
-    --post-op-bar-top: #0079d3;
-    --post-op-bar-bot: #0079d3;
+    --post-op-bar-top: #354555;
+    --post-op-bar-bot: #354555;
     
-    --post-me-top: #003258;
-    --post-me-bot: #1a1a1b;
-    --post-me-hl: #343536;
-    --post-me-bar-top:#0079d3;
-    --post-me-bar-bot: #0079d3;
+    --post-me-top: #333;
+    --post-me-bot: #333;
+    --post-me-hl: #2a1f2a;
+    --post-me-bar-top: #694569;
+    --post-me-bar-bot: #694569;
     
-    --post-admin-top: #880d0e;
-    --post-admin-bot: #1a1a1b;
-    --post-admin-hl: #1b5438;
-    --post-admin-bar-top: #48d15e;
-    --post-admin-bar-bot: #48d15e;
+    --post-admin-top: #333;
+    --post-admin-bot: #333;
+    --post-admin-hl: #21594e;
+    --post-admin-bar-top: #364636;
+    --post-admin-bar-bot: #364636;
     
-    --post-def-top: #1a1a1b;
-    --post-def-bot: #1a1a1b;
+    --post-def-top: #333;
+    --post-def-bot: #333;
     --post-def-hl: #444;
-    --post-def-bar-top: #1a1a1b;
-    --post-def-bar-bot: #1a1a1b;
+    --post-def-bar-top: #282828;
+    --post-def-bar-bot: #282828;
     /* other parts of posts */
-    --post-actions-bar-bg: #1a1a1b;
+    --post-actions-bar-bg: rgba(0,0,0, 0.2);
+    --post-action-bar-border-radius: 5px; 
     --post-quote-border: #ffffff30;
     --post-embed-hl: #333;
-    --post-embed-top: #242426;
-    --post-embed-bot: #242426;
-    --quote-header-top: #242426;
-    --quote-header-bot: #242426;
+    --post-embed-top: #4b4846;
+    --post-embed-bot: #333230;
+    --quote-header-top: ##444;
+    --quote-header-bot: ##444;
     --topic-map-bg: #0088ff20;
     --post-notice-top: var(--highlight);
     --post-notice-bot: #292929;
     --post-notice-fg: #ddd;
     /* --post-header-button-bg: #ffffff30; */
     --post-header-button: #919191;
+    /* heat map (color-codes topics by likes-to-posts ratio) */
+    --heatmap-none-color: #868686;
+    --heatmap-low-color: #b4b4b4;
+    --heatmap-medium-color: #6cd8d8;
+    --heatmap-high-color: #62d279;
+    --heatmap-none-shadow: none;
+    --heatmap-low-shadow: none;
+    --heatmap-medium-shadow: none;
+    --heatmap-high-shadow: none; 
     /* --post-header-button: #285892; */
     /* --post-header-button: #eee; */
     /* avatar */
@@ -86,6 +98,8 @@
     --avatar-bot: #282828;
     --avatar-hl: #555;
     /* blockquotes */
+    --blockquote-bg-odd: #ffffff18;
+    --blockquote-bg-even: #00000030; 
     --blend-primary-secondary-5: #a4a4a418;
     --primary-very-low: #00000030;
     /* editor */
@@ -94,47 +108,66 @@
     --editor-unfocused: var(--primary-400);
     --editor-hl: var(--primary-300);
     /* mentions */
-    --mention-color: #4fbcff;
-    --mention-bg: #19191a
+    --mention-color: #fff;
+    --mention-bg: #7b7b7b;
     /* highlighted text */
     --highlighted-fg: var(--tertiary);
     --highlighted-bg: var(--tertiary-low);
-    /* topic list */
-    --table-header-bg: var(--post-def-top);
-    --table-even-row-bg: #030303;
-    --table-odd-row-bg: #19191a;
-    --last-visit-bg: var(--danger-medium);
-    --last-visit-fg: #333;
+    /* tags */
+    --tag-fg: var(--primary);
+    --tag-bg: #ffffff28;
+    /* user titles */
+    --user-title-fg: var(--primary);
+    --user-title-bg: #ffffff18;
+    /* timeline slider */
+    --timeline-scrollbar-bg: #00000028;
+    --timeline-handle-top: #ccc;
+    --timeline-handle-bot: #ccc;
+    --timeline-handle-border: #ffffff10;
+    --timeline-handle-hover: #c5f3f3;
+    --timeline-handle-click: #52a2a2;	
     /* misc */
-    --button-bg: #343536;
-    --button-border: #343536;
+    --unread-dot-color: #c5f3f3;
+    --simple-theme-link-color: var(--tertiary);
+    /* alert pop-up widget */
+    --alert-fg: #dea8aa91;
+    --alert-bg: var(--header-bg-bot);
+    --alert-border: var(--header-bg-top);
+    /* buttons */
+    --button-bg: #282828;
+    --button-border: #282828;
+    --button-border-radius: 5px;
     --button-primary-bg: var(--tertiary);
     --button-primary-border: var(--button-border);
-    --reply-action: #818384;
+    --reply-action: #52a2a2;
+    /*     --reply-action: #a9a9a9; */
+    /* topic list */
+    --table-header-bg: var(--post-def-top);
+    --table-even-row-bg: #282828;
+    --table-odd-row-bg: #333;
+    --last-visit-bg: var(--danger-medium);
+    --last-visit-fg: #333;
+    /*main-site scrollbars - firefox */ 
+    --main-scrollbar-bg: ##1d1d1d;
+    --main-scrollbar-button: #ccc;
     /* --primary-low-mid: #285892; */
     /* --primary-low-mid-or-secondary-high: #285892; */
     /* --primary-high-or-secondary-low: #034c3b; */
     /* --tertiary-med-or-tertiary: #448; */
     --hljs-bg: #ffffff30; /* <code> blocks */
+    /* main nav controls on front page */
+    --d-nav-pill-border-radius: 5px;
 
     /********** defaults copied from parent theme **********/
     --scheme-type: dark;
-    --button-border-radius: 30px;
-    --post-action-bar-border-radius: 3px;
-    --post-border-radius: 5px;
-    --section-border-width: 1px;
-    /* --primary: #dddddd; */
-    /* --secondary: #222222; */
-    --tertiary: #4ba5ff;
-    /* --quaternary: #c14924; */
-    /* --header_background: #111111; */
-    --header_primary: #d7dadc;
+    --tertiary: #2ba7cd;
+    --header_primary: #dddddd;
     --highlight: #ea7f4e;
     --danger: #c03437;
     --success: #77d877;
-    --love: #ff4500;
+    --love: #fa6c8d;
     --d-selected: #2c2c2c;
-    --d-hover: #272729;
+    --d-hover: #333;
     --always-black-rgb: 0, 0, 0;
     --primary-rgb: 221, 221, 221;
     --primary-low-rgb: 49, 49, 49;
@@ -145,10 +178,10 @@
     --highlight-rgb: 168, 113, 55;
     /* --primary-very-low: #282828; */
     --primary-low: #333;
-    --primary-low-mid: #818384;
-    --primary-medium: #d7dadc;
-    --primary-high: #e0e0e0;
-    --primary-very-high: #d7dadc;
+    --primary-low-mid: #a9a9a9;
+    --primary-medium: #766b96;
+    --primary-high: #a6a6a6;
+    --primary-very-high: #B8B8B8;
     --primary-50: #282828;
     --primary-100: #2c2c2c;
     --primary-200: #313131;
@@ -168,11 +201,11 @@
     --secondary-medium: #919191;
     --secondary-high: #646464;
     --secondary-very-high: #313131;
-    --tertiary-very-low: #132b3a
-    --tertiary-low: #255878;
-    --tertiary-medium: #0079d3;
-    --tertiary-high: #4fbcff;
-    --tertiary-hover: #4fbcffb0
+    --tertiary-very-low: #1a3a3a;
+    --tertiary-low: #2f5c5c;
+    --tertiary-medium: #52a2a2;
+    --tertiary-high: #70e5e5;
+    --tertiary-hover: #428888;
     --tertiary-50: #04212c;
     --tertiary-100: #042431;
     --tertiary-200: #052836;
@@ -183,10 +216,10 @@
     --tertiary-700: #09516d;
     --tertiary-800: #0a5a79;
     --tertiary-900: #0b6283;
-    --quaternary-low: #272729;
-    --highlight-bg: #1a1a1b;
-    --highlight-low: #1a1a1b;
-    --highlight-medium: #272729;
+    --quaternary-low: #3a3a3a;
+    --highlight-bg: #22170b;
+    --highlight-low: #22170b;
+    --highlight-medium: #484e56;
     --highlight-high: #ff8852;
     --danger-low: #71383a;
     --danger-low-mid: rgba(94, 54, 44, .7);
@@ -204,10 +237,10 @@
     --primary-low-mid-or-secondary-high: #646464;
     --primary-low-mid-or-secondary-low: #bdbdbd;
     --primary-or-primary-low-mid: #7a7a7a;
-    --highlight-low-or-medium: #272729;
-    --tertiary-or-tertiary-low: #0079d3;
-    --tertiary-low-or-tertiary-high: #0079d3;
-    --tertiary-med-or-tertiary: #0079d3;
+    --highlight-low-or-medium: #4c3319;
+    --tertiary-or-tertiary-low: #052e3d;
+    --tertiary-low-or-tertiary-high: #0b6283;
+    --tertiary-med-or-tertiary: #0f82af;
     --secondary-or-primary: #dddddd;
     --tertiary-or-white: #fff;
     --facebook-or-white: #fff;
@@ -238,5 +271,4 @@
     --silver: #c0c0c0;
     --bronze: #cd7f32;
 }
-
 }
