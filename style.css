@@ -27,6 +27,10 @@
     color: var(--header-icon-fg) !important;
 }
 */
+/* number in a circle, when there are new notifications */
+.d-header-icons .unread-notifications {
+    background-color: var(--tertiary-med-or-tertiary);
+}
 .d-header-icons a:hover {
     background-color: var(--header-icon-bg-hover) !important;
     color: var(--header-icon-fg-hover) !important;
