@@ -345,6 +345,13 @@ aside.quote .title { /* top right corner of a quote */
     margin-top: 10px;
     border: none;
 }
+.embedded-posts.top {
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+.embedded-posts.top .reply {
+    margin: 0;
+}
 .embedded-posts .topic-body {
     width: 100%; /* remove calculated extra padding from parent theme */
 }
