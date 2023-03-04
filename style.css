@@ -547,23 +547,36 @@ span.highlighted {
     /* background: none; */
     /* border: none; */
 }
+/* make the editor buttons fit into smaller spaces */
+.d-editor-button-bar {
+    grid-template-columns: repeat(auto-fit, minmax(1.333em, 1fr));
+}
 .d-editor-button-bar .btn {
     border: none;
     box-shadow: none;
+    padding: 0.25em 0.25em;
+}
+.d-editor-container {
+    column-gap: 0.5em;
+}
+.d-editor-textarea-column {
+    flex: 1.01; /* is needed to make editor and preview closer to the same size */
 }
 .d-editor-textarea-wrapper {
     border: 3px inset var(--editor-hl) !important;
     background: var(--editor-bg);
 }
 .d-editor-preview-wrapper {
+    flex: 1;
     border: 1px outset var(--post-me-hl);
     background: linear-gradient(var(--post-me-top), var(--post-me-bot));
     padding: var(--post-padding);
     border-radius: var(--post-border-radius);
     box-shadow: var(--post-shadows);
-
+    margin: 0;
 }
 textarea {
+    padding: 6px !important;
     color: var(--editor-unfocused); /* unfocused */
 }
 textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea-wrapper.in-focus {
@@ -1252,4 +1265,8 @@ div.dummy-placeholder {
     --post-action-bar-border-radius: 6px;
     */
     --section-border-width: 4px;
+    /* reduce line heights a bit (default is 1.0 / 1.2 / 1.4) */
+    --line-height-small: 1em;
+    --line-height-medium: 1.16em;
+    --line-height-large: 1.33em;
 }
