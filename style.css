@@ -786,7 +786,7 @@ tbody {
 
 /* make the mobile topic list more compact */
 .mobile-view .topic-list .topic-list-data:first-of-type {
-    padding: 0 !important; */
+    padding: 0 !important;
 }
 .mobile-view .topic-list td .main-link {
     width: 100%;
