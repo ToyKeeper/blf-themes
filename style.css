@@ -1105,7 +1105,7 @@ li.active,
 }
 
 /********** tag box (like posts tagged "review") **********/
-a.discourse-tag, a.hashtag-cooked {
+a.discourse-tag, a.hashtag-cooked, .discourse-tag.box {
     color: var(--tag-fg) !important;
     background-color: var(--tag-bg);
     border-radius: 99px;
