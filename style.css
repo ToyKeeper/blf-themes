@@ -566,14 +566,14 @@ span.highlighted {
 .d-editor-textarea-column {
     /* is needed to make editor and preview closer to the same size */
     margin: 0 0 0 0.25em;
-    min-width: calc(50% - 0.5em);
+    min-width: calc(50% + 0.5em - var(--post-padding) - var(--post-padding));
 }
 .d-editor-textarea-wrapper {
     border: 3px inset var(--editor-hl) !important;
     background: var(--editor-bg);
 }
 .d-editor-preview-wrapper {
-    min-width: calc(50% - 1.75em);
+    min-width: calc(50% - 0.5em + 1px - var(--post-padding) - var(--post-padding));
     margin: 0 0.25em 0 0;
     border: 1px outset var(--post-me-hl);
     background: linear-gradient(var(--post-me-top), var(--post-me-bot));
@@ -582,7 +582,8 @@ span.highlighted {
     box-shadow: var(--post-shadows);
 }
 textarea {
-    padding: 6px !important;
+    /* 2px less to make up for the difference between a 3px and 1px border width */
+    padding: calc(var(--post-padding) - 2px) !important;
     color: var(--editor-unfocused); /* unfocused */
 }
 textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea-wrapper.in-focus {
