@@ -1139,7 +1139,7 @@ div.poll {
     border: none;
 }
 div.poll .poll-container {
-    padding: 0;
+    padding: 0 0 0 0.5em;
     border: none;
 }
 div.poll .poll-buttons {
