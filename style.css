@@ -714,7 +714,7 @@ tbody {
 /* topic list table cells, make tables more compact */
 .topic-list .topic-list-data {
     /* remove the crazy amount of padding in parent theme */
-    padding: 2px 0 0 0 !important;
+    padding: 3px 0 2px 0 !important;
     line-height: initial;
 }
 .topic-list .topic-list-data:first-of-type {
