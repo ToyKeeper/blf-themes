@@ -21,6 +21,10 @@
     border-bottom: var(--section-border-width) solid var(--header-border);
     box-shadow: var(--header-shadow);
 }
+/* prevent bottom of page title from getting cropped */
+.extra-info-wrapper .header-title a {
+    line-height: initial; /* parent theme tries to be clever, and fails */
+}
 /*
 .d-header-icons a {
     background-color: var(--header-icon-bg) !important;
@@ -71,7 +75,10 @@ body.has-sidebar-page #main-outlet-wrapper {
 }
 /* reduce side padding on mobile view */
 .mobile-view #main-outlet-wrapper {
-    padding: 0 0.25em;
+    padding: 0 0.25em 0 0.333em;
+}
+.mobile-view .container.posts>.row {
+    max-width: calc(100vw - 0.5em);
 }
 
 /********** ads **********/
@@ -775,6 +782,11 @@ tbody {
     margin: 0;
     padding: 0 0 0 1.2em;
 }
+/* fix excerpt overflow on mobile */
+.mobile-view .topic-list .topic-excerpt {
+    padding: 0;
+    width: 100%; /* parent theme sets 120% ... wtf */
+}
 .topic-list .topic-list-item-separator .topic-list-data {
     border: none;
     background: var(--last-visit-bg);
@@ -1140,6 +1152,7 @@ div.poll {
 }
 div.poll .poll-container {
     padding: 0 0 0 0.5em;
+    margin-bottom: 0.5em;
     border: none;
 }
 div.poll .poll-buttons {
@@ -1154,6 +1167,10 @@ div.poll .results li:first-of-type {
     padding: 0.5em;
     border-radius: var(--post-border-radius);
 }
+/* fix result area overflowing on mobile */
+div.poll ul, div.poll ol {
+    width: calc(100% - 1em);
+}
 /* display poll options as buttons */
 div.poll li[data-poll-option-id] {
     margin: 0 0 0.5em 0;
@@ -1161,7 +1178,8 @@ div.poll li[data-poll-option-id] {
     border: 1px outset var(--button-border);
     border-radius: var(--button-border-radius);
     background: var(--button-bg);
-    transition: var(--hover-anim-time);
+    /* transition: var(--hover-anim-time); */
+    transition: 0s; /* animation on this looks weird */
 }
 div.poll li[data-poll-option-id]:hover {
     background: var(--highlight-medium);
