@@ -201,6 +201,15 @@ img.avatar {
     /* override topic-post.scss:476 */
     padding: 3px 8px 2px 8px;
 }
+.names span a {
+    /* name of post author */
+    /* copied directly from parent theme, but added "!important"
+     * to override parent theme's corner cases like this one:
+     *   .first.new-user:not(.staff) a { color: var(--primary-low-mid); }
+     * (it uses a hard-to-read color for who-knows-how-many special cases)
+     */
+    color: var(--primary-high-or-secondary-low) !important;
+}
 .relative-date:hover {
     color: var(--button-text-hover);
     transition: .25s;
