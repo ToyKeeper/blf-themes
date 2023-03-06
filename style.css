@@ -715,6 +715,7 @@ tbody {
 .topic-list .topic-list-data {
     /* remove the crazy amount of padding in parent theme */
     padding: 2px 0 0 0 !important;
+    line-height: initial;
 }
 .topic-list .topic-list-data:first-of-type {
     /* indent the left column slightly */
@@ -786,6 +787,12 @@ tbody {
 .topic-list .topic-list-data, .topic-list .creator a, .topic-list .editor a {
     color: var(--quaternary);
 }
+.topic-list .editor { /* abbreviate last-post author name, if necessary */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 1.5em - 7px - 2em);
+}
 .topic-list .topic-excerpt {
     display: inline-block;
     margin: 0;
@@ -808,10 +815,11 @@ tbody {
 
 /* make the mobile topic list more compact */
 .mobile-view .topic-list .topic-list-data:first-of-type {
-    padding: 0 !important;
+    padding: 0.1em 0 !important;
 }
 .mobile-view .topic-list td .main-link {
     width: 100%;
+    padding: 0.2em 0 0 0;
 }
 .mobile-view .topic-item-stats {
     margin: 0;
