@@ -532,6 +532,11 @@ span.highlighted {
 .topic-footer-main-buttons {
     margin: 0 0 0 0.5em !important;
 }
+/* remove horizontal line between last post and thread buttons */
+/* (it looks wrong when mini-timeline widget is visible) */
+.topic-status-info, .topic-timer-info {
+    border: none;
+}
 
 /********** widget showing the current view is a summary **********/
 .posts-filtered-notice {
@@ -724,6 +729,7 @@ tbody {
 .topic-list-main-link a.title, .latest-topic-list-item .main-link a.title, .topic-list .main-link a.title {
     padding: 0;
     margin: 0;
+    color: var(--tertiary);
 }
 #suggested-topics td.main-link {
     width: unset; /* parent theme limits this and it messes with layout */
@@ -792,6 +798,16 @@ tbody {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: calc(100% - 1.5em - 7px - 2em);
+}
+.topic-list .editor:hover { /* un-abbreviate on hover */
+    overflow: unset;  /* expand ellipsis */
+    text-shadow:  /* glow, make sure text is readable on any background */
+        rgb(var(--bg-rgb)) -0.05em 0  0.1em,
+        rgb(var(--bg-rgb))  0.05em 0  0.1em,
+        rgb(var(--bg-rgb)) 0  0.05em  0.1em,
+        rgb(var(--bg-rgb)) 0 -0.05em  0.1em,
+        rgb(var(--bg-rgb)) 0.07em 0.10em  0.15em,
+        rgb(var(--bg-rgb)) 0.10em 0.15em  0.25em;
 }
 .topic-list .topic-excerpt {
     display: inline-block;
@@ -1004,6 +1020,12 @@ li.active,
     box-shadow: var(--hover-shadow-args);
     transition: var(--hover-anim-time);
 }
+.btn-danger, .btn-danger .d-icon {
+    color: var(--danger);  /* why does the parent theme not already do this?? */
+}
+.btn-danger {
+    background: var(--danger-low);
+}
 .btn:hover, .btn-primary:hover, .btn-flat:hover, .quote-button:hover {
     box-shadow: var(--hover-shadow-args);
 }
@@ -1193,7 +1215,7 @@ div.poll li[data-poll-option-id] {
     margin: 0 0 0.5em 0;
     padding: 0.25em;
     border: 1px outset var(--button-border);
-    border-radius: var(--button-border-radius);
+    border-radius: var(--post-border-radius);
     background: var(--button-bg);
     /* transition: var(--hover-anim-time); */
     transition: 0s; /* animation on this looks weird */
@@ -1203,20 +1225,32 @@ div.poll li[data-poll-option-id]:hover {
     box-shadow: var(--hover-shadow-args);
     border: 1px outset var(--button-border);
 }
-/* make it more clear which item is chosen */
-.poll svg.d-icon-circle {
-    border-radius: 99px;
-    border: 1px inset var(--button-border);
-    padding: 2px;
-    background: #00000040;
-}
+/* radio / checkbox button styles */
+.poll svg.d-icon-circle,
 .poll svg.d-icon-far-circle {
     border-radius: 99px;
-    border: 1px outset var(--button-border);
     padding: 2px;
+}
+.poll svg.d-icon-far-square,
+.poll svg.d-icon-far-check-square {
+    border-radius: 4px;
+    padding: 1px;
+}
+/* make it more clear which item(s) are chosen */
+/* unchecked */
+.poll svg.d-icon-far-circle,
+.poll svg.d-icon-far-square {
+    border: 1px outset var(--button-border);
     background: #ffffff40;
 }
-.poll li:has(svg.d-icon-circle) {
+/* checked */
+.poll svg.d-icon-circle,
+.poll svg.d-icon-far-check-square {
+    border: 1px inset var(--button-border);
+    background: #00000040;
+}
+.poll li:has(svg.d-icon-circle),
+.poll li:has(svg.d-icon-far-check-square) {
     border: 1px inset var(--button-border);
     background: linear-gradient(var(--post-embed-top), var(--post-embed-bot));
 }

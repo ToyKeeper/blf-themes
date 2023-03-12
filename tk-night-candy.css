@@ -13,6 +13,8 @@
     /* --tertiary-low: #93b7ee; */
     /* --tertiary-500: #93b7ee; */ /* topic list row borders */
     --quaternary: #ca4b92;
+    --bg-rgb: 0, 0, 0; /* black or white */
+    --fg-rgb: 255, 255, 255; /* black or white */
     --primary-high-or-secondary-low: #fff;
     --primary-med-or-secondary-med: #ccc;
     --danger-medium: #2bbcf5;
