@@ -519,6 +519,10 @@ span.highlighted {
 .archetype-private_message {
     --border-radius: 8px;
 }
+/* remove extra space between messages on mobile */
+.archetype-private_message .topic-post {
+    margin: 0;
+}
 
 /********** blank space below thread **********/
 .topic-above-footer-buttons-outlet.presence {
@@ -1068,6 +1072,19 @@ li.active,
 .timeline-date-wrapper a:hover {
     box-shadow: var(--hover-shadow-args);
 }
+/* mobile version */
+.timeline-container.timeline-fullscreen.show {
+    box-shadow: 0 -0.5em 1em var(--menu-shadow-color);
+    border-top: 3px solid var(--primary-low);
+    padding: 0.75em 0;
+}
+.timeline-container.timeline-fullscreen .topic-timeline .timeline-scrollarea-wrapper {
+    padding-right: 0.75em;
+    /* width: 5em; */
+}
+.timeline-container.timeline-fullscreen .topic-timeline .title {
+    padding-left: 0.75em;
+}
 /* bottom right corner version */
 #topic-progress {
     border-radius: 12px;
@@ -1090,12 +1107,23 @@ li.active,
     border-left: 1em solid var(--timeline-scrollbar-bg) !important;
     transition: var(--hover-anim-time);
 }
+.timeline-fullscreen .timeline-scrollarea {
+    margin-left: 0 !important;
+    border-left: none !important;
+    /* margin-right: 0.75em !important; */
+    /* margin-right: 0 !important; */
+    border-right: 1em solid var(--timeline-scrollbar-bg) !important;
+}
 .timeline-handle {
     width: 0.6em !important;
     background: linear-gradient(var(--timeline-handle-top), var(--timeline-handle-bot));
     border: 0.15em outset var(--timeline-handle-border);
     margin-left: -0.75em !important;
     transition: var(--hover-anim-time);
+}
+.timeline-fullscreen .timeline-handle {
+    margin-right: -0.75em !important;
+    right: -3.2px !important;  /* unsure why this spacing is off */
 }
 
 .timeline-scrollarea:hover { /* change color of scrollbar handle on hover */
@@ -1118,6 +1146,14 @@ li.active,
 .d-label:active,
 .timeline-scroller-content:active {  /* change color of date buttons on click */
     color: var(--timeline-handle-click);
+}
+/* parent theme cuts off half the date button... unsure why */
+.topic-timeline .timeline-scrollarea-wrapper .timeline-date-wrapper {
+    overflow: visible;
+}
+.mobile-view .topic-timeline .start-date,
+.mobile-view .topic-timeline .now-date {
+    padding: 0.1em 0.2em;
 }
 
 /* a "back" button sometimes pops up over the timeline */
