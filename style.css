@@ -142,6 +142,7 @@ div.topic-avatar, /* main post avatar */
 div.avatar-wrapper, /* per item in user activity stream */
 .search-results .avatar, /* search widget results */
 .presence-avatars, /* when someone is writing a reply */
+.chat-message-avatar,
 div.dummy-placeholder {
     background: linear-gradient(-45deg, var(--avatar-bot),var(--avatar-top));
     box-shadow: var(--post-widget-shadows);
@@ -994,6 +995,83 @@ li.active,
 }
 .user-menu.revamped .bottom-tabs {
     border: none;
+}
+
+/********** chat widget **********/
+.chat-drawer.is-expanded .chat-drawer-container {
+    box-shadow: 0 0 1.0em var(--menu-shadow-color);
+    /* border: 1px solid var(--header-border); */
+    border: none;
+    border-radius: var(--post-border-radius) var(--post-border-radius) 0 0;
+}
+.chat-drawer-header {
+    background: linear-gradient(var(--header-bg-top), var(--header-bg-bot));
+    border-bottom: 3px solid var(--header-border);
+    box-shadow: 0 0.25em 0.5em var(--menu-shadow-color);
+    z-index: 2;
+}
+.chat-drawer-resizer {
+    /* make it more obvious that the widget is resizable */
+    background: radial-gradient(at 5% 5%, #ffffffc0 0%, transparent 77%);
+    z-index: 3;
+    width: 1.25em;
+    height: 1.25em;
+}
+.chat-message {
+    margin: 0em 0.35em 0.35em 0.25em;
+    padding: 0.25em 0.25em !important;
+    border: 1px solid transparent;
+    border-radius: var(--post-border-radius);
+    /* background: linear-gradient(var(--post-def-top), var(--post-def-bot)); */
+    /* overflow: visible !important; */
+}
+/* attempt to make shadows stop clipping
+.chat-message-container,
+.chat-messages-container,
+.chat-messages-scroll {
+    overflow-x: visible !important;
+}
+*/
+.chat-message-container.is-hovered {
+    background: unset !important;
+}
+.not-mobile-device .chat-messages-container .chat-message:hover,
+.chat-messages-container .chat-message.chat-message-selected {
+    border: 1px outset var(--post-def-hl);
+    background: linear-gradient(var(--post-def-top), var(--post-def-bot));
+    box-shadow: var(--post-shadows);
+    /* overflow: visible !important; */
+}
+.chat-message-info {
+    background: linear-gradient(var(--post-def-bar-top), var(--post-def-bar-bot));
+    border-radius: 6px 6px 0 0;
+    padding: 0 0 0 0.25em;
+}
+.chat-user-avatar {
+    width: unset !important;
+}
+.chat-message-avatar {
+    border-radius: 5px;
+    padding: 0px 1px 1px 0px;
+    margin: 0 6px 0 0 !important;
+}
+.chat-message-info__username__name {
+    color: var(--primary-high-or-secondary-low);
+}
+.chat-message-actions {
+    margin-bottom: 0.25em !important;  /* move it up a little */
+    /* margin-bottom: -0.85em !important; */  /* move it down a little */
+    box-shadow: -0.15em 0.25em 0.5em var(--menu-shadow-color);
+    border-radius: var(--post-action-bar-border-radius);
+    border: 1px outset var(--post-def-hl);
+    background: linear-gradient(var(--post-def-top), var(--post-def-bot));
+}
+.chat-message-actions button,
+.chat-message-actions .more-buttons.dropdown-select-box .select-kit-header {
+    padding: 0.15em !important;
+    margin: 0 !important;
+    border-radius: var(--post-action-bar-border-radius) !important;
+    border: none !important;
 }
 
 /********** misc buttons **********/
