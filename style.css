@@ -1487,7 +1487,8 @@ div.dummy-placeholder {
 :root {
     /* --topic-avatar-width: 85px; */
     /* sizing, spacing, etc */
-    --topic-body-width: 100%;
+    /* --topic-body-width: 100%; */
+    --topic-body-width: 1244px;
     --d-button-border-radius: 12px;
     --below-topic-margin: 0;
     /* thread post formatting */
