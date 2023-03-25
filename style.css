@@ -320,6 +320,15 @@ div.actions .btn-flat:hover {
 nav.post-controls .actions button.create, nav.post-controls .actions button.create .d-icon {
     color: var(--reply-action);
 }
+/* "who liked" widget */
+.who-liked,
+.who-read {
+    margin: 0.25em 0 0 0;
+}
+.who-liked a,
+.who-read a {
+    margin: 0.25em 0.25em 0 0;
+}
 
 /********** quoted posts **********/
 aside.quote, /* quoted post */
@@ -1167,7 +1176,7 @@ li.active,
 #topic-progress {
     border-radius: 12px;
     background: var(--secondary);
-    color: var(--primary);
+    color: var(--progress-text-color);
     border: 4px outset var(--timeline-handle-border);
     box-shadow: 0.25em 0.25em 1.0em var(--menu-shadow-color);
     margin-bottom: 0.5em;

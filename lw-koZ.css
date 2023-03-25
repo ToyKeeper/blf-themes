@@ -134,6 +134,7 @@
     --timeline-handle-border: #ffffff10;
     --timeline-handle-hover: #f99157;
     --timeline-handle-click: #f2777a;
+    --progress-text-color: var(--primary);  /* mini timeline */
     /* misc */
     --unread-dot-color: #ffcc66;
     --simple-theme-link-color: var(--tertiary);

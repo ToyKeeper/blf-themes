@@ -120,6 +120,7 @@
     --timeline-handle-border: #a2a2f2;
     --timeline-handle-hover: var(--header-bg-top);
     --timeline-handle-click: #afaffa;
+    --progress-text-color: var(--primary);  /* mini timeline */
     /* misc */
     --unread-dot-color: #00e5ff;
     --simple-theme-link-color: #0207ff;
