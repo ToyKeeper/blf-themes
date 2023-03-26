@@ -270,6 +270,15 @@ img.avatar {
     /* background: linear-gradient(#ffffff20, #00000040); */
     border-radius: 0px 0px 8px 8px;
 }
+/* in the "user stream" view */
+.user-stream .excerpt {
+    margin: 0.5em 0;
+}
+.user-stream-item-actions a.avatar-link {
+    /* for some reason, this is extra wide and doesn't want to shrink */
+    /* so at least get rid of any extra margin */
+    margin: 0 !important;
+}
 
 /* remove extra space after last paragraph of each comment */
 .cooked p:last-of-type {
@@ -1459,6 +1468,28 @@ p {
 }
 .d-toc-main a {
     color: var(--tertiary);
+}
+/* minimized floating button version, style copied from mini timeline widget */
+.d-toc-mini button {
+    border-radius: 12px;
+    background: linear-gradient(var(--timeline-handle-top), var(--timeline-handle-bot));
+    color: var(--progress-text-color);
+    border: 4px outset var(--timeline-handle-border);
+    box-shadow: 0.25em 0.25em 1.0em var(--menu-shadow-color);
+    margin-bottom: 0.5em;
+}
+/* editor preview version */
+.edit-title .d-editor-preview div[data-theme-toc] {
+    position: absolute;
+    top: -0.5em;
+    right: 0;
+    height: unset;
+    padding: 0.15em 0.35em;
+    border-radius: var(--post-border-radius);
+    border: 1px outset var(--post-op-hl);
+    background: linear-gradient(var(--post-op-top), var(--post-op-bot));
+    color: var(--tertiary);
+    box-shadow: 0.25em 0.25em 1.0em var(--menu-shadow-color);
 }
 
 
