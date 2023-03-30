@@ -55,19 +55,26 @@ body.has-sidebar-page .sidebar-wrapper {
     /* only draw border when sidebar is NOT collapsed */
     border-right: var(--section-border-width) solid var(--sidebar-border);
 }
+.sidebar-footer-wrapper,
 .sidebar-footer-wrapper .sidebar-footer-container,
 .sidebar-hamburger-dropdown .sidebar-footer-wrapper .sidebar-footer-container {
-    background: none;
+    background: var(--sidebar-color);
 }
 .sidebar-footer-wrapper .sidebar-footer-container:before,
 .sidebar-hamburger-dropdown .sidebar-footer-wrapper .sidebar-footer-container:before
 {
+    /* fade out when menu is too tall to fit */
     background: linear-gradient(#00000000, var(--sidebar-color));
+}
+.hamburger-panel .revamped .sidebar-footer-wrapper .sidebar-footer-container:before {
+    /* parent theme overrides its own top sometimes, and breaks the fade-out effect */
+    top: calc(-1.5em - 1px); /* fix position on full-screen sidebar */
 }
 /* dropdown / pop-over version on narrow screens */
 .menu-panel {
     border: 1px outset var(--sidebar-color);
     background-color: var(--sidebar-color);
+    padding: 0 0.5em 0 0.5em;
 }
 /* space between sidebar and main content */
 body.has-sidebar-page #main-outlet-wrapper {
