@@ -1162,6 +1162,18 @@ li.active,
     background: unset;
 }
 
+/* "Week MAR 24 - MAR 30" select box widget */
+.select-kit.dropdown-select-box.period-chooser .period-chooser-header {
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0.1em 0.25em;
+}
+.select-kit h2,
+#lists-area h2,
+#list-area .top-lists h2 {
+    margin: 0;
+}
+
 /********** timeline **********/
 /* make it obvious the dates are clickable */
 .timeline-date-wrapper a {
