@@ -115,7 +115,7 @@ div.topic-post {
 /* using "article" instead of "div.topic-post"
  * because "article" has more attributes to select by, for per-user styling */
 article, /* regular post */
-article.boxed, /* mobile version */
+article.boxed, /* mobile version (?) */
 .user-stream .item, /* user activity feed */
 .search-results .fps-result, /* search widget item */
 .d-toc-main, /* table of contents on first post */
@@ -652,7 +652,9 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 }
 
 /********** user info screen **********/
-.user-main .about .details, .user-main .about.collapsed-info .details {
+.user-main .about .details,
+.user-main .about.has-background .details,
+.user-main .about.collapsed-info .details {
     background: var(--topic-map-bg);
     border: 1px outset var(--topic-map-bg);
     border-radius: var(--post-border-radius);
@@ -668,8 +670,58 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     border: 3px outset var(--post-def-hl);
     box-shadow: 0.5em 1.5em 2em var(--shadow-color);
 }
-.user-card .card-content, .group-card .card-content, .d-user-card__main-content {
+.user-card .card-content,
+.group-card .card-content,
+.d-user-card__main-content {
     background: none;
+    padding: var(--post-padding);
+}
+/* user card background images make things more complicated */
+.user-card[style*="background-image"] {
+    /* tile */
+    /* background-size: contain; */
+
+    /* fit (preserve aspect ratio) */
+    /* background-size: cover; */
+
+    /* fit entire image (change aspect ratio) */
+    background-size: 100% 100%;
+}
+.user-card[style*="background-image"] .card-content {
+    /* shade the image to match the theme (use a translucent color) */
+    background: var(--user-card-background);
+    /* eliminate single-pixel unshaded area around div */
+    /* (unsure why this area exists, this workaround is a kludge) */
+    border-radius: calc(var(--post-border-radius) * 0.7);
+    margin: -1px;
+}
+.user-card[style*="background-image"] *,
+.group-card[style*="background-image"] * {
+    /* ensure text will be readable regardless of the user's background image */
+    color: var(--primary);
+    text-shadow:
+        rgba(var(--text-shadow-rgb), 37%) -0.05em  0      0.02em, /* outline */
+        rgba(var(--text-shadow-rgb), 37%)  0.05em  0      0.02em,
+        rgba(var(--text-shadow-rgb), 37%)  0      -0.05em 0.02em,
+        rgba(var(--text-shadow-rgb), 37%)  0       0.05em 0.02em,
+        rgba(var(--text-shadow-rgb), 37%) -0.03em -0.03em 0.02em,
+        rgba(var(--text-shadow-rgb), 37%) -0.03em  0.03em 0.02em,
+        rgba(var(--text-shadow-rgb), 37%)  0.03em -0.03em 0.02em,
+        rgba(var(--text-shadow-rgb), 50%)  0.05em 0.05em 0.10em, /* shadow */
+        rgba(var(--text-shadow-rgb), 75%)  0.07em 0.10em 0.15em,
+        rgba(var(--text-shadow-rgb), 90%)  0.10em 0.15em 0.25em !important;
+}
+.user-card[style*="background-image"] span,
+.group-card[style*="background-image"] span {
+    /* don't cut off the drop shadow */
+    padding: 0.05em 0.25em 0.05em 0.05em;
+}
+.user-card[style*="background-image"] button,
+.group-card[style*="background-image"] button {
+    /* different buttons use different background colors, which looks weird here */
+    /* background: linear-gradient(var(--post-def-top), var(--post-def-bot)); */
+    background: linear-gradient(var(--avatar-top), var(--avatar-bot));
+    border-color: var(--avatar-hl);
 }
 .user-card .first-row .names,
 .group-card .first-row .names {
@@ -1540,6 +1592,16 @@ article[data-user-id="1"] > .row > .topic-avatar,
 div.dummy-placeholder {
     background: linear-gradient(-45deg, var(--post-admin-bar-bot), var(--post-admin-bar-top));
     border: 1px outset var(--post-admin-bar-top);
+}
+
+/* suspended users */
+.suspended {
+    font-weight: bold;
+    font-size: var(--font-up-1);
+}
+.user-suspended {
+    opacity: 0.5;
+    filter: grayscale(60%) blur(0.666px);
 }
 
 /********** vars **********/

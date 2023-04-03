@@ -29,6 +29,7 @@
     --shadow-color: #00000017;
     --post-shadows: 0.15em 0.15em 2.333em var(--shadow-color);
     --table-shadows: var(--post-shadows);
+    --text-shadow-rgb: 0, 0, 0;
     /* page header */
     --header-bg-top: #2f2d2a;
     --header-bg-bot: #2f2d2a;
@@ -99,6 +100,8 @@
     --heatmap-high-shadow: none;
     /* --post-header-button: #285892; */
     /* --post-header-button: #eee; */
+    /* user info card */
+    --user-card-background: #00000040;
     /* avatar */
     --avatar-top: #2f2d2a;
     --avatar-bot: #2f2d2a;

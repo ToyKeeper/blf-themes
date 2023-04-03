@@ -1,4 +1,4 @@
-/* Discourse "Night Candy" color palette
+/* Discourse "Night" color palette
  * Copyright (C) Selene ToyKeeper
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -29,6 +29,7 @@
     --action-bar-shadows: 0.05em 0.05em 0.1em #ffffff30;
     --button-shadows: 0.1em 0.1em 0.2em var(--shadow-color);
     --table-shadows: var(--post-shadows);
+    --text-shadow-rgb: 0, 0, 0;
     /* page header */
     --header-bg-top: #3e3e52;
     --header-bg-bot: #2b2b3c;
@@ -83,6 +84,8 @@
     --post-header-button: #bcd;
     /* --post-header-button: #285892; */
     /* --post-header-button: #eee; */
+    /* user info card */
+    --user-card-background: #00000060;
     /* avatar */
     --avatar-top: #555;
     --avatar-bot: #292929;
