@@ -16,10 +16,13 @@
 
 /********** banner at top of page **********/
 .d-header {
-    height: 4em;
+    height: 3.333em;  /* slightly thinner header (default is 4em) */
     background: linear-gradient(var(--header-bg-top), var(--header-bg-bot));
     border-bottom: var(--section-border-width) solid var(--header-border);
     box-shadow: var(--header-shadow);
+}
+.d-header .wrap {
+    padding: 0 0.333em;  /* less left/right padding on header edges */
 }
 /* prevent bottom of page title from getting cropped */
 .extra-info-wrapper .header-title a {
@@ -34,6 +37,11 @@
 /* number in a circle, when there are new notifications */
 .d-header-icons .unread-notifications {
     background-color: var(--tertiary-med-or-tertiary);
+}
+.d-header-icons .badge-notification {
+    top: -0.15em;
+    right: -0.333em;
+    border: none;
 }
 .d-header-icons a:hover {
     background-color: var(--header-icon-bg-hover) !important;
@@ -1153,7 +1161,9 @@ li.active,
 
 /********** misc buttons **********/
 /* lots of site buttons */
-.btn {
+.btn, /* regular buttons */
+.cc-btn, /* cookie compliance button */
+foo {
     border-radius: var(--button-border-radius);
     border: 1px outset var(--button-border);
     background: var(--button-bg);
@@ -1456,6 +1466,25 @@ div.poll li[data-poll-option-id]:hover {
 .poll li:has(svg.d-icon-far-check-square) {
     border: 1px inset var(--button-border);
     background: linear-gradient(var(--post-embed-top), var(--post-embed-bot));
+}
+
+/********** cookie / privacy policy dialog box **********/
+.cc-banner.cc-bottom {
+    box-shadow: 0em -0.25em 1.5em var(--menu-shadow-color);
+    background: linear-gradient(var(--header-bg-bot), var(--header-bg-top));
+    border-top: var(--section-border-width) solid var(--header-border);
+}
+/* move bottom dialogs to the top? */
+/* .cc-banner.cc-bottom {
+    bottom: unset;
+    top: calc(3.333em - var(--section-border-width));
+    background: linear-gradient(var(--header-bg-top), var(--header-bg-bot));
+    border-bottom: var(--section-border-width) solid var(--header-border);
+    box-shadow: 0em 0.25em 1.5em var(--menu-shadow-color);
+} */
+.cc-window.cc-banner {
+    padding: 0.5em 0.75em;
+    line-height: var(--line-height-medium);
 }
 
 /********** common elements found everywhere **********/
