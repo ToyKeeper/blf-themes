@@ -163,7 +163,11 @@ div.dummy-placeholder {
     box-shadow: var(--post-widget-shadows);
     border: 1px outset var(--avatar-hl);
     border-radius: 6px;
-    padding: 5px 6px 6px 5px;
+    /* some places say 45px, some say 48px, this seems necessary as a workaround */
+    /* unsure why padding is uneven, but this fixes it */
+    width: var(--topic-avatar-width);
+    height: var(--topic-avatar-width);
+    padding: 4px 4px 4px 4px;
     /* important because some posts explicitly set a huge bottom margin */
     margin: 0px 8px 0px 0px !important;
     transition: var(--hover-anim-time);
@@ -1635,7 +1639,7 @@ div.dummy-placeholder {
 
 /********** vars **********/
 :root {
-    /* --topic-avatar-width: 85px; */
+    --topic-avatar-width: 48px;
     /* sizing, spacing, etc */
     /* --topic-body-width: 100%; */
     --topic-body-width: 1244px;
