@@ -139,6 +139,15 @@ div.dummy-placeholder {
 .topic-list-item td:first-child, .topic-post {
     border-left: none; /* override keyboard_shortcuts.scss:3 */
 }
+/* "thread locked" mini-post is like a post, but undecorated */
+.small-action {
+    padding: var(--post-padding);
+    margin: 0px 0px 10px 0px;
+}
+.small-action .small-action-desc {
+    padding: 0;
+    margin: 0;
+}
 
 /* extra messages at top of post, like "it's been a while since we saw this user" */
 .post-notice {
@@ -175,11 +184,20 @@ div.dummy-placeholder {
 .embedded-posts .topic-avatar,
 div.avatar-wrapper,
 .presence-avatars, /* when someone is writing a reply */
+.small-action .topic-avatar, /* the lock icon in a "thread locked" mini-post */
 div.dummy-placeholder {
+    width: unset;
+    height: unset;
     border-radius: 5px;
     padding: 3px 4px 4px 3px;
     margin: 0 6px 0 0 !important;
     transition: var(--hover-anim-time);
+}
+/* don't draw a background around "thread locked" icon */
+.small-action .topic-avatar, .small-action .topic-avatar:hover {
+    background: none;
+    border: none;
+    box-shadow: none;
 }
 div.topic-avatar:hover, /* main post avatar */
 .embedded-posts .topic-avatar:hover, /* embedded post avatar */
