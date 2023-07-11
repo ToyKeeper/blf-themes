@@ -186,12 +186,17 @@ div.avatar-wrapper,
 .presence-avatars, /* when someone is writing a reply */
 .small-action .topic-avatar, /* the lock icon in a "thread locked" mini-post */
 div.dummy-placeholder {
-    width: unset;
-    height: unset;
     border-radius: 5px;
     padding: 3px 4px 4px 3px;
     margin: 0 6px 0 0 !important;
     transition: var(--hover-anim-time);
+}
+.small-action .topic-avatar,
+.presence-avatars,
+.chat-message-avatar,
+div.dummy-placeholder {
+    width: unset;
+    height: unset;
 }
 /* don't draw a background around "thread locked" icon */
 .small-action .topic-avatar, .small-action .topic-avatar:hover {
@@ -782,6 +787,8 @@ div.dummy-placeholder {
 /********** Topic List widget(s) **********/
 /* "Suggested Topics" widget at bottom of pages */
 .suggested-topics, /* topic list at bottom of threads */
+.related-topics, /* *other* topic list at bottom of threads */
+.topic-above-suggested-outlet.related-topics, /* as specified in parent theme */
 #list-area .contents, /* front page topic list */
 .paginated-topics-list, /* private message list */
 .directory-table-container, /* user list */
