@@ -531,7 +531,8 @@ span.highlighted {
 /********** "topic map" at bottom of first post **********/
 .topic-map, .archetype-private_message .topic-map {
     padding: 0;
-    margin: 0.5em 0 0 -4.2em;
+    /* left overflows by avatar size plus 2x4px padding + 2x1px border + 8px margin */
+    margin: 0.5em 0 0 calc(0em - var(--topic-avatar-width) - 8px - 2px - 8px);
     border-radius: 8px;
     border: 1px outset var(--topic-map-bg);
     background: var(--topic-map-bg);
