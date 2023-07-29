@@ -118,15 +118,15 @@ div.p1-banner, div.p2-banner, div.p3-banner, div.house-banner {
 @keyframes post-highlight-anim {
     from {
         filter: hue-rotate(-60deg)
-                saturate(10%)
-                contrast(25%)
+                saturate(50%)
+                contrast(50%)
                 opacity(1%);
     }
 }
 article:has(.highlighted) {
     /* style the entire post, not just part */
     filter: none;
-    animation: post-highlight-anim 2.5s ease-out !important;
+    animation: post-highlight-anim 1s ease-out !important;
 }
 .topic-body.highlighted {
     /* un-style inner post (the "highlighted" part) */
