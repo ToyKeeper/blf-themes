@@ -48,9 +48,9 @@
     --ads-bot: #ceb827;
     --ads-hl: #f9f94f;
     /* post / comment box colors per user type */
-    --post-op-top: #a1cef3;
-    --post-op-bot: #8eaae0;
-    --post-op-hl: #a2dbf2;
+    --post-op-top: #eaf4fb;
+    --post-op-bot: #dae3f3;
+    --post-op-hl: #ecfaff;
     --post-op-bar-top: #59c0da;
     --post-op-bar-bot: #597ca8;
     --post-me-top: #f3c1fc;
@@ -77,7 +77,9 @@
     --post-embed-bot: #ddd;
     --quote-header-top: #bacef880;
     --quote-header-bot: #4b60c680;
-    --topic-map-bg: #bbddff60;
+    /* --topic-map-bg: #bbddff60; */
+    /* --topic-map-bg: #fafcffc0; */
+    --topic-map-bg: #597ca820;
     --post-notice-top: #c0d777;
     --post-notice-bot: #998a47;
     --post-notice-fg: #f9f9f7;
