@@ -808,8 +808,10 @@ div.dummy-placeholder {
 
 /********** Topic List widget(s) **********/
 /* "Suggested Topics" widget at bottom of pages */
-.suggested-topics, /* topic list at bottom of threads */
-.related-topics, /* *other* topic list at bottom of threads */
+.more-content-topics, /* general catch-all */
+.suggested-topics, #suggested-topics,
+.related-topics, #related-topics,
+.related-messages, #related-messages,
 .topic-above-suggested-outlet.related-topics, /* as specified in parent theme */
 #list-area .contents, /* front page topic list */
 .paginated-topics-list, /* private message list */
