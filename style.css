@@ -475,6 +475,7 @@ aside.onebox header {
 }
 .onebox article {
     margin: 0;
+    overflow: auto;
 }
 .onebox .label1 {
     /* override onebox.scss:748 */
