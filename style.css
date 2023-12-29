@@ -615,6 +615,8 @@ span.highlighted {
     margin: 0 0.5em 0 0;
     font-size: 80%;
     font-style: italic;
+    font-weight: unset;
+    background-color: unset;
 }
 
 /********** blank space below thread **********/
