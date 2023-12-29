@@ -607,6 +607,15 @@ span.highlighted {
 .archetype-private_message .topic-post {
     margin: 0;
 }
+.archetype-private_message .topic-post article .post-infos::before,
+.archetype-private_message .reply-to .action-title::after
+{
+    display: inline;
+    content: "private message";
+    margin: 0 0.5em 0 0;
+    font-size: 80%;
+    font-style: italic;
+}
 
 /********** blank space below thread **********/
 .topic-above-footer-buttons-outlet.presence {
