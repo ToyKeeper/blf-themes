@@ -592,9 +592,17 @@ span.highlighted {
 .archetype-private_message .current-user-post:not(.moderator) .topic-body .cooked {
     background: none;
 }
+/* remove parent theme styling */
 .archetype-private_message .topic-body .cooked,
-.archetype-private_message .current-user-post .topic-body .cooked {
-    border: none;
+.archetype-private_message .current-user-post .topic-body .cooked,
+.archetype-private_message .current-user-post .regular.contents,
+.archetype-private_message .regular.contents,
+foo {
+    border: unset !important;
+    background-color: unset !important;
+    border-radius: unset !important;
+    padding-left: unset !important;
+    margin-left: unset !important;
 }
 .archetype-private_message .topic-body .cooked {
     margin: 0;
@@ -732,12 +740,19 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 }
 
 /********** user info pop-up widget **********/
+/* background behind user card */
+.fk-d-menu__inner-content {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
 .user-card.show, .group-card.show {
-    border-radius: var(--post-border-radius);
+    /* parent theme uses !important, dammit ... don't do that! */
+    border-radius: var(--post-border-radius) !important;
     background: linear-gradient(var(--post-def-top), var(--post-def-bot));
     outline: none;
     border: 3px outset var(--post-def-hl);
-    box-shadow: 0.5em 1.5em 2em var(--shadow-color);
+    box-shadow: 0.5em 1.5em 2em var(--shadow-color) !important;
 }
 .user-card .card-content,
 .group-card .card-content,
@@ -889,12 +904,58 @@ tbody {
 #suggested-topics td.main-link {
     width: unset; /* parent theme limits this and it messes with layout */
 }
+/* list of participants / poster avatars */
+/* narrower column header */
+.topic-list .posters {
+    width: unset;
+}
+.topic-list th.posters {
+    text-align: center;
+}
+/* Replace "Participants" with something shorter */
+th.posters span {
+    display: none;
+}
+th.posters:after {
+    content: "Who";
+}
+.topic-list .topic-list-data.posters {
+    height: unset;
+}
+/* keep participants on one line unless there's a bunch */
+.topic-list td.posters {
+    min-width: 58px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 2px;
+    overflow: hidden;
+}
+.posters a.latest {
+    width: unset !important;
+}
+/* unset parent theme stuff */
+.topic-list .posters a:first-child .avatar.latest:not(.single) {
+    box-shadow: unset;
+    border: unset;
+    position: unset;
+    left: unset;
+}
+.topic-list .posters>a {
+    margin-right: unset;
+}
+.topic-list .topic-list-data.posters a:not(.latest) {
+    display: inline-block !important;
+}
+/* thread author */
 .topic-list .creator, .topic-list .editor {
     margin: 0 0.1em 0 0;
     /* display: inline; */
     float: right;
 }
-.topic-list .badge-wrapper.bullet {  /* forum category */
+.topic-list .badge-wrapper.bullet,
+.topic-list .badge-category {  /* forum category */
     display: none;
     /* float: right; */
 }
@@ -907,6 +968,14 @@ tbody {
     color: var(--primary-medium);
 }
 
+/* Narrower "num replies" column */
+.topic-list .posts {
+    width: unset !important;
+}
+.topic-list th.posts span:after {
+    content: " ";  /* add a gap between columns */
+    margin: 0.25em;
+}
 /* num-posts cell uses colors to indicate "posts-to-likes" ratio */
 .topic-list .num .badge-posts {
     padding: 0px 5px;
@@ -1328,7 +1397,11 @@ foo {
     padding-left: 0.75em;
 }
 /* bottom right corner version */
-#topic-progress {
+/* (parent theme is really weirdly specific about overriding this) */
+#topic-progress,
+.container.posts #topic-progress-wrapper #topic-progress,
+.container.posts #topic-progress-wrapper .topic-admin-menu-button-container+#topic-progress,
+foo {
     border-radius: 12px;
     background: var(--secondary);
     color: var(--progress-text-color);
@@ -1706,6 +1779,8 @@ div.dummy-placeholder {
     --topic-body-width: 1244px;
     --d-button-border-radius: 12px;
     --below-topic-margin: 0;
+    /* private message formatting */
+    --pm-border-radius: 0;
     /* thread post formatting */
     --post-border-radius: 10px;
     --post-padding: 8px;
