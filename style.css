@@ -147,7 +147,7 @@ article, /* regular post */
 article.boxed, /* mobile version (?) */
 .user-stream .item, /* user activity feed */
 .search-results .fps-result, /* search widget item */
-.d-toc-main, /* table of contents on first post */
+#d-toc, /* table of contents on first post */
 .presence-users, /* pops up when someone is writing a reply */
 div.dummy-placeholder {
     border: 1px outset var(--post-def-hl);
@@ -238,6 +238,7 @@ div.dummy-placeholder {
 }
 img.avatar {
     border-radius: 0.15em;
+    border: unset !important; /* override parent theme */
 }
 .avatar-wrapper {
     /* remove blue circle behind avatar in user activity stream */
@@ -354,8 +355,12 @@ img.avatar {
 }
 
 /* remove extra space at bottom of comments */
-section.post-menu-area, section.post-actions {
-    margin: 0px;
+section.post-menu-area,
+section.post-actions,
+.archetype-private_message .post-menu-area,
+foo {
+    margin: 0;
+    padding: 0;
 }
 
 /* reduce extra space around buttons at bottom of comments */
@@ -919,6 +924,10 @@ th.posters span {
 th.posters:after {
     content: "Who";
 }
+.user-messages-page .posters a:after {
+    /* don't show username next to avatar in posters cell */
+    display: none;
+}
 .topic-list .topic-list-data.posters {
     height: unset;
 }
@@ -1013,6 +1022,17 @@ th.posters:after {
 .poster-info {
     /* 100% - img.avatar:width - .poster-avatar:margin-right - 2px */
     width: calc(100% - 1.5em - 7px);
+}
+/* remove last-poster avatar in privmsg topic maps because it has a posters list */
+.user-messages-page .last-post .poster-avatar,
+#related-messages .last-post .poster-avatar,
+foo {
+    display: none;
+}
+.user-messages-page .poster-info,
+#related-messages .poster-info,
+foo {
+    width: calc(100% - 2px);
 }
 .topic-list .topic-list-data, .topic-list .creator a, .topic-list .editor a {
     color: var(--quaternary);
@@ -1322,6 +1342,11 @@ foo {
 .quote-button {
     box-shadow: var(--hover-shadow-args);
     transition: var(--hover-anim-time);
+    background: var(--sidebar-color);
+}
+.quote-button .btn:hover {
+    background: var(--header-bg-top) !important;
+    color: var(--header_primary) !important;
 }
 .btn-danger, .btn-danger .d-icon {
     color: var(--danger);  /* why does the parent theme not already do this?? */
@@ -1699,12 +1724,12 @@ p {
     background: linear-gradient(-45deg, var(--post-op-bar-bot), var(--post-op-bar-top));
     border: 1px outset var(--post-op-bar-top);
 }
-/* table of contents on first post */
-.d-toc-main {
+#d-toc:before { content: "Contents"; }
+#d-toc {
     border: 1px outset var(--post-op-hl);
     background: linear-gradient(var(--post-op-top), var(--post-op-bot));
 }
-.d-toc-main a {
+#d-toc a {
     color: var(--tertiary);
 }
 /* minimized floating button version, style copied from mini timeline widget */
