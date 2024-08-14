@@ -149,6 +149,7 @@ article.boxed, /* mobile version (?) */
 .search-results .fps-result, /* search widget item */
 #d-toc, /* table of contents on first post */
 .presence-users, /* pops up when someone is writing a reply */
+.topic-map.--bottom,
 div.dummy-placeholder {
     border: 1px outset var(--post-def-hl);
     background: linear-gradient(var(--post-def-top), var(--post-def-bot));
@@ -556,13 +557,26 @@ span.highlighted {
 }
 
 /********** "topic map" at bottom of first post **********/
-.topic-map, .archetype-private_message .topic-map {
-    padding: 0;
+.topic-map, .archetype-private_message .topic-map,
+.topic-map.--bottom {
+    padding: 0.5em;
     /* left overflows by avatar size plus 2x4px padding + 2x1px border + 8px margin */
-    margin: 0.5em 0 0 calc(0em - var(--topic-avatar-width) - 8px - 2px - 8px);
+    /* margin: 0.5em 0 0 calc(0em - var(--topic-avatar-width) - 8px - 2px - 8px); */
+    margin: 0.5em 0 0 0;
     border-radius: 8px;
     border: 1px outset var(--topic-map-bg);
     background: var(--topic-map-bg);
+}
+/* unset some parent theme junk */
+.archetype-private_message .topic-map section,
+.archetype-private_message .topic-map__private-message-map,
+.archetype-private_message .topic-map .participants,
+.archetype-private_message .topic-post:last-child {
+    background: unset;
+    padding-inline: unset;
+    border: unset;
+    padding-bottom: unset;
+    margin-bottom: unset;
 }
 .mobile-view .topic-map,
 .mobile-view .archetype-private_message .topic-map {
@@ -571,11 +585,13 @@ span.highlighted {
 .topic-map section {
     border: none;
     border-radius: 8px;
+    margin: 0;
+    padding: 0;
 }
-.topic-map .buttons .btn {
+.topic-map .btn {
     border-radius: 20px;
-    padding: 0 0.7em;
-    margin: 0.5em 0.5em;
+    padding: 0.25em 0.5em !important;
+    margin: 0;
 }
 .map:first-of-type .buttons .btn {
     max-height: 2.5em;
@@ -745,24 +761,44 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
 }
 
 /********** user info pop-up widget **********/
-/* background behind user card */
-.fk-d-menu__inner-content {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-}
-.user-card.show, .group-card.show {
+/* .user-card.show, .group-card.show, */
+.fk-d-menu__inner-content,
+.topic-map .fk-d-menu__content .fk-d-menu__inner-content,
+foo {
     /* parent theme uses !important, dammit ... don't do that! */
-    border-radius: var(--post-border-radius) !important;
+    border-radius: var(--post-border-radius);
     background: linear-gradient(var(--post-def-top), var(--post-def-bot));
     outline: none;
     border: 3px outset var(--post-def-hl);
-    box-shadow: 0.5em 1.5em 2em var(--shadow-color) !important;
+    box-shadow: 0.5em 1.5em 2em var(--shadow-color);
+    padding: 0;
 }
-.user-card .card-content,
-.group-card .card-content,
-.d-user-card__main-content {
+.topic-map .fk-d-menu__content .fk-d-menu__inner-content {
+    /* topic map button popups have no inner widget, so they need padding */
+    padding: var(--post-padding);
+}
+.topic-map .fk-d-menu__content h3 {
+    margin-top: unset;  /* parent theme had a negative margin */
+}
+.topic-map.--bottom {
+    border: 1px outset var(--post-def-hl);
+    border-radius: var(--post-border-radius);
+    padding: var(--post-padding);
+    margin: 0px 0px 10px 0px;
+    box-shadow: var(--post-shadows);
+}
+.user-card, .group-card,
+.user-card.show, .group-card.show,
+.card-content,
+.user-card .card-content, .group-card .card-content {
     background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    border-radius: calc(var(--post-border-radius) * 0.7) !important;
+}
+.user-card .card-content {
     padding: var(--post-padding);
 }
 /* user card background images make things more complicated */
@@ -781,8 +817,9 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     background: var(--user-card-background);
     /* eliminate single-pixel unshaded area around div */
     /* (unsure why this area exists, this workaround is a kludge) */
-    border-radius: calc(var(--post-border-radius) * 0.7);
+    border-radius: calc(var(--post-border-radius) * 0.8);
     margin: -1px;
+    border: none;
 }
 .user-card[style*="background-image"] *,
 .group-card[style*="background-image"] * {
