@@ -172,9 +172,12 @@ div.dummy-placeholder {
 }
 
 /* extra messages at top of post, like "it's been a while since we saw this user" */
-.post-notice {
+.post-notice,
+.archetype-private_message .post-notice,
+.archetype-private_message .post-notice.old {
     padding: 2px;
     margin-bottom: 8px;
+    margin-left: unset; /* unset parent theme */
     max-width: 100%; /* remove arbitrary limit, go as wide as the post */
     border-radius: 8px;
     border: 1px outset var(--post-notice-top);
@@ -185,6 +188,7 @@ div.dummy-placeholder {
 /* draw a box around avatar pics */
 div.topic-avatar, /* main post avatar */
 .embedded-posts .topic-avatar, /* embedded post avatar */
+.embedded-posts.bottom>div .row .topic-avatar, /* unset/override parent theme junk */
 div.avatar-wrapper, /* per item in user activity stream */
 .search-results .avatar, /* search widget results */
 .presence-avatars, /* when someone is writing a reply */
@@ -366,8 +370,18 @@ foo {
 
 /* reduce extra space around buttons at bottom of comments */
 nav.post-controls .actions button, nav.post-controls .show-replies {
-    padding: 0px 5px;
+    padding: 2px 5px;
     border-radius: var(--button-border-radius);
+}
+nav.post-controls .show-replies[aria-expanded=true],
+nav.post-controls .show-replies[aria-expanded=true]:focus {
+    background: unset; /* parent theme junk */
+    color: unset; /* parent theme junk */
+    box-shadow: unset; /* parent theme junk */
+    z-index: unset; /* parent theme junk */
+}
+nav.post-controls .show-replies[aria-expanded=true]:hover {
+    background: unset;
 }
 .mobile-view nav.post-controls .actions button,
 .mobile-view nav.post-controls .show-replies {
@@ -378,6 +392,11 @@ nav.post-controls .actions button, nav.post-controls .show-replies {
 nav.post-controls {
     /* overflow-x: auto; */ /* causes clipping and a scrollbar when using box-shadow() */
     overflow-x: visible;
+}
+/* fix vertical alignment of number-of-likes button */
+nav.post-controls .actions .double-button button.button-count {
+    height: unset;
+    margin-top: auto;
 }
 
 /* container for buttons at the bottom of posts */
@@ -475,7 +494,28 @@ aside.quote .title { /* top right corner of a quote */
 }
 .embedded-posts.bottom {
     margin-bottom: 0px; /* remove extra space below embedded posts */
+    max-width: unset; /* parent theme junk */
 }
+/* unset parent theme junk (a line added next to embedded posts) */
+.embedded-posts.top .row .topic-body::before,
+.embedded-posts.bottom>div .row:before {
+    display: none;
+}
+.embedded-posts.bottom>div {
+    margin-bottom: unset; /* parent theme junk */
+}
+.embedded-posts.bottom>div .row {
+    padding-bottom: unset; /* parent theme junk */
+}
+.embedded-posts.bottom>div .row .topic-body {
+    border-top: unset; /* parent theme junk */
+    padding-bottom: unset; /* parent theme junk */
+}
+.embedded-posts.bottom>div .row .topic-body .topic-meta-data .post-link-arrow {
+    position: unset; /* parent theme junk */
+    bottom: unset; /* parent theme junk */
+}
+
 aside.onebox header {
     margin-bottom: 0.5em;
 }
@@ -577,6 +617,15 @@ span.highlighted {
     border: unset;
     padding-bottom: unset;
     margin-bottom: unset;
+}
+.archetype-private_message .topic-map .participants {
+    margin-top: 0.5em;
+}
+.topic-map .user,
+.archetype-private_message .topic-map .participants .user {
+    border-radius: 8px;
+    border: 1px solid var(--post-op-hl);
+    background: var(--topic-map-bg);
 }
 .mobile-view .topic-map,
 .mobile-view .archetype-private_message .topic-map {
@@ -1391,7 +1440,9 @@ foo {
 .btn-danger {
     background: var(--danger-low);
 }
-.btn:hover, .btn-primary:hover, .btn-flat:hover, .quote-button:hover {
+.btn:hover, .btn-primary:hover, .btn-flat:hover, .quote-button:hover,
+nav.post-controls .show-replies[aria-expanded=true]:hover,
+foo {
     box-shadow: var(--hover-shadow-args);
 }
 
@@ -1790,6 +1841,10 @@ p {
     background: linear-gradient(var(--post-op-top), var(--post-op-bot));
     color: var(--tertiary);
     box-shadow: 0.25em 0.25em 1.0em var(--menu-shadow-color);
+}
+/* unset parent theme junk */
+.d-editor-input, .d-editor-preview, .cooked {
+    line-height: unset;
 }
 
 
