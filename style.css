@@ -170,6 +170,9 @@ div.dummy-placeholder {
     padding: 0;
     margin: 0;
 }
+.small-action.topic-post-visited {
+    margin: 0;
+}
 
 /* extra messages at top of post, like "it's been a while since we saw this user" */
 .post-notice,
@@ -381,7 +384,7 @@ nav.post-controls .show-replies[aria-expanded=true]:focus {
     z-index: unset; /* parent theme junk */
 }
 nav.post-controls .show-replies[aria-expanded=true]:hover {
-    background: unset;
+    background: unset; /* parent theme junk */
 }
 .mobile-view nav.post-controls .actions button,
 .mobile-view nav.post-controls .show-replies {
@@ -576,7 +579,7 @@ span.highlighted {
     width: 100%;
     border-top: 1px solid var(--last-visit-bg);
     border-bottom: 1px solid var(--last-visit-bg);
-    margin: 8px 12px 20px 12px;
+    margin: 0.5em 0.75em 1em 0.75em;
 }
 .small-action.topic-post-visited .topic-post-visited-line .topic-post-visited-message {
     color: var(--last-visit-fg);
@@ -828,6 +831,9 @@ foo {
 }
 .topic-map .fk-d-menu__content h3 {
     margin-top: unset;  /* parent theme had a negative margin */
+}
+.fk-d-menu .arrow {
+    color: var(--post-def-hl);
 }
 .topic-map.--bottom {
     border: 1px outset var(--post-def-hl);
@@ -1425,14 +1431,21 @@ foo {
     background: none;
     transition: var(--hover-anim-time);
 }
-.quote-button {
-    box-shadow: var(--hover-shadow-args);
-    transition: var(--hover-anim-time);
-    background: var(--sidebar-color);
+/* floating widget behind the quote/edit/copy buttons */
+.fk-d-menu__inner-content:has(.quote-button) {
+    border-width: 2px;
+    border-radius: 99px;
+    /* background: var(--sidebar-color); */
+    /* background: var(--header-bg-bot); */
+    box-shadow: 0.25em 0.75em 1em var(--shadow-color);
+}
+.quote-button, .buttons {
+    background: unset;
+    border-radius: 99px;
 }
 .quote-button .btn:hover {
-    background: var(--header-bg-top) !important;
-    color: var(--header_primary) !important;
+    background: var(--header-bg-top);
+    color: var(--header_primary);
 }
 .btn-danger, .btn-danger .d-icon {
     color: var(--danger);  /* why does the parent theme not already do this?? */
