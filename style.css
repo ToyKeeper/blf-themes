@@ -817,6 +817,10 @@ textarea:focus, .d-editor-textarea-wrapper.in-focus textarea, .d-editor-textarea
     background: none;
     box-shadow: none;
 }
+/* the "Close" button below the reply area */
+#reply-control .save-or-cancel .cancel {
+    padding: var(--button-padding);
+}
 
 /********** user info screen **********/
 .user-main .about .details,
@@ -1426,6 +1430,8 @@ li.active,
 /* lots of site buttons */
 .btn, /* regular buttons */
 .cc-btn, /* cookie compliance button */
+/* misc buttons copied from parent theme, need to override and can't just unset them */
+.btn-transparent, .btn-transparent.btn-default, .btn-transparent.btn-text, .btn-transparent.btn-icon, .btn-transparent.no-text, .d-modal.json-schema-editor-modal .je-ready button.btn-transparent, .d-modal.json-schema-editor-modal .je-ready .btn-transparent.json-editor-btn-delete,
 foo {
     border-radius: var(--button-border-radius);
     border: 1px outset var(--button-border);
@@ -1932,6 +1938,7 @@ div.dummy-placeholder {
     --post-border-radius: 10px;
     --post-padding: 8px;
     --button-border-radius: 16px;
+    --button-padding: .5em .65em;
     --hover-anim-time: 0.25s;
     /* --hover-border-radius: 30px; */
     --hover-shadow-args: 0.15em 0.3em 0.5em #000000a0;
