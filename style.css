@@ -78,6 +78,13 @@ body.has-sidebar-page .sidebar-wrapper {
     /* parent theme overrides its own top sometimes, and breaks the fade-out effect */
     top: calc(-1.5em - 1px); /* fix position on full-screen sidebar */
 }
+/* 2025-08-23 the sidebar suddenly got huge, so fix it */
+.sidebar-section-wrapper .sidebar-section-content {
+    font-size: var(--font-down-1);
+}
+a.sidebar-section-link.sidebar-row {
+    padding: .1rem 0.5rem;
+}
 /* dropdown / pop-over version on narrow screens */
 .menu-panel {
     border: 1px outset var(--sidebar-color);
@@ -1933,4 +1940,9 @@ div.dummy-placeholder {
     --line-height-small: 1em;
     --line-height-medium: 1.16em;
     --line-height-large: 1.33em;
+    /* 2025-08-23 the sidebar suddenly got huge, so fix it */
+    --d-sidebar-section-link-prefix-width: 1rem;
+    --d-sidebar-section-link-icon-size: 1.25em;
+    --d-sidebar-row-horizontal-padding: 0.5rem;
+    --d-sidebar-vertical-gap: 0rem;
 }
