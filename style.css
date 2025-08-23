@@ -430,11 +430,15 @@ nav.post-controls .actions button.create, nav.post-controls .actions button.crea
 /* "who liked" widget */
 .who-liked,
 .who-read {
-    margin: 0.25em 0 0 0;
+    margin: 0;
 }
 .who-liked a,
 .who-read a {
     margin: 0.25em 0.25em 0 0;
+}
+.who-liked.--expanded,
+.who-read.--expanded {
+    margin-top: 0.25em;
 }
 
 /********** quoted posts **********/
