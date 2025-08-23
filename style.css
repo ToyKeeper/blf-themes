@@ -427,6 +427,12 @@ div.actions .btn-flat:hover {
 nav.post-controls .actions button.create, nav.post-controls .actions button.create .d-icon {
     color: var(--reply-action);
 }
+/* 2025-08-23 "Reply" button got a huge top margin for no reason
+and the base theme marks it as "!important"
+*/
+#topic-footer-buttons .topic-footer-main-buttons button.create {
+    margin-top: unset !important;
+}
 /* "who liked" widget */
 .who-liked,
 .who-read {
