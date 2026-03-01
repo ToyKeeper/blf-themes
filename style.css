@@ -378,6 +378,13 @@ foo {
     padding: 0;
 }
 
+/* remove upstream hover animation, it causes layout jitter */
+nav.post-controls .actions button:hover,
+nav.post-controls .actions button:focus-visible,
+nav.post-controls .actions button:active {
+    border: none;
+}
+
 /* reduce extra space around buttons at bottom of comments */
 nav.post-controls .actions button, nav.post-controls .show-replies {
     padding: 2px 5px;
