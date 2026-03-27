@@ -40,6 +40,7 @@
     --sidebar-color: #3b3937;
     --sidebar-border: #2f2d2a;
     --sidebar-text-hover: #f2777a;
+    --d-sidebar-highlight-hover-icon: #ffcc66;
     --button-text-hover: #ffcc66;
     /* ads */
     --ads-top: #ffcc66;
@@ -172,6 +173,8 @@
     --hljs-bg: #ffffff30; /* <code> blocks */
     /* main nav controls on front page */
     --d-nav-pill-border-radius: 100px;
+    /* hover animaions */
+    --hover-anim-time: 0.3s;
 
     /********** defaults copied from parent theme **********/
     --scheme-type: dark;
@@ -232,10 +235,9 @@
     --tertiary-800: #0a5a79;
     --tertiary-900: #0b6283;
     --quaternary-low: #3b3937;
-    --highlight-bg: #22170b;
-    --highlight-low: #22170b;
-    --highlight-medium: #ffffff10;
-    --highlight-medium: #3b3937;
+    --highlight-bg: #201e1c;
+    --highlight-low: #201e1c;
+    --highlight-medium: #2f2d2a;
     --highlight-high: #d27b53;
     /* --danger-low: #371112; */
     --danger-low: #71383a;
@@ -248,6 +250,7 @@
     --success-hover: #93d0a4;
     --love-low: #8a0524;
     --wiki: green;
+    --post-border-radius: 1rem;
     /* --blend-primary-secondary-5: rgb(60, 60, 60); */
     /* --primary-med-or-secondary-med: #919191; */
     --primary-med-or-secondary-high: #646464;

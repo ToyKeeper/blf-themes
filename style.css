@@ -14,6 +14,9 @@
           - section.post-menu-area (buttons below comment)
 */
 
+@-moz-document url-prefix("https://budgetlightforum.com/"), url-prefix("https://github.com") {
+  
+    
 /********** banner at top of page **********/
 .d-header {
     height: 3.333em;  /* slightly thinner header (default is 4em) */
@@ -68,6 +71,20 @@ body.has-sidebar-page .sidebar-wrapper {
 .sidebar-hamburger-dropdown .sidebar-footer-wrapper .sidebar-footer-container {
     background: var(--sidebar-color);
 }
+/* sidebar headers (button-like background) */
+.sidebar-section-wrapper .sidebar-section-header.sidebar-section-header-collapsable {
+    background: var(--secondary) !important;
+    box-shadow: none;
+}
+    .sidebar-section-wrapper .sidebar-section-header.sidebar-section-header-collapsable:hover{
+        background: var(--quaternary-low) !important;
+    }
+    
+        .sidebar-section-header-button:hover { /* the actual buttons on the sidebar headers */
+            border-radius: 3rem;
+            background-color: var(--highlight-low)!important;
+           /* color: var(--d-sidebar-header-icon-color) !important;*/
+        }    
 .sidebar-footer-wrapper .sidebar-footer-container:before,
 .sidebar-hamburger-dropdown .sidebar-footer-wrapper .sidebar-footer-container:before
 {
@@ -292,7 +309,7 @@ img.avatar {
 }
 .relative-date:hover {
     color: var(--button-text-hover);
-    transition: .25s;
+    transition: 0.25s;
 }
 /* reply-to header */
 .topic-body .reply-to-tab {
@@ -328,7 +345,7 @@ img.avatar {
 /* post edited colors */
 .post-info.edits .widget-button .d-icon,
 .post-info.edits .widget-button .d-button-label {
-    transition: color .25s;
+    transition: color 0.25s;
     color: var(--heatmap-medium-color);
 }
 
@@ -338,7 +355,7 @@ img.avatar {
 }
 
 .post-info.edits .widget-button .d-icon {
-    transition: color .3s;
+    transition: color 0.3s;
 }
 
 /* main comment body */
@@ -958,6 +975,25 @@ div.dummy-placeholder {
     margin-right: 1em;
 }
 
+/********** User Profile Page ************/
+    .user-main, .user-content {
+        background-color: var(--quaternary-low);
+        border-radius: var(--post-border-radius);
+        padding: 4px 10px 4px 10px;
+    }
+    
+    .user-navigation .user-navigation, .horizontal-overflow-nav { /* profile page tabs */
+        background-color: var(--secondary);
+        /*border-radius: 0px 1rem 1rem 0px; */
+       /* transition: 0.3s; */
+    }
+    .new-user-wrapper .user-navigation .nav-pills li a.active { /* active tab */
+        background-color: var(--quaternary-low);
+        /* transition: 0.3s; */
+    }
+    /* transitions don't work :( */
+    
+    
 /********** Topic List widget(s) **********/
 /* "Suggested Topics" widget at bottom of pages */
 .more-content-topics, /* general catch-all */
@@ -1245,12 +1281,12 @@ foo {
 /* change text color for section headers */
 .sidebar-section-header-text {
     color: var(--button-text-hover);
-    transition: .75s;
+    transition: 0.75s;
 }
 
 .sidebar-more-section-links-details-summary:hover { /* "more" button */
     color: var(--button-text-hover);
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .sidebar-section-link:hover { /* change topic colors on hover */
@@ -1782,6 +1818,25 @@ div.poll li[data-poll-option-id]:hover {
 }
 
 /********** common elements found everywhere **********/
+
+ /* links */
+    
+a:not(:has(img,div,span)) {
+    transition: 0.3s;
+}
+a:not(:has(img,div,.relative-date,.start-date,.sidebar-section-link-content-text)):hover /* exclude images, div, timeline buttons, sidebar sections */
+    /* TIMELINE START DATE NOT RECOGNIZED (?) */
+{
+    text-decoration: underline;
+    color: var(--button-text-hover);
+    background-color: var(--highlight-low); 
+    border-radius: var(--button-border-radius);
+    /*padding: 0px 2px 0px 2px; */ /* I like the movement but it will annoy people */
+    box-shadow: 1px 1px 20px #00000059;
+    transition: 0.3s;
+ }   
+    
+    
 /* @username mentions */
 a.mention, a.mention-group {
     color: var(--mention-color);
@@ -1969,4 +2024,8 @@ div.dummy-placeholder {
     --d-sidebar-section-link-icon-size: 1.25em;
     --d-sidebar-row-horizontal-padding: 0.5rem;
     --d-sidebar-vertical-gap: 0rem;
+}
+  
+}
+  
 }
